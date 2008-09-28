@@ -23,7 +23,11 @@ var create_note = function(obj, id) {
   note += '<p class="title center">' + fields['title'] + '</p>';
   note += '<p class="tags center">' + fields['tags'] + '</p>'; 
   note += '</div>';
-  $(id).append($(note));
+  var new_note = $(note);
+  new_note.click(function() {
+      window.location = "/n/" + fields['slug'] + "/";
+    });
+  $(id).append(new_note);
 }
 
 var create_notes = function(lst, id) {
