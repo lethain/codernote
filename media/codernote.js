@@ -3,7 +3,6 @@ var format_date = function(obj) {
   var date = obj.split(" ")[0]
   var parts = date.split("-");
   return parts[1]+"/"+parts[2]+"/"+parts[0];
-
 }
 
 var create_note = function(obj, id) {

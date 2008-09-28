@@ -21,6 +21,9 @@ def find_slug_for(string):
         i = i + 1
     return new_str
 
+def make_tags_uniform(string):
+    return string.replace(", "," ").replace("  "," ").replace(" ",", ")
+
 
 """ Note """
 
@@ -43,6 +46,7 @@ def note_create(request):
         if form.is_valid():
             new_note = form.save(commit=False)
             new_note.slug = find_slug_for(slugify(new_note.title))
+            new_note.tags = make_tags_uniform(new_note.tags)
             new_note.save()
             return HttpResponseRedirect(new_note.get_absolute_url())
     else:
