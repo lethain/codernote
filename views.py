@@ -1,4 +1,3 @@
-# Create your views here.
 
 
 
@@ -28,23 +27,6 @@ def note_upgrade(request, slug=None):
     pass
 
 
-""" Tags """
-
-def tag_info_all(request):
-    pass
-
-def tag_info(request):
-    pass
-
-def tag_create(request):
-    pass
-
-def tag_delete(request):
-    pass
-
-def tag_upgrade(request):
-    pass
-
 """ Non-Authenticated Views """
 
 def front(request):
@@ -61,6 +43,7 @@ def help(request):
 
 def config(request):
     pass
+
 
 """ Rendering """
 
