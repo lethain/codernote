@@ -92,7 +92,7 @@ a:hover {
 #content .toolbar .button {
     border: 1px solid: #C0C0C0;
     background-color: #D0D0D0;
-    padding: 1em;
+    padding: 0.25em;
     padding-left: 2em;
     padding-right: 2em;
 }
@@ -104,6 +104,7 @@ a:hover {
 
 #content .toolbar ul {
     margin-top: 0px;
+    margin-bottom: 0px;
     list-style: none;
     text-indent: -1em;
 }
