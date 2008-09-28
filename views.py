@@ -2,6 +2,23 @@ from models import Note
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render_to_response
 from forms import NoteForm
+import re
+
+""" Utilities """
+
+def slugify(string):
+    string = re.sub('\s+', '_', string)
+    string = re.sub('[^\w.-]', '', string)
+    return string.strip('_.- ').lower()
+
+
+def find_slug_for(string):
+    i = 0
+    new_str = string
+    while (Note.objects.filter(slug=new_str).count() > 0):
+        new_str = u"%s%s" % (string, i)
+        i = i + 1
+    return new_str
 
 
 """ Note """
@@ -10,9 +27,11 @@ def note_list(request):
     'Non-Ajax view.'
     return render_to_response('codernote/note_list.html')
 
-def note_detail(request):
+def note_detail(request, slug):
     'Non-Ajax view.'
-    pass
+    note = Note.objects.get(slug=slug)
+    extra = {'object':note}
+    return render_to_response('codernote/note_detail.html', extra)
 
 
 def note_create(request):
@@ -20,7 +39,9 @@ def note_create(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
-            new_note = form.save()
+            new_note = form.save(commit=False)
+            new_note.slug = find_slug_for(slugify(new_note.title))
+            new_note.save()
             return HttpResponseRedirect(new_note.get_absolute_url())
     else:
         form = NoteForm()
