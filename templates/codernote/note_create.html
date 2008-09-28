@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="create" class="toolbar">
+  <form method="POST" action="">
+    <table>
+      {% for field in create_form %}
+      <tr>
+	<td class="title"><strong>{{ field.label_tag }}</strong></td>
+	<td class="field">{{ field }}</td>
+	<td class="help">{{ field.help_text }}</td>
+	<td>{{ field.errors }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+	<td></td>
+	<td><input class="submit" type="submit" value="Create Note"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<div class="help">
+  <p>
+  Creating new notes is easy. Pick a <em>title</em>
+  and add some <em>tags</em>. You can modify these
+  values later, so don't worry about getting things
+  perfect on the first try.
+  </p>
+  <p>
+  <em>Tags</em> are used for sorting and filtering
+  your notes, and you can separated them using either commas
+  or spaces.
+  </p>
+  <p>
+  If you were making a note about an Erlang tutorial
+  you were writing, you might give it tags like
+  <code>erlang, functional, tutorial</code>.
+  </p>
+  <p>
+  Experiment and figure out what works for you.
+  </p>
+</div>
+
+{% endblock %}
