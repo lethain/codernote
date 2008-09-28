@@ -26,7 +26,7 @@ $(document).ready(function() {
       .bind(
 	    'dateSelected',
 	    function(e, d, $td) {
-	      var str = d.getMonth() + "/" +d.getDate() +"/"+d.getYear();
+	      var str = (d.getMonth()+1) + "/" +d.getDate() +"/"+d.getYear();
 	      $(this).text(str);
 	    });
     
