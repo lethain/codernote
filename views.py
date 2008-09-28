@@ -26,8 +26,7 @@ def find_slug_for(string):
 
 def note_list(request):
     'Non-Ajax view.'
-    notes = Note.objects.all()
-    extra = {'object_list':notes}
+    extra = {'serialized':serializers.serialize("json", Note.objects.all()) }
     return render_to_response('codernote/note_list.html', extra)
 
 def note_detail(request, slug):
