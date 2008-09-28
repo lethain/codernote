@@ -1,7 +1,68 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+<script type="text/javascript" src="/media/note_detail.js"></script>
+{% endblock %}
+
 {% block content %}
 
-{{ object }}
+
+<div class="toolbar details">
+  <div class="tip">
+    <p class="center"> Double click to edit. </p>
+  </div>
+  <div id="details">
+    <div class="left">
+      <div class="detail">
+       <span><strong>Title:</strong></span>
+       <span id="title" class="editable">{{ object.title }}</span>
+      </div>
+      <div class="detail">
+	<span><strong>Tags:</strong></span>
+	<span id="tags" class="editable">{{ object.tags }}</span>
+      </div>
+      <div class="detail">
+	<span class="left"><strong>Type: </strong></span>
+	<select class="left" id="types">
+	  <option value="">Plain Text</option>
+	  <option value="">Markdown</option>
+	  <option value="">Textile</option>
+	  <option value="">Code Snippet</option>
+	</select>
+      </div>
+      <div class="detail hidden">
+	<span class="left"><strong>Language: </strong></span>
+	<select class="left" id="languages">
+	</select>
+      </div>
+    </div>
+    <div class="right">
+      <div class="detail">
+	<span><strong>Start Date:</strong></span>
+	<span >{{ object.start }}</span>
+      </div>
+      <div class="detail">
+	<span><strong>End Date:</strong></span>
+	<span>{{ object.end }}</span>
+      </div>
+      <div class="detail">
+	<span><strong>Created On:</strong></span>
+	<span>{{ object.created|date:"m/j/y" }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if object.text %}
+<p id="writing"> {{ object.text }} </p>
+{% else %}
+<textarea id="writing"></textarea>
+{% endif %}
+
+<div class="toolbar">
+    <a id="delete" class="button negative left" href="/note/delete/{{ object.slug }}/">Delete Note</a>
+      <a id="publish" class="button right" href="/note/publish/{{ object.slug }}/">Publish Note</a>
+
+</div>
 
 {% endblock %}

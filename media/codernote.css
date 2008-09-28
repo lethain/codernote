@@ -1,6 +1,10 @@
 
 /* Defaults */
 
+.hidden {
+    display: none;
+}
+
 body {
     font-family: georgia;
 }
@@ -20,6 +24,7 @@ a:hover {
     margin-left: auto;
     margin-right: auto;    
 }
+
 
 .center {
     text-align: center;
@@ -59,6 +64,36 @@ a:hover {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+
+/* Details */
+
+#details {
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 1.2em;
+    overflow: auto;
+    margin-bottom: 1em;
+}
+
+#details input.large {
+    width: 300px;
+}
+
+#details .right {
+    width: 300px;
+}
+
+#details .left {
+}
+
+/* Writing */
+
+#writing {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 1em;
+}
+
 
 /* List */
 
@@ -146,10 +181,18 @@ a:hover {
     padding-right: 2em;
 }
 
+#content .toolbar .negative {
+    background-color: #FFC0C0;
+}
+
 #content .toolbar .button:hover {
     border-bottom: 1px solid black;
     background-color: #9090FF;
     cursor: pointer;
+}
+
+#content .toolbar .negative:hover {
+    background-color: #FF9090;
 }
 
 #content .toolbar ul {
@@ -158,7 +201,6 @@ a:hover {
     list-style: none;
     text-indent: -1em;
 }
-
 
 /* Footer */
 
