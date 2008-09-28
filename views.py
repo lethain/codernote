@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerEr
 from django.shortcuts import render_to_response
 from forms import NoteForm
 import re
+from django.core import serializers
 
 """ Utilities """
 
@@ -25,7 +26,9 @@ def find_slug_for(string):
 
 def note_list(request):
     'Non-Ajax view.'
-    return render_to_response('codernote/note_list.html')
+    notes = Note.objects.all()
+    extra = {'object_list':notes}
+    return render_to_response('codernote/note_list.html', extra)
 
 def note_detail(request, slug):
     'Non-Ajax view.'

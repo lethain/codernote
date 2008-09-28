@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+<script type="text/javascript" src="/media/note_list.js"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="toolbar">
@@ -40,64 +44,23 @@
 </div>
 
 <div id="list" class="list">
-  <div class="note">
+  {% for note in object_list %}
+  <div class="note" id="/n/{{ note.slug }}/">
     <div class="dates">
-      <span class="start-date left">9/1/08</span>
-      <span class="end-date right">Ongoing</span>
+      {% if note.start %}
+      <span class="start-date left">{{ note.start }}</span>
+      {% endif %}
+      {% if note.end %}
+      <span class="end-date right">{{ note.end }}</span>
+      {% endif %}
+      {% if not note.start and not note.end %}
+      <p class="create_date center">{{ note.created|date:"n/j/y" }}</p>
+      {% endif %}
     </div>
-    <p class="title center">LifeFlow</p>
-    <p class="tags center">django, python, personal</p>
+    <p class="title center">{{ note.title }}</p>
+    <p class="tags center">{{ note.tags }}</p>
   </div>
-
-  <div class="note">
-    <div class="dates">
-      <span class="start-date left">8/1/08</span>
-      <span class="end-date right">8/26/08</span>
-    </div>
-    <p class="title center">Aym CMS</p>
-    <p class="tags center">django, python, personal</p>
-  </div>
-  <div class="note">
-    <div class="dates">
-      <span class="start-date left">8/1/08</span>
-      <span class="end-date right">8/26/08</span>
-    </div>
-    <p class="title center">Aym CMS</p>
-    <p class="tags center">django, python, personal</p>
-  </div>
-    <div class="note">
-    <div class="dates">
-      <span class="start-date left">8/1/08</span>
-      <span class="end-date right">8/26/08</span>
-    </div>
-    <p class="title center">Aym CMS</p>
-    <p class="tags center">django, python, personal</p>
-  </div>
-    <div class="note">
-    <div class="dates">
-      <span class="start-date left">8/1/08</span>
-      <span class="end-date right">8/26/08</span>
-    </div>
-    <p class="title center">Aym CMS</p>
-    <p class="tags center">django, python, personal</p>
-  </div>
-    <div class="note">
-    <div class="dates">
-      <span class="start-date left">8/1/08</span>
-      <span class="end-date right">8/26/08</span>
-    </div>
-    <p class="title center">Aym CMS</p>
-    <p class="tags center">django, python, personal</p>
-  </div>
-    <div class="note">
-    <div class="dates">
-      <span class="start-date left">8/1/08</span>
-      <span class="end-date right">8/26/08</span>
-    </div>
-    <p class="title center">Aym CMS</p>
-    <p class="tags center">django, python, personal</p>
-  </div>
-  
+  {% endfor %}
 </div>
 
 {% endblock %}
