@@ -15,11 +15,11 @@ urlpatterns = patterns(
     # Note Ajax Views
     (r'note/info_all/$', 'codernote.views.note_info_all'),
     (r'note/info/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_info'),
-    (r'note/create/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_create'),
     (r'note/delete/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_delete'),
     (r'note/update/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_update'),
 
     # Note Non-Ajax Views
+    (r'note/create/', 'codernote.views.note_create'),
     (r'n/(?P<slug>[-\w]+)/$','codernote.views.note_detail'),
     (r'$', 'codernote.views.note_list'),
 )

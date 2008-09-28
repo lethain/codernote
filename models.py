@@ -2,20 +2,20 @@ from django.db import models
 
 class Note(models.Model):
     # Title of note.
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, help_text="The note's title.")
     # Note's slug for its URL.
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length=200, help_text="The note's slug.")
     # Tags for classifying note.
-    tags = models.CharField(max_length=200)
+    tags = models.CharField(max_length=200, help_text="Separate by commas or spaces.")
     # The body of the note.
-    text = models.TextField(blank=True, null=True)
+    text = models.TextField(blank=True, null=True, help_text="")
     # When the note was created.
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True, help_text="")
     # When the note 'started'. User definable.
-    start = models.DateTimeField(blank=True, null=True)
+    start = models.DateTimeField(blank=True, null=True, help_text="Date when note begins. (Can leave blank.)")
     # When the note 'ended'. User definable. If there
     # is no end date, then a project is 'ongoing'
-    end = models.DateTimeField(blank=True, null=True)
+    end = models.DateTimeField(blank=True, null=True, help_text="Date when note ends. (Can leave blank.)")
     
     # Typing Notes (text, snippet, etc)
     type = models.CharField(max_length=200)
