@@ -1,11 +1,13 @@
-
+from models import Note
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
+from django.shortcuts import render_to_response
 
 
 """ Note """
 
 def note_list(request):
     'Non-Ajax view.'
-    pass
+    return render_to_response('codernote/note_list.html')
 
 def note_detail(request):
     'Non-Ajax view.'

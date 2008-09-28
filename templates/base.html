@@ -1,0 +1,38 @@
+<html> <head>
+<title>{% block title %}Codernote{% endblock %}</title>
+<link rel="stylesheet" href="/media/codernote.css">
+<script type="text/javascript" src="/media/jquery-1.2.6.min.js"></script>
+
+{% block extrahead %}{% endblock %}
+</head>
+<body>
+<div class="container">
+
+<div id="header">
+  <div class="navlinks">
+
+    <div class="left">
+      <a href="/about/">About</a>
+      <a href="/help/">Help</a>
+
+    </div>
+    <div class="right">
+      <a href="/">Home</a>
+      <a href="/config/">Configure</a>
+      <a href="/logout/">Logout</a>
+    </div>    
+  </div>
+</div>
+
+<div id="content">
+  {% block content %}{% endblock %}
+</div>
+
+<div id="footer">
+  <span>
+  A <a href="http://lethain.com/">Will Larson<a> production. All Rights Reserved, 2008.
+  </span>
+</div>
+
+</div>
+</body> </html>
