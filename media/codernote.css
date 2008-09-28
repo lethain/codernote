@@ -57,6 +57,58 @@ a:hover {
     margin-right: 0.5em;
 }
 
+/* List */
+
+#content .list {
+    border: 1px solid #A0A0A0;
+    margin-top: 1em;
+    padding: 0.5em;
+    overflow: auto;
+    
+}
+
+#content .list .msg {
+    text-align: center;
+}
+
+
+/* Toolbar */
+
+#content .toolbar {
+    border: 1px solid #A0A0A0;
+    padding: 0.5em;
+    overflow: auto;
+}
+
+#content .toolbar .tool {
+    width: 33%;
+    margin-right: 2em;
+}
+
+#content .toolbar .tool span {
+    margin-right: 0.5em;
+}
+
+#content .toolbar .button {
+    border: 1px solid: #C0C0C0;
+    background-color: #D0D0D0;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+#content .toolbar .button:hover {
+    border-bottom: none;
+    background-color: #A0A0A0;
+}
+
+#content .toolbar ul {
+    margin-top: 0px;
+    list-style: none;
+    text-indent: -1em;
+}
+
+
 /* Footer */
 
 #footer {
