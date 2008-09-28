@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+<link rel="stylesheet" href="/media/datePicker.css">
+<script type="text/javascript" src="/media/date.js"></script>
+<script type="text/javascript" src="/media/jquery.datePicker.js"></script>
 <script type="text/javascript" src="/media/note_detail.js"></script>
 {% endblock %}
 
@@ -39,11 +42,11 @@
     <div class="right">
       <div class="detail">
 	<span><strong>Start Date:</strong></span>
-	<span >{{ object.start }}</span>
+	<span class="date">{{ object.start }}</span>
       </div>
       <div class="detail">
 	<span><strong>End Date:</strong></span>
-	<span>{{ object.end }}</span>
+	<span class="date">{{ object.end }}</span>
       </div>
       <div class="detail">
 	<span><strong>Created On:</strong></span>
