@@ -4,6 +4,8 @@ urlpatterns = patterns(
     '',
     # Non-Ajax General Views
     (r'config/', 'codernote.views.config'),
+    (r'about/', 'codernote.views.about'),
+    (r'help/', 'codernote.views.help'),
 
     # Rendering
     (r'render/markdown/$', 'codernote.views.render_markdown'),
