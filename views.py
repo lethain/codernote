@@ -94,7 +94,7 @@ def note_update(request, slug=None):
         note.title = request.POST['title']
         updated.append('title')
     if request.POST.has_key('tags'):
-        note.tags = request.POST['tags']
+        note.tags = make_tags_uniform(request.POST['tags'])
         updated.append('tags')
     if request.POST.has_key('text'):
         note.text = request.POST['text']
