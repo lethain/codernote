@@ -88,7 +88,7 @@ $(document).ready(function() {
       });
 
     $("#type_detail").change(function() {
-	updates({'type_detail':$("#type_detail option.selected").val(),
+	updates({'type_detail':$("#type_detail option:selected").val(),
 	      'type':$("#type option:selected").val() });
 	render_text();
       });

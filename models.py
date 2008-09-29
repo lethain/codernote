@@ -1,5 +1,19 @@
 from django.db import models
 import markdown, textile
+from pygments.lexers import get_all_lexers, get_lexer_by_name, DiffLexer
+from pygments.formatters import HtmlFormatter
+from pygments import highlight
+
+def find_lexer(name):
+    'Find a Pygments lexer using its human readable name.'
+    for lexer in get_all_lexers():
+        if lexer[0] == name:
+            return lexer[1][0]
+
+def render_snippet(txt, lexer):
+    lexer = get_lexer_by_name(find_lexer(lexer))
+    return highlight(txt,lexer,HtmlFormatter()) 
+
 
 class Note(models.Model):
     # Title of note.
@@ -31,7 +45,10 @@ class Note(models.Model):
         elif self.type == "plain":
             return self.text
         elif self.type == "snippet":
-            return "snippets not yet implemented..."
+            try:
+                return render_snippet(self.text, self.type_detail)
+            except:
+                return self.text
 
     def get_absolute_url(self):
         return u"/n/%s/" % self.slug

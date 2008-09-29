@@ -104,6 +104,7 @@ def note_update(request, slug=None):
         updated.append('type')
     if request.POST.has_key('type_detail'):
         note.type_detail = request.POST['type_detail']
+        print note.type_detail
         updated.append('type detail')
     if request.POST.has_key('start'):
         raw = request.POST['start'].split('/')
