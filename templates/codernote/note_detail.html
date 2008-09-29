@@ -27,11 +27,11 @@
       </div>
       <div class="detail">
 	<span class="left"><strong>Type: </strong></span>
-	<select class="left" id="types">
-	  <option value="plain">Plain Text</option>
-	  <option value="markdown">Markdown</option>
-	  <option value="textile">Textile</option>
-	  <option value="snippet">Code Snippet</option>
+	<select class="left" id="type">
+	  <option value="plain"{% ifequal object.type "plain" %} selected="selected"{% endifequal %}>Plain Text</option>
+	  <option value="markdown"{% ifequal object.type "markdown" %} selected="selected"{% endifequal %}>Markdown</option>
+	  <option value="textile"{% ifequal object.type "textile" %} selected="selected"{% endifequal %}>Textile</option>
+	  <option value="snippet"{% ifequal object.type "snippet" %} selected="selected"{% endifequal %}>Code Snippet</option>
 	</select>
       </div>
       <div class="detail hidden">
@@ -59,7 +59,7 @@
 
 <p id="writing-storage" class="hidden">{{ object.text|safe }}</p>
 {% if object.text %}
-<p id="writing">{{ object.text|safe }}</p>
+<div id="writing">{{ object.render_text|safe }}</div>
 {% else %}
 <p id="writing" class="center"> You haven't written anything yet. Double click here to begin. </p>
 {% endif %}

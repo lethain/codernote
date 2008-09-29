@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from forms import NoteForm
 from django.core import serializers
 from datetime import datetime
-import markdown, textile, re
+import re
 
 """ Utilities """
 
@@ -131,15 +131,7 @@ def note_render(request, slug=None):
         note = Note.objects.get(slug=slug)
     except:
         return HttpResponse("Failed to retrieve note.")
-
-    
-    if note.type == "markdown":
-        txt = markdown.markdown(note.text)
-    elif note.type == "textile":
-        txt = textile.textile(note.text)
-    elif note.type == "plain":
-        txt = note.text
-    return HttpResponse(txt)
+    return HttpResponse(note.render_text())
 
 
 """ Non-Authenticated Views """

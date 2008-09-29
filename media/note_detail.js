@@ -5,7 +5,7 @@ $(document).ready(function() {
     }
 
     var render_text = function() {
-      var type = $("#types option:selected").val();
+      var type = $("#type option:selected").val();
       if (type == "plain") {
 	$("#writing").replaceWith($('<p id="writing">'+$("#writing-storage").text()+'</p>'));
       }
@@ -63,8 +63,11 @@ $(document).ready(function() {
 	       });
       $(this).replaceWith(ta);
     };
-
     $("#writing").dblclick(make_writing_editable);
+
+    $("#type").change(function() {
+	update('type',$("#type option:selected").val());
+      });
 
     var start = '01/01/1996';
     $("span.date").datePicker({createButton:false, startDate:start})

@@ -1,4 +1,5 @@
 from django.db import models
+import markdown, textile
 
 class Note(models.Model):
     # Title of note.
@@ -21,6 +22,16 @@ class Note(models.Model):
     type = models.CharField(max_length=200)
     # For text, the markup. For snippet, programming language.
     type_detail = models.CharField(max_length=200)
+
+    def render_text(self):
+        if self.type == "markdown":
+            return markdown.markdown(self.text)
+        elif self.type == "textile":
+            return textile.textile(self.text)
+        elif self.type == "plain":
+            return self.text
+        elif self.type == "snippet":
+            return "snippets not yet implemented..."
 
     def get_absolute_url(self):
         return u"/n/%s/" % self.slug
