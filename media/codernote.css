@@ -131,6 +131,11 @@ textarea {
     font-size: 0.9em;
 }
 
+#content .list .note .dates span {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
 #content .list .note p {
     margin-bottom: 0.25em;
     margin-top: 0.25em;
