@@ -1,6 +1,9 @@
 $(document).ready(function() {
     var done = function(res, status) {
-      if (status == "success") display_success(res.responseText, "#top-toolbar");
+      if (status == "success") {
+	display_success(res.responseText, "#top-toolbar");
+	render_text();
+      }
       else display_error(res.responseText, "#top-toolbar");
     }
 
@@ -90,7 +93,6 @@ $(document).ready(function() {
     $("#type_detail").change(function() {
 	updates({'type_detail':$("#type_detail option:selected").val(),
 	      'type':$("#type option:selected").val() });
-	render_text();
       });
     
     

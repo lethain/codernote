@@ -2,6 +2,7 @@
 
 {% block extrahead %}
 <link rel="stylesheet" href="/media/datePicker.css">
+<link rel="stylesheet" href="/media/pygments.css">
 <script type="text/javascript" src="/media/date.js"></script>
 <script type="text/javascript" src="/media/jquery.datePicker.js"></script>
 <script type="text/javascript" src="/media/note_detail.js"></script>
@@ -37,6 +38,7 @@
       <div id="detail_div" class="detail{% ifnotequal object.type "snippet" %} hidden{% endifnotequal %}">
 	<span class="left"><strong>Lexer: </strong></span>
 	<select class="left" id="type_detail">
+	  <option value="">Pick a Lexer</option>
 	  {% for lexer in lexers %}
 	  <option value="{{ lexer }}">{{ lexer }}</option>
 	  {% endfor %}
