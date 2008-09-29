@@ -10,9 +10,13 @@ $(document).ready(function() {
 	$("#writing").replaceWith($('<p id="writing">'+$("#writing-storage").text()+'</p>'));
       }
       else {
-	// call render method
+	var complete = function(res, status) {
+	  if (status=="success") $("#writing").replaceWith($('<div id="writing">'+res.responseText+'</div>'));
+	}
+	var data = {'slug':$("#slug").val() };
+	var args = { type:"POST", url:"/note/render/", data:data, complete:complete };
+	$.ajax(args);
       }
-
     }
 
     var update = function(field, val) {

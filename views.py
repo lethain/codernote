@@ -2,9 +2,9 @@ from models import Note
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render_to_response
 from forms import NoteForm
-import re
 from django.core import serializers
 from datetime import datetime
+import markdown, textile, re
 
 """ Utilities """
 
@@ -121,6 +121,25 @@ def note_update(request, slug=None):
     msg = "Updated %s." % ", ".join(updated)
     return HttpResponse(msg)
     
+def note_render(request, slug=None):
+    if slug is None:
+        if request.POST.has_key('slug'):
+            slug = request.POST['slug']
+        else:
+            return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+
+    
+    if note.type == "markdown":
+        txt = markdown.markdown(note.text)
+    elif note.type == "textile":
+        txt = textile.textile(note.text)
+    elif note.type == "plain":
+        txt = note.text
+    return HttpResponse(txt)
 
 
 """ Non-Authenticated Views """
@@ -138,16 +157,4 @@ def help(request):
 """ Config """
 
 def config(request):
-    pass
-
-
-""" Rendering """
-
-def render_markdown(request):
-    pass
-
-def render_textile(request):
-    pass
-
-def render_syntax(request):
     pass

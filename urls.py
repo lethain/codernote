@@ -7,16 +7,13 @@ urlpatterns = patterns(
     (r'^about/$', 'codernote.views.about'),
     (r'^help/$', 'codernote.views.help'),
 
-    # Rendering
-    (r'^render/markdown/$', 'codernote.views.render_markdown'),
-    (r'^render/textile/$', 'codernote.views.render_textile'),
-    (r'^render/syntax/$', 'codernote.views.render_syntax'),
 
     # Note Ajax Views
     (r'^note/info_all/$', 'codernote.views.note_info_all'),
     (r'^note/info/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_info'),
     (r'^note/delete/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_delete'),
     (r'^note/update/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_update'),
+    (r'^note/render/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_render'),
 
     # Note Non-Ajax Views
     (r'^note/create/', 'codernote.views.note_create'),
