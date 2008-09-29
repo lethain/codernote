@@ -80,7 +80,7 @@ a:hover {
 }
 
 #details .right {
-    width: 400px;
+    width: 300px;
 }
 
 #details .left {
@@ -95,11 +95,6 @@ a:hover {
 
 #writing textarea {
     height: 300px;
-}
-
-#writing p.empty {
-    margin-top: 2em;
-    margin-bottom: 2em;
 }
 
 

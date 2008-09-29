@@ -4,6 +4,17 @@ $(document).ready(function() {
       else display_error(res.responseText, "#top-toolbar");
     }
 
+    var render_text = function() {
+      var type = $("#types option:selected").val();
+      if (type == "plain") {
+	$("#writing").replaceWith($('<p id="writing">'+$("#writing-storage").text()+'</p>'));
+      }
+      else {
+	// call render method
+      }
+
+    }
+
     var update = function(field, val) {
       var data = {};
       data[field] = val;
@@ -36,6 +47,21 @@ $(document).ready(function() {
 	$.ajax({type:"POST", url:"/note/delete/"+$("#slug")+"/", complete:redir});
       });
 
+    var make_writing_editable = function() {
+      var ws = $("#writing-storage");
+      var ta = $('<textarea id="writing">'+ ws.text() + '</textarea>');
+      ta.hover(function() {},
+	       function() {
+		 update('text', ta.val());
+		 $("#writing-storage").text(ta.val());
+		 ta.replaceWith($('<div id="writing"></div>'));
+		 render_text();
+	       });
+      $(this).replaceWith(ta);
+    };
+
+    $("#writing").dblclick(make_writing_editable);
+
     var start = '01/01/1996';
     $("span.date").datePicker({createButton:false, startDate:start})
       .bind(
@@ -48,7 +74,10 @@ $(document).ready(function() {
       .bind(
 	    'dateSelected',
 	    function(e, d, $td) {
-	      var str = (d.getMonth()+1) + "/" +d.getDate() +"/"+d.getYear();
+	      var str = (d.getMonth()+1) + "/" +d.getDate() +"/"+d.getFullYear();
+	      update(this.id, str);
+	      var year = ("" + d.getFullYear()).substring(2);
+	      str = (d.getMonth()+1) + "/" +d.getDate() +"/"+year;
 	      $(this).text(str);
 	    });
   });

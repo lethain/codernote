@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from forms import NoteForm
 import re
 from django.core import serializers
+from datetime import datetime
 
 """ Utilities """
 
@@ -91,6 +92,30 @@ def note_update(request, slug=None):
     if request.POST.has_key('tags'):
         note.tags = request.POST['tags']
         updated.append('tags')
+    if request.POST.has_key('text'):
+        if note.text != "None":
+            note.text = request.POST['text']
+        updated.append('text')
+    if request.POST.has_key('type'):
+        note.type = request.POST['type']
+        updated.append('type')
+    if request.POST.has_key('type_detail'):
+        note.type_detail = request.POST['type_detail']
+        updated.append('type detail')
+    if request.POST.has_key('start'):
+        raw = request.POST['start'].split('/')
+        year = int(raw[2])
+        month = int(raw[0])
+        day = int(raw[1])
+        note.start = datetime(year, month, day)
+        updated.append('start date')
+    if request.POST.has_key('end'):
+        raw = request.POST['end'].split('/')
+        year = int(raw[2])
+        month = int(raw[0])
+        day = int(raw[1])
+        note.end = datetime(year, month, day)
+        updated.append('end date')
     note.save()
 
     msg = "Updated %s." % ", ".join(updated)

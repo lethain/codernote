@@ -28,10 +28,10 @@
       <div class="detail">
 	<span class="left"><strong>Type: </strong></span>
 	<select class="left" id="types">
-	  <option value="">Plain Text</option>
-	  <option value="">Markdown</option>
-	  <option value="">Textile</option>
-	  <option value="">Code Snippet</option>
+	  <option value="plain">Plain Text</option>
+	  <option value="markdown">Markdown</option>
+	  <option value="textile">Textile</option>
+	  <option value="snippet">Code Snippet</option>
 	</select>
       </div>
       <div class="detail hidden">
@@ -43,11 +43,11 @@
     <div class="right">
       <div class="detail">
 	<span><strong>Start Date:</strong></span>
-	<span class="date">{{ object.start }}</span>
+	<span id="start" class="date">{{ object.start|date:"m/j/y" }}</span>
       </div>
       <div class="detail">
 	<span><strong>End Date:</strong></span>
-	<span class="date">{{ object.end }}</span>
+	<span id="end" class="date">{{ object.end|date:"m/j/y" }}</span>
       </div>
       <div class="detail">
 	<span><strong>Created On:</strong></span>
@@ -57,10 +57,11 @@
   </div>
 </div>
 
+<p id="writing-storage" class="hidden">{{ object.text|safe }}</p>
 {% if object.text %}
-<div id="writing">{{ object.text }}</div>
+<p id="writing">{{ object.text|safe }}</p>
 {% else %}
-<div id="writing"><p class="center empty"> You haven't written anything yet. Double click here to begin. </p></div>
+<p id="writing" class="center"> You haven't written anything yet. Double click here to begin. </p>
 {% endif %}
 
 <div class="toolbar">
