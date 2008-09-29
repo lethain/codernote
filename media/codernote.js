@@ -1,8 +1,10 @@
 
 
 var display_success = function(msg, elem) {
+  /*
   var msg_div = $('<div class="report success"><p>'+msg+'</p></div>');
   msg_div.insertAfter(elem).fadeIn('slow').animate({opacity: 1.0}, 3000).fadeOut('slow',function() { msg_div.remove(); });
+  */
 }; 
 
 var display_error = function(msg, elem) {

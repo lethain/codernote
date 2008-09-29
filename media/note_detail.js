@@ -7,11 +7,15 @@ $(document).ready(function() {
     var render_text = function() {
       var type = $("#type option:selected").val();
       if (type == "plain") {
-	$("#writing").replaceWith($('<p id="writing">'+$("#writing-storage").text()+'</p>'));
+	var new_p = $('<p id="writing">'+$("#writing-storage").text()+'</p>');
+	$(new_p).dblclick(make_writing_editable);
+	$("#writing").replaceWith(new_p);
       }
       else {
 	var complete = function(res, status) {
-	  if (status=="success") $("#writing").replaceWith($('<div id="writing">'+res.responseText+'</div>'));
+	  var new_div = $('<div id="writing">'+res.responseText+'</div>');
+	  $(new_div).dblclick(make_writing_editable);
+	  if (status=="success") $("#writing").replaceWith(new_div);
 	}
 	var data = {'slug':$("#slug").val() };
 	var args = { type:"POST", url:"/note/render/", data:data, complete:complete };
@@ -58,7 +62,8 @@ $(document).ready(function() {
 	       function() {
 		 update('text', ta.val());
 		 $("#writing-storage").text(ta.val());
-		 ta.replaceWith($('<div id="writing"></div>'));
+		 var new_div = $('<div id="writing"></div>');
+		 $(new_div).dblclick(make_writing_editable);
 		 render_text();
 	       });
       $(this).replaceWith(ta);

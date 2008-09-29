@@ -93,8 +93,7 @@ def note_update(request, slug=None):
         note.tags = request.POST['tags']
         updated.append('tags')
     if request.POST.has_key('text'):
-        if note.text != "None":
-            note.text = request.POST['text']
+        note.text = request.POST['text']
         updated.append('text')
     if request.POST.has_key('type'):
         note.type = request.POST['type']
