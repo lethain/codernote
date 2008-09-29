@@ -5,6 +5,10 @@ from forms import NoteForm
 from django.core import serializers
 from datetime import datetime
 import re
+from pygments.lexers import get_all_lexers
+
+LEXERS = sorted([ tuple[0] for tuple in get_all_lexers() ])
+
 
 """ Utilities """
 
@@ -36,7 +40,7 @@ def note_list(request):
 def note_detail(request, slug):
     'Non-Ajax view.'
     note = Note.objects.get(slug=slug)
-    extra = {'object':note}
+    extra = {'object':note, 'lexers':LEXERS}
     return render_to_response('codernote/note_detail.html', extra)
 
 

@@ -34,20 +34,23 @@
 	  <option value="snippet"{% ifequal object.type "snippet" %} selected="selected"{% endifequal %}>Code Snippet</option>
 	</select>
       </div>
-      <div class="detail hidden">
+      <div id="detail_div" class="detail hidden">
 	<span class="left"><strong>Language: </strong></span>
-	<select class="left" id="languages">
+	<select class="left" id="type_detail">
+	  {% for lexer in lexers %}
+	  <option value="{{ lexer }}">{{ lexer }}</option>
+	  {% endfor %}
 	</select>
       </div>
     </div>
     <div class="right">
       <div class="detail">
 	<span><strong>Start Date:</strong></span>
-	<span id="start" class="date">{{ object.start|date:"m/j/y" }}</span>
+	<span id="start" class="date">{{ object.start|date:"m/j/y"|default:"None" }}</span>
       </div>
       <div class="detail">
 	<span><strong>End Date:</strong></span>
-	<span id="end" class="date">{{ object.end|date:"m/j/y" }}</span>
+	<span id="end" class="date">{{ object.end|date:"m/j/y"|default:"None" }}</span>
       </div>
       <div class="detail">
 	<span><strong>Created On:</strong></span>

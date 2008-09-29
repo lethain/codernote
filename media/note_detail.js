@@ -23,12 +23,16 @@ $(document).ready(function() {
       }
     }
 
-    var update = function(field, val) {
-      var data = {};
-      data[field] = val;
+    var updates = function(data) {
       data['slug'] = $("#slug").val();
       var args = { type:"POST", url:"/note/update/", data:data, complete:done };
       $.ajax(args);
+    }
+
+    var update = function(field, val) {
+      var data = {};
+      data[field] = val;
+      updates(data);
     };
 
 
@@ -71,8 +75,25 @@ $(document).ready(function() {
     $("#writing").dblclick(make_writing_editable);
 
     $("#type").change(function() {
-	update('type',$("#type option:selected").val());
+	var val = $("#type option:selected").val();
+	if (val == 'snippet') {
+	  $("#detail_div").removeClass('hidden');
+	}
+	else {
+	  $("#detail_div").addClass('hidden');
+	  $("#type option:selected").val();
+	  update('type',val);
+	  render_text();
+	}
       });
+
+    $("#type_detail").change(function() {
+	updates({'type_detail':$("#type_detail option.selected").val(),
+	      'type':$("#type option:selected").val() });
+	render_text();
+      });
+    
+    
 
     var start = '01/01/1996';
     $("span.date").datePicker({createButton:false, startDate:start})
