@@ -76,7 +76,7 @@ a:hover {
 }
 
 #details input.large {
-    width: 300px;
+    width: 250px;
 }
 
 #details .right {
@@ -90,8 +90,16 @@ a:hover {
 
 #writing {
     width: 100%;
-    height: 300px;
     margin-bottom: 1em;
+}
+
+#writing textarea {
+    height: 300px;
+}
+
+#writing p.empty {
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 
@@ -237,4 +245,20 @@ a:hover {
 #create input.submit {
     width: 100%;
     font-size: 1.5em;
+}
+
+/* Reports */
+
+.report {
+    border: 1px solid #505050;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.error {
+    background-color: #FFC0C0;
+}
+
+.success {
+    background-color: #E5E5CC;
 }

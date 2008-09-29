@@ -64,8 +64,28 @@ def note_info(request, slug=None):
 def note_delete(request, slug=None):
     pass
 
-def note_upgrade(request, slug=None):
-    pass
+def note_update(request, slug=None):
+    if slug is None:
+        if request.POST.has_key('slug'):
+            slug = request.POST['slug']
+        else:
+            return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    updated = []
+    if request.POST.has_key('title'):
+        note.title = request.POST['title']
+        updated.append('title')
+    if request.POST.has_key('tags'):
+        note.tags = request.POST['tags']
+        updated.append('tags')
+    note.save()
+
+    msg = "Updated %s." % ", ".join(updated)
+    return HttpResponse(msg)
+    
 
 
 """ Non-Authenticated Views """

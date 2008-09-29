@@ -10,12 +10,13 @@
 {% block content %}
 
 
-<div class="toolbar details">
+<div id="top-toolbar" class="toolbar details">
   <div class="tip">
     <p class="center"> Double click to edit. </p>
   </div>
   <div id="details">
     <div class="left">
+      <input type="hidden" id="slug" value="{{ object.slug }}">
       <div class="detail">
        <span><strong>Title:</strong></span>
        <span id="title" class="editable">{{ object.title }}</span>
@@ -57,9 +58,9 @@
 </div>
 
 {% if object.text %}
-<p id="writing"> {{ object.text }} </p>
+<div id="writing">{{ object.text }}</div>
 {% else %}
-<textarea id="writing"></textarea>
+<div id="writing"><p class="center empty"> You haven't written anything yet. Double click here to begin. </p></div>
 {% endif %}
 
 <div class="toolbar">
