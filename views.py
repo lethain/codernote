@@ -62,7 +62,17 @@ def note_info(request, slug=None):
 
 
 def note_delete(request, slug=None):
-    pass
+    if slug is None:
+        if request.POST.has_key('slug'):
+            slug = request.POST['slug']
+        else:
+            return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    note.delete()
+    return HttpResponseRedirect("/")
 
 def note_update(request, slug=None):
     if slug is None:

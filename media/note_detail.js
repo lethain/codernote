@@ -28,6 +28,14 @@ $(document).ready(function() {
     };
     $("span.editable").dblclick(make_spans_editable);
 
+    $("#delete").click(function() {
+	var redir = function(res, status) {
+	  if (status == "success") document.window = "/";
+	  else display_error(res.responseText, "#top-toolbar");
+	}
+	$.ajax({type:"POST", url:"/note/delete/"+$("#slug")+"/", complete:redir});
+      });
+
     var start = '01/01/1996';
     $("span.date").datePicker({createButton:false, startDate:start})
       .bind(
