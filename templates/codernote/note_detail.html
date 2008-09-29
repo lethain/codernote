@@ -34,8 +34,8 @@
 	  <option value="snippet"{% ifequal object.type "snippet" %} selected="selected"{% endifequal %}>Code Snippet</option>
 	</select>
       </div>
-      <div id="detail_div" class="detail hidden">
-	<span class="left"><strong>Language: </strong></span>
+      <div id="detail_div" class="detail{% ifnotequal object.type "snippet" %} hidden{% endifnotequal %}">
+	<span class="left"><strong>Lexer: </strong></span>
 	<select class="left" id="type_detail">
 	  {% for lexer in lexers %}
 	  <option value="{{ lexer }}">{{ lexer }}</option>

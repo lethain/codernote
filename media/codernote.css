@@ -84,6 +84,11 @@ a:hover {
 }
 
 #details .left {
+
+}
+
+#details .detail {
+    overflow: auto;
 }
 
 /* Writing */
