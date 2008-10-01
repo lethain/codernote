@@ -64,8 +64,16 @@ var sort_changed = function() {
   create_sort_select();
 };
 
+var current_filters = [];
 var filter_changed = function() {
-  alert("filter");
+  var filters = $(".filter");
+  current_filters = [];
+  for (var i=0; i < filters.length; i++) {
+    var filter = filters[i];
+    if (filter.value == "") $(filter).parent().remove();
+    if (filter.value != "") current_filters.push(filter.value);
+  }
+  create_filter_select();
 };
   
 var create_sort_select = function(id) {
@@ -85,6 +93,7 @@ var create_sort_select = function(id) {
 var create_filter_select = function(id) {
   if (!id) id = "#filters";
   var str = '<li><select class="filter" name="filter">';
+  str += '<option value="">select filter...</option>';
   for (var i=0; i<select_options.length; i++) {
     var opt = select_options[i];
     str += '<option value="'+opt+'">'+opt+'</option>';
