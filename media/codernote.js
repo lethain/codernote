@@ -49,8 +49,84 @@ var create_notes = function(lst, id) {
   }
 };
 
+/*
+{"pk": 1,
+ "model": "codernote.note", 
+"fields": {"end": null, 
+"tags": "django, python, project", 
+"text": "", 
+"created": "2008-09-28 13:47:42", 
+"start": "2008-09-28 00:00:00", 
+"type_detail": "JavaScript", 
+"title": "CoderNote", 
+"type": "markdown", 
+"slug": "coder_note"}}
+*/
+
+var alpha_compare = function(a,b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+};
+
+var date_convert = function(d) {
+  if (!d) return [0,0,0,0,0,0];
+  return [parseInt(d.slice(0,4)), parseInt(d.slice(5,7)),parseInt(d.slice(8,10)),parseInt(d.slice(11,13)),parseInt(d.slice(14,16)),parseInt(d.slice(17,19))];
+};
+  
+var date_compare = function(a,b) {
+  a = date_convert(a);
+  b = date_convert(b);
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+};
+
+var sort_and_filter_notes = function() {
+  displayed = serialized.slice();
+  for (var i=0; i<current_filters.length; i++) {
+    var filter = current_filters[i];
+    // filter...
+  };
+  
+  /* Perform Sorts */
+  for (var i=0; i<current_sorts.length; i++) {
+    var sort = current_sorts[i];
+    if (sort == 'tag')
+      displayed.sort(function(a,b) {
+	  var a_tags = a.fields.tags.replace(/(,[ ]*)|(,)| /g,',').split(',').sort().join('');
+	  var b_tags = b.fields.tags.replace(/(,[ ]*)|(,)| /g,',').split(',').sort().join('');
+	  return alpha_compare(a_tags,b_tags); 
+	});
+    else if (sort == 'title') {
+      displayed.sort(function(a,b) {
+	  return alpha_compare(a.fields.title,b.fields.title); 
+	});
+    }
+    else if (sort == 'type')
+      displayed.sort(function(a,b) {
+	  return alpha_compare(a.fields.type,b.fields.type);
+	});
+    else if (sort == 'start-date')
+      displayed.sort(function(a,b) {
+	  return date_compare(a.fields.start, b.fields.start);
+	});
+    else if (sort == 'end-date')
+      displayed.sort(function(a,b) {
+	  return date_compare(a.fields.end, b.fields.end);
+	});
+    else if (sort == 'created-date')
+      displayed.sort(function(a,b) {
+	  return date_compare(a.fields.created, b.fields.created);
+	});
+  }
+  $("#list").empty();
+  create_notes(displayed, "#list");
+}
+
 
 var select_options = ['tag','title','type','start-date','end-date','created-date'];
+
 
 var current_sorts = [];
 var sort_changed = function() {
@@ -62,6 +138,7 @@ var sort_changed = function() {
     if (sort.value != "") current_sorts.push(sort.value);
   }
   create_sort_select();
+  sort_and_filter_notes();
 };
 
 var current_filters = [];
@@ -74,6 +151,7 @@ var filter_changed = function() {
     if (filter.value != "") current_filters.push(filter.value);
   }
   create_filter_select();
+  sort_and_filter_notes();
 };
   
 var create_sort_select = function(id) {
