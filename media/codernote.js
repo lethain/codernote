@@ -48,5 +48,50 @@ var create_notes = function(lst, id) {
     create_note(lst[i], id)
   }
 };
+
+
+var select_options = ['tag','title','type','start-date','end-date','created-date'];
+
+var current_sorts = [];
+var sort_changed = function() {
+  var sorts = $(".sort");
+  current_sorts = [];
+  for (var i=0; i < sorts.length; i++) {
+    var sort = sorts[i];
+    if (sort.value == "") $(sort).parent().remove();
+    if (sort.value != "") current_sorts.push(sort.value);
+  }
+  create_sort_select();
+};
+
+var filter_changed = function() {
+  alert("filter");
+};
   
+var create_sort_select = function(id) {
+  if (!id) id = "#sorts";
+  var str = '<li><select class="sort" name="sort">';
+  str += '<option value="">select sort...</option>';
+  for (var i=0; i<select_options.length; i++) {
+    var opt = select_options[i];
+    str += '<option value="'+opt+'">'+opt+'</option>';
+  }
+  str += '</select></li>';
+  var new_select = $(str);
+  new_select.change(sort_changed);
+  $(id).append(new_select);
+};
+
+var create_filter_select = function(id) {
+  if (!id) id = "#filters";
+  var str = '<li><select class="filter" name="filter">';
+  for (var i=0; i<select_options.length; i++) {
+    var opt = select_options[i];
+    str += '<option value="'+opt+'">'+opt+'</option>';
+  }
+  str += '</select></li>';
+  var new_select = $(str);
+  new_select.change(filter_changed);
   
+  $(id).append(new_select);
+}

@@ -12,7 +12,7 @@
     <span class="left"> Sort </span>
     <ul class="left" id="sorts">
       <li>
-      <select name="sort" id="sort_select">
+      <select class="sort" name="sort">
 	<option value="">select sort...</option>
 	<option value="tag">tag</option>
 	<option value="title">title</option>
@@ -22,14 +22,13 @@
 	<option value="created-date">created date</option>
       </select>
       </li>
-      
     </ul>
   </div>
   <div class="tool left" id="filter">
     <span class="left"> Filter </span>
     <ul class="left" id="filters">
       <li>
-      <select name="filter" id="filter_select">
+      <select class="filter" name="filter">
 	<option value="">select filter...</option>
 	<option value="tag">tag</option>
 	<option value="title">title</option>
@@ -47,6 +46,7 @@
 
 <script>
 var serialized = {{ serialized|safe }};
+var displayed = serialized;
 </script>
 
 {% endblock %}
