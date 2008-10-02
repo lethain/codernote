@@ -266,6 +266,15 @@ textarea {
     text-indent: -1em;
 }
 
+#content .toolbar select {
+    margin-top: 4px;
+    height: 2em;
+    color: #7070CC;
+    border: 1px solid #929292;
+    padding: 0.25em;
+    padding-left: 2em;
+}
+
 /* Create Note */
 
 #create {
