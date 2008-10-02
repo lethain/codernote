@@ -7,6 +7,7 @@
 
 body {
     font-family: georgia;
+    margin: 0px;
 }
 
 a {
@@ -19,10 +20,7 @@ a:hover {
 }
 
 .container {
-    width: 90%;
-    margin-top: 1em;
-    margin-left: auto;
-    margin-right: auto;    
+
 }
 
 
@@ -41,6 +39,9 @@ a:hover {
 /* Content */
    
 #content {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding-top: 0.5em;
@@ -49,12 +50,12 @@ a:hover {
 
 /* Header */
 
-#header {
+#header .inner {
     height: 1em;
     padding: 1em;
     background-color: #E5E5CC;
-    border: 1px solid #505050;
 }
+
 
 #header .navlinks {
     overflow: visible;
@@ -63,6 +64,38 @@ a:hover {
 #header .navlinks a {
     margin-left: 0.5em;
     margin-right: 0.5em;
+}
+
+#header .top {
+    height: 15px;
+    background-color: #E5E5CC;
+}
+
+#header .bottom {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_bottom.png) repeat-x;
+}
+
+/* Footer */
+
+#footer .inner {
+    height: 1em;
+    padding: 1em;
+    background-color: #E5E5CC;
+    text-align: center;
+}
+
+#footer .top {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_top.png) repeat-x;
+}
+
+#footer .bottom {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_bottom.png) repeat-x;
 }
 
 /* Details */
@@ -213,16 +246,6 @@ textarea {
     margin-bottom: 0px;
     list-style: none;
     text-indent: -1em;
-}
-
-/* Footer */
-
-#footer {
-    height: 1em;
-    padding: 1em;
-    border: 1px solid #505050;
-    background-color: #E5E5CC;
-    text-align: center;
 }
 
 /* Create Note */
