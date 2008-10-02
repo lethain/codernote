@@ -9,8 +9,13 @@ $(document).ready(function() {
 
     var render_text = function() {
       var type = $("#type option:selected").val();
+      var text = $("#writing-storage").text();
+      if (text.length == 0) {
+	type = "plain";
+	text = "You haven't written anything yet. Double click here to edit.";
+      }
       if (type == "plain") {
-	var new_p = $('<p id="writing">'+$("#writing-storage").text()+'</p>');
+	var new_p = $('<p id="writing">'+text+'</p>');
 	$(new_p).dblclick(make_writing_editable);
 	$("#writing").replaceWith(new_p);
       }

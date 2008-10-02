@@ -91,7 +91,9 @@ var sort_and_filter_notes = function() {
   
   /* Perform Sorts */
   for (var i=0; i<current_sorts.length; i++) {
-    var sort = current_sorts[i];
+    var sort_tuple = current_sorts[i];
+    var sort = sort_tuple[0];
+    var sort_direction = sort_tuple[1];
     if (sort == 'tag')
       displayed.sort(function(a,b) {
 	  var a_tags = a.fields.tags.replace(/(,[ ]*)|(,)| /g,',').split(',').sort().join('');
@@ -119,6 +121,8 @@ var sort_and_filter_notes = function() {
       displayed.sort(function(a,b) {
 	  return date_compare(a.fields.created, b.fields.created);
 	});
+    
+    if (sort_direction == "up") displayed.reverse();
   }
   $("#list").empty();
   create_notes(displayed, "#list");
@@ -135,7 +139,20 @@ var sort_changed = function() {
   for (var i=0; i < sorts.length; i++) {
     var sort = sorts[i];
     if (sort.value == "") $(sort).parent().remove();
-    if (sort.value != "") current_sorts.push(sort.value);
+    else if (sort.value != "") {
+      // if the sort doesn't have a mod, add it
+      var children = $(sort).parent().children();
+      var sort_direction;
+      if (children.length == 1) {
+	var sort_mod = create_sort_mod();
+	$(sort_mod).insertAfter($(sort));
+	sort_direction = "down";
+      }
+      else {
+	sort_direction = children[1].value;
+      }
+      current_sorts.push([sort.value, sort_direction]);
+    }
   }
   create_sort_select();
   sort_and_filter_notes();
@@ -153,6 +170,13 @@ var filter_changed = function() {
   create_filter_select();
   sort_and_filter_notes();
 };
+
+var create_sort_mod = function(id) {
+  var str = '<select class="sort-mod" name="sort-mod"><option value="down">descending</option><option value="up">ascending</option></select>';
+  var mod = $(str);
+  mod.change(sort_changed);
+  return mod;
+}
   
 var create_sort_select = function(id) {
   if (!id) id = "#sorts";
