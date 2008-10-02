@@ -19,11 +19,6 @@ a:hover {
     border-bottom: 1px solid;
 }
 
-.container {
-
-}
-
-
 .center {
     text-align: center;
 }
@@ -39,11 +34,9 @@ a:hover {
 /* Content */
    
 #content {
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -139,6 +132,9 @@ textarea {
 /* List */
 
 #content .list {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1em;
     margin-bottom: 1em;
     overflow: auto;
@@ -203,12 +199,32 @@ textarea {
 /* Toolbar */
 
 #content .toolbar {
-    background-color: #E0E0FF;
-    border: 1px solid #A0A0A0;
-    padding: 0.5em;
     overflow: auto;
-    margin-bottom: 1em;
+
 }
+
+#content .toolbar .inner {
+    background-color: #E0E0FF;
+    padding: 0.5em;
+    padding-left: 8%;
+    padding-right: 8%;
+    overflow: auto;
+}
+
+
+
+#content .toolbar .border-top {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_blue_top.png) repeat-x;
+}
+
+#content .toolbar .border-bottom {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_blue_bottom.png) repeat-x;
+}
+
 
 #content .toolbar .tool {
     width: 33%;

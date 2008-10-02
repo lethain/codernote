@@ -7,8 +7,13 @@
 {% block content %}
 
 <div class="toolbar">
+  <div class="border-top"></div>
+
+  <div class="inner">
+  <div class="border-left"></div>
   <a class="button right" href="/note/create/">New Note</a>
   <div class="tool left" id="sort">
+    
     <span class="left"> Sort </span>
     <ul class="left" id="sorts">
       <li>
@@ -40,6 +45,8 @@
       </li>
     </ul>
   </div>
+  </div>
+  <div class="border-bottom"></div>
 </div>
 
 <div id="list" class="list"></div>
