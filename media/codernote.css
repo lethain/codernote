@@ -229,11 +229,13 @@ textarea {
 
 
 #content .toolbar .tool {
+    margin-top: 0px;
     width: 33%;
     margin-right: 2em;
 }
 
 #content .toolbar .tool span {
+    margin-top: 0px;
     margin-right: 0.5em;
 }
 
@@ -267,7 +269,8 @@ textarea {
 }
 
 #content .toolbar select {
-    margin-top: 4px;
+    margin-top: 0px;
+    margin-bottom: 4px;
     height: 2em;
     color: #7070CC;
     border: 1px solid #929292;
