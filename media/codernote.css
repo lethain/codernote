@@ -36,7 +36,8 @@ a:hover {
 #content {
     margin-left: auto;
     margin-right: auto;
-
+    margin-top: 0px;
+    margin-bottom: 0px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -199,6 +200,7 @@ textarea {
 /* Toolbar */
 
 #content .toolbar {
+    margin-top: 0px;
     overflow: auto;
 
 }
