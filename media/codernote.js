@@ -91,6 +91,31 @@ var filter_array = function(array, func) {
   return new_array;
 }
 
+/*
+var date_filters = ['today','this week','this month','this year','tomorrow','next week','next month','next year','yesterday','last week','last month','last year'];
+
+var convert_dateword(dw) {
+  if (dw == 'today') return [0,0];
+  if (dw == 'this week') return [0,7];
+  if (dw == 'this month') return [0,30];
+  if (dw == 'this year') return [0,365];
+  if (dw == 'tomorrow') return [1,1];
+  if (dw == 'next week') return [7,14];
+  if (dw == 'next month') return [30,60];
+  if (dw == 'next year') return [365,730];  
+  if (dw == 'yesterday') return [-1,-1];
+  if (dw == 'this week') return [-7,-1];
+  if (dw == 'this month') return [-30,-1];
+  if (dw == 'this year') return [-365,-1];
+}
+
+var date_within = function(d, period) {
+  var range = convert_dateword(period);
+  var date = date_convert(d);
+  //  if (!d) return [0,0,0,0,0,0];
+}
+*/
+
 var sort_and_filter_notes = function() {
   displayed = serialized.slice();
   for (var i=0; i<current_filters.length; i++) {
@@ -114,6 +139,17 @@ var sort_and_filter_notes = function() {
 	  return x.fields.type == modifier.toLowerCase();
 	})
     }
+    /*
+    else if (filter == "start date") {
+
+    }
+    else if (filter == "end date") {
+
+    }
+    else if (filter == "creation date") {
+
+    }
+    */
 	
     
   }
@@ -207,7 +243,9 @@ var filter_type_is = function() {
   return s;
 };
 
-var date_filters = ['tomorrow','today','yesterday','next week', 'this week','last week','next month','this month','last month','next year','this year','last year'];
+/*
+var date_filters = ['today','this week','this month','this year','tomorrow','next week','next month','next year','yesterday','last week','last month','last year'];
+
 
 var filter_date = function() {
   var select = "<select>";
@@ -220,6 +258,7 @@ var filter_date = function() {
   s.change(filter_changed);
   return s;
 }
+*/
 
 var current_filters = [];
 var filter_changed = function() {
@@ -245,6 +284,7 @@ var filter_changed = function() {
 	  filter_type_is().insertAfter($(filter));
 	  modifier = note_types[0];
 	}
+	/*
 	else if (filter.value == 'start date') {
 	  filter_date().insertAfter($(filter));
 	  modifier = date_filters[0];	 
@@ -257,6 +297,7 @@ var filter_changed = function() {
 	  filter_date().insertAfter($(filter));
 	  modifier = date_filters[0];
 	}
+	*/
       }
       else {
 	modifier = children[1].value;
@@ -291,7 +332,7 @@ var create_sort_select = function(id) {
   $(id).append(new_select);
 };
 
-var filter_options = ['has tag','title contains','type is','start date','end date', 'creation date'];
+var filter_options = ['has tag','title contains','type is'] //,'start date','end date', 'creation date'];
 
 var create_filter_select = function(id) {
   if (!id) id = "#filters";
