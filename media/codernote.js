@@ -165,7 +165,19 @@ var filter_changed = function() {
   for (var i=0; i < filters.length; i++) {
     var filter = filters[i];
     if (filter.value == "") $(filter).parent().remove();
-    if (filter.value != "") current_filters.push(filter.value);
+    else {
+      // add appropriate mod for filter type, if applicable
+      var children = $(filter).parent().children();
+      /*
+      if (children.length == 1) {
+	var filter_mod;
+      }
+      //else 
+      */
+
+      current_filters.push(filter.value);
+      
+    }
   }
   create_filter_select();
   sort_and_filter_notes();
@@ -192,12 +204,14 @@ var create_sort_select = function(id) {
   $(id).append(new_select);
 };
 
+var filter_options = ['has tags','title matches','type is','started','ended', 'created'];
+
 var create_filter_select = function(id) {
   if (!id) id = "#filters";
   var str = '<li><select class="filter" name="filter">';
   str += '<option value="">select filter...</option>';
-  for (var i=0; i<select_options.length; i++) {
-    var opt = select_options[i];
+  for (var i=0; i<filter_options.length; i++) {
+    var opt = filter_options[i];
     str += '<option value="'+opt+'">'+opt+'</option>';
   }
   str += '</select></li>';
