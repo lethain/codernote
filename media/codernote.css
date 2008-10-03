@@ -279,6 +279,11 @@ textarea {
     padding: 0.25em;
 }
 
+#content .toolbar input {
+    width: 100px;
+    margin-left: 2px;
+}
+
 /* Create Note */
 
 #create {
