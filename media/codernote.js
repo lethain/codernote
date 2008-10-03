@@ -99,9 +99,20 @@ var sort_and_filter_notes = function() {
     var modifier = filter_tuple[1];
     if (modifier == undefined) continue;
     else if (filter == 'has tag') {
-      displayed = filter_array(displayed, (function(x) {
+      displayed = filter_array(displayed,function(x) {
 	    return new RegExp(modifier,'i').test(x.fields.tags);
-	  }));
+	  });
+    }
+    else if (filter == 'title contains') {
+      displayed = filter_array(displayed, function(x) {
+	    return new RegExp(modifier,'i').test(x.fields.title);
+	  });
+    }
+    else if (filter == "type is") {
+      displayed = filter_array(displayed, function(x) {
+	  window.console.log(x.fields.type, modifier);
+	  return x.fields.type == modifier.toLowerCase();
+	})
     }
 	
     
