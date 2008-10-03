@@ -82,14 +82,30 @@ var date_compare = function(a,b) {
   return 0;
 };
 
+var filter_array = function(array, func) {
+  var new_array = [];
+  for (var i=0; i<array.length; i++) {
+    var c = array[i];
+    if (func(c)) new_array.push(c);
+  }
+  return new_array;
+}
+
 var sort_and_filter_notes = function() {
   displayed = serialized.slice();
   for (var i=0; i<current_filters.length; i++) {
     var filter_tuple = current_filters[i];
     var filter = filter_tuple[0];
     var modifier = filter_tuple[1];
-    // filter...
-  };
+    if (modifier == undefined) continue;
+    else if (filter == 'has tag') {
+      displayed = filter_array(displayed, (function(x) {
+	    return new RegExp(modifier,'i').test(x.fields.tags);
+	  }));
+    }
+	
+    
+  }
   
   /* Perform Sorts */
   for (var i=0; i<current_sorts.length; i++) {
