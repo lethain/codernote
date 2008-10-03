@@ -66,13 +66,14 @@
   <div class="border-bottom"></div>
 </div>
 
-<p id="writing-storage" class="hidden">{{ object.text|safe }}</p>
-{% if object.text %}
+<div class="writing">
+  <p id="writing-storage" class="hidden">{{ object.text|safe }}</p>
+  {% if object.text %}
 <div id="writing">{{ object.render_text|safe }}</div>
 {% else %}
 <p id="writing" class="center"> You haven't written anything yet. Double click here to begin. </p>
 {% endif %}
-
+</div>
 <div class="toolbar">
   <div class="border-top"></div>
   <div class="inner">

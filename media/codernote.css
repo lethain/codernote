@@ -102,7 +102,7 @@ a:hover {
     margin-bottom: 1em;
 }
 
-#details input.large {
+#content .toolbar input.large {
     width: 250px;
 }
 
@@ -120,15 +120,16 @@ a:hover {
 
 /* Writing */
 
-#writing {
+.writing {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
 }
 
-textarea {
+.writing textarea {
     height: 300px;
+    width: 100%;
 }
 
 
