@@ -85,7 +85,9 @@ var date_compare = function(a,b) {
 var sort_and_filter_notes = function() {
   displayed = serialized.slice();
   for (var i=0; i<current_filters.length; i++) {
-    var filter = current_filters[i];
+    var filter_tuple = current_filters[i];
+    var filter = filter_tuple[0];
+    var modifier = filter_tuple[1];
     // filter...
   };
   
@@ -158,6 +160,40 @@ var sort_changed = function() {
   sort_and_filter_notes();
 };
 
+var note_types = ['Plain Text','Markdown', 'Textile', 'Snippet'];
+
+var filter_input = function() {
+  var input = $("<input>");
+  input.keyup(filter_changed);
+  return input;
+};
+
+var filter_type_is = function() {
+  var select = "<select>";
+  for (var j=0; j<note_types.length; j++) {
+    var type = note_types[j];
+    select += '<option value="'+type+'">'+type+'</option>';
+  }
+  select += '</select>';
+  var s = $(select);
+  s.change(filter_changed);
+  return s;
+};
+
+var date_filters = ['tomorrow','today','yesterday','next week', 'this week','last week','next month','this month','last month','next year','this year','last year'];
+
+var filter_date = function() {
+  var select = "<select>";
+  for (var j=0; j<date_filters.length; j++) {
+    var type = date_filters[j];
+    select += '<option value="'+type+'">'+type+'</option>';
+  }
+  select += '</select>';
+  var s = $(select);
+  s.change(filter_changed);
+  return s;
+}
+
 var current_filters = [];
 var filter_changed = function() {
   var filters = $(".filter");
@@ -168,14 +204,38 @@ var filter_changed = function() {
     else {
       // add appropriate mod for filter type, if applicable
       var children = $(filter).parent().children();
-      /*
+      var modifier;
       if (children.length == 1) {
-	var filter_mod;
+	if (filter.value == 'has tag') {
+	  filter_input().insertAfter($(filter));
+	  modifier = undefined;
+	}
+	else if (filter.value == 'title contains') {
+	  filter_input().insertAfter($(filter));
+	  modifier = undefined;
+	}
+	else if (filter.value == 'type is') {
+	  filter_type_is().insertAfter($(filter));
+	  modifier = note_types[0];
+	}
+	else if (filter.value == 'start date') {
+	  filter_date().insertAfter($(filter));
+	  modifier = date_filters[0];	 
+	}
+	else if (filter.value == 'end date') {
+	  filter_date().insertAfter($(filter));
+	  modifier = date_filters[0];
+	}
+	else if (filter.value == 'creation date') {
+	  filter_date().insertAfter($(filter));
+	  modifier = date_filters[0];
+	}
       }
-      //else 
-      */
+      else {
+	modifier = children[1].value;
+      }
 
-      current_filters.push(filter.value);
+      current_filters.push([filter.value, modifier]);
       
     }
   }
@@ -204,7 +264,7 @@ var create_sort_select = function(id) {
   $(id).append(new_select);
 };
 
-var filter_options = ['has tags','title matches','type is','started','ended', 'created'];
+var filter_options = ['has tag','title contains','type is','start date','end date', 'creation date'];
 
 var create_filter_select = function(id) {
   if (!id) id = "#filters";
