@@ -36,14 +36,18 @@ def make_tags_uniform(string):
 
 def note_list(request):
     'Non-Ajax view.'
-    extra = {'serialized':serializers.serialize("json", Note.objects.all()) }
+    if request.user.is_authenticated():
+        notes = Note.objects.filter(owners=request.user)
+        extra = {'serialized':serializers.serialize("json", notes) }
+    else:
+        extra = {}
     return render_to_response('codernote/note_list.html', extra, 
                               context_instance=RequestContext(request))
 
 @login_required
 def note_detail(request, slug):
     'Non-Ajax view.'
-    note = Note.objects.get(slug=slug)
+    note = Note.objects.filter(owners=request.user).get(slug=slug)
     extra = {'object':note, 'lexers':LEXERS}
     return render_to_response('codernote/note_detail.html', extra,
                               context_instance=RequestContext(request))
@@ -58,6 +62,8 @@ def note_create(request):
             new_note.slug = find_slug_for(slugify(new_note.title))
             new_note.tags = make_tags_uniform(new_note.tags)
             new_note.save()
+            new_note.owners = [request.user]
+            form.save_m2m()
             return HttpResponseRedirect(new_note.get_absolute_url())
     else:
         form = NoteForm()
@@ -80,7 +86,7 @@ def note_delete(request, slug=None):
         else:
             return HttpResponseServerError('Failed to supply a slug.')
     try:
-        note = Note.objects.get(slug=slug)
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
     except:
         return HttpResponse("Failed to retrieve note.")
     note.delete()
@@ -94,7 +100,7 @@ def note_update(request, slug=None):
         else:
             return HttpResponseServerError('Failed to supply a slug.')
     try:
-        note = Note.objects.get(slug=slug)
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
     except:
         return HttpResponse("Failed to retrieve note.")
     updated = []
@@ -141,7 +147,7 @@ def note_render(request, slug=None):
         else:
             return HttpResponseServerError('Failed to supply a slug.')
     try:
-        note = Note.objects.get(slug=slug)
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
     except:
         return HttpResponse("Failed to retrieve note.")
     return HttpResponse(note.render_text())
