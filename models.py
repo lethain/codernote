@@ -15,12 +15,9 @@ def render_snippet(txt, lexer):
     lexer = get_lexer_by_name(find_lexer(lexer))
     return highlight(txt,lexer,HtmlFormatter()) 
 
-
 class Note(models.Model):
     # Users with access to note.
     owners = models.ManyToManyField(User, related_name="notes")
-    
-
     # Title of note.
     title = models.CharField(max_length=200, help_text="The note's title.")
     # Note's slug for its URL.
@@ -61,5 +58,11 @@ class Note(models.Model):
     def __unicode__(self):
         return u"Note(%s, %s)" % (self.title, self.created)
 
+
+class FlowPublish(models.Model):
+    note = models.ForeignKey(Note)
+    user = models.ForeignKey(User)
     
-    
+class HashPublish(models.Model):
+    note = models.ForeignKey(Note)
+    hash = models.CharField(max_length=20)
