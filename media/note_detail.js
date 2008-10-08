@@ -67,6 +67,40 @@ $(document).ready(function() {
 	$.ajax({type:"POST", url:"/note/delete/"+$("#slug").val()+"/", complete:redir});
       });
 
+    var unpublish_flow = function() {
+      var ele = this;
+      var cmp = function(res, status) {
+	if (status == "success") {
+	  $(ele).text("Publish in Flow");
+	  $(ele).click(publish_flow);
+	  $("#flowdiv").addClass("hidden");	  
+	}
+	else display_error(res.responseText, "#top-toolbar");
+      }
+      $.ajax({type:"POST",url:"/unpublish/flow/"+$("#slug").val()+"/",complete:cmp});
+      return false;
+    }
+
+    var publish_flow = function() {
+      var ele = this;
+      var cmp = function(res, status) {
+	if (status == "success") {
+	  $(ele).text("Unpublish from Flow");
+	  $(ele).click(unpublish_flow);
+	  $("#flowdiv").removeClass("hidden");
+	  $("#flowurl")[0].href = res.responseText;
+	}
+	else display_error(res.responseText, "#top-toolbar");
+      }
+      $.ajax({type:"POST",url:"/publish/flow/"+$("#slug").val()+"/",complete:cmp});
+      return false;
+    }
+
+
+    $("#publish-flow").click(publish_flow);
+    $("#unpublish-flow").click(unpublish_flow);
+
+
     var unpublish_hash = function() {
       var ele = this;
       var cmp = function(res, status) {
@@ -95,6 +129,7 @@ $(document).ready(function() {
       $.ajax({type:"POST",url:"/publish/hash/"+$("#slug").val()+"/",complete:cmp});
       return false;
     }
+
 
     $("#publish-hash").click(publish_hash);
     $("#unpublish-hash").click(unpublish_hash);
