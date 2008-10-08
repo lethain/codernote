@@ -6,6 +6,8 @@ from django.core import serializers
 from datetime import datetime
 import re
 from pygments.lexers import get_all_lexers
+from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 LEXERS = sorted([ tuple[0] for tuple in get_all_lexers() ])
 
@@ -35,15 +37,18 @@ def make_tags_uniform(string):
 def note_list(request):
     'Non-Ajax view.'
     extra = {'serialized':serializers.serialize("json", Note.objects.all()) }
-    return render_to_response('codernote/note_list.html', extra)
+    return render_to_response('codernote/note_list.html', extra, 
+                              context_instance=RequestContext(request))
 
+@login_required
 def note_detail(request, slug):
     'Non-Ajax view.'
     note = Note.objects.get(slug=slug)
     extra = {'object':note, 'lexers':LEXERS}
-    return render_to_response('codernote/note_detail.html', extra)
+    return render_to_response('codernote/note_detail.html', extra,
+                              context_instance=RequestContext(request))
 
-
+@login_required
 def note_create(request):
     'Non-Ajax view.'
     if request.method == 'POST':
@@ -59,13 +64,15 @@ def note_create(request):
     extra = {'create_form':form}
     return render_to_response('codernote/note_create.html', extra)
 
+@login_required
 def note_info_all(request):
     pass
 
+@login_required
 def note_info(request, slug=None):
     pass
 
-
+@login_required
 def note_delete(request, slug=None):
     if slug is None:
         if request.POST.has_key('slug'):
@@ -79,6 +86,7 @@ def note_delete(request, slug=None):
     note.delete()
     return HttpResponseRedirect("/")
 
+@login_required
 def note_update(request, slug=None):
     if slug is None:
         if request.POST.has_key('slug'):
@@ -125,6 +133,7 @@ def note_update(request, slug=None):
     msg = "Updated %s." % ", ".join(updated)
     return HttpResponse(msg)
     
+@login_required
 def note_render(request, slug=None):
     if slug is None:
         if request.POST.has_key('slug'):
@@ -152,5 +161,6 @@ def help(request):
 
 """ Config """
 
+@login_required
 def config(request):
     pass

@@ -18,9 +18,13 @@
       <a href="/help/">Help</a>
     </div>
     <div class="right">
+      {% if user.is_authenticated %}
       <a href="/">Home</a>
       <a href="/config/">Configure</a>
-      <a href="/logout/">Logout</a>
+      <a href="/account/logout/">Logout</a>
+      {% else %}
+      <a href="/account/login/">Login</a>
+      {% endif %}
     </div> 
   </div>
   </div>

@@ -6,6 +6,8 @@
 
 {% block content %}
 
+
+{% if user.is_authenticated %}
 <div class="toolbar">
   <div class="border-top"></div>
   <div class="inner">
@@ -50,5 +52,8 @@
 var serialized = {{ serialized|safe }};
 var displayed = serialized;
 </script>
+{% else %}
+{% include "codernote/front.html" %}
+{% endif %}
 
 {% endblock %}
