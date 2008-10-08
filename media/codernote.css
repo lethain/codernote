@@ -262,6 +262,7 @@ a:hover {
     border: 1px solid black;
     background-color: #C0C0FF;
     padding: 0.25em;
+    margin-right: 5px;
     padding-left: 2em;
     padding-right: 2em;
 }
