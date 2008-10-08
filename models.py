@@ -1,5 +1,6 @@
 from django.db import models
 import markdown, textile
+from django.contrib.auth.models import User
 from pygments.lexers import get_all_lexers, get_lexer_by_name, DiffLexer
 from pygments.formatters import HtmlFormatter
 from pygments import highlight
@@ -16,6 +17,10 @@ def render_snippet(txt, lexer):
 
 
 class Note(models.Model):
+    # Users with access to note.
+    owners = models.ManyToManyField(User, related_name="notes")
+    
+
     # Title of note.
     title = models.CharField(max_length=200, help_text="The note's title.")
     # Note's slug for its URL.
