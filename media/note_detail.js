@@ -146,6 +146,15 @@ $(document).ready(function() {
       return false;
     }
 
+    $("#share-target").keyup(function() {
+	var ele = this;
+	var cmp = function(res, status) {
+	  if (status == "success") $(ele).css('background-color','#A0A0FF');
+	  else $(ele).css('background-color','#FFA0A0');
+	}
+	$.ajax({type:'GET',url:'/user/exists/'+$(this).val(),complete:cmp});
+      });
+
 
     $("#publish-hash").click(publish_hash);
     $("#unpublish-hash").click(unpublish_hash);
@@ -182,8 +191,6 @@ $(document).ready(function() {
 	updates({'type_detail':$("#type_detail option:selected").val(),
 	      'type':$("#type option:selected").val() });
       });
-    
-    
 
     var start = '01/01/1996';
     $("span.date").datePicker({createButton:false, startDate:start})

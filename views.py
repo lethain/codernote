@@ -32,7 +32,6 @@ def find_slug_for(string):
 def make_tags_uniform(string):
     return string.replace(", "," ").replace("  "," ").replace(" ",", ")
 
-
 """ Note """
 
 def note_list(request):
@@ -164,6 +163,13 @@ def help(request):
     return render_to_response('codernote/help.html',
                               context_instance=RequestContext(request))
 
+""" Utility Methods """
+
+def user_exists(request, username):
+    if User.objects.filter(username=username).count() > 0:
+        return HttpResponse("Exists.")
+    else:
+        return HttpResponseServerError("Doesn't exist.")
 
 """ Config """
 

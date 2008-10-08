@@ -28,5 +28,8 @@ urlpatterns = patterns(
     (r'^note/create/', 'codernote.views.note_create'),
     (r'^n/(?P<slug>[-\w]+)/$','codernote.views.note_detail'),
     (r'^$', 'codernote.views.note_list'),
+
+    # Checking for user existance
+    (r'^user/exists/(?P<username>[-\w_]+)/$','codernote.views.user_exists'),
 )
 
