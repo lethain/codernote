@@ -73,7 +73,7 @@ $(document).ready(function() {
 	if (status == "success") {
 	  $(ele).text("Publish Hash");
 	  $(ele).click(publish_hash);
-	  $("#hashdiv").addClass("hidden");
+	  $("#hashdiv").addClass("hidden");	  
 	}
 	else display_error(res.responseText, "#top-toolbar");
       }
