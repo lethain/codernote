@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Remove OpenID</title>
+</head>
+<body>
+<h1>Remove OpenID</h1>
+
+Are you sure you want to remove the OpenID URL, {{ user_openid.openid_url }}, from your account?
+<form method="post" action=".">
+    <input name="id" value="{{ user_openid.id }}" type="hidden" />
+    <button name="remove" value="remove" type="submit">remove</button>
+    <button name="cancel" value="cancel" type="submit">cancel</button>
+</form>
+</body>
+</html>

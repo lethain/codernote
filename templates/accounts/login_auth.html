@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Traditional Sign In</title>
+</head>
+<body>
+<h1>Traditional Sign In</h1>
+
+{% if form.has_errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action=".">
+    <table>
+        <tr><td><label for="id_username">Username:</label></td><td>{{ form.username }}</td></tr>
+        <tr><td><label for="id_password">Password:</label></td><td>{{ form.password }}</td></tr>
+    </table>
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input type="submit" value="login" />
+</form>
+
+<p><a href="{% url openid_auth-login_openid %}">OpenID Login</a></p>
+
+</body>
+</html>

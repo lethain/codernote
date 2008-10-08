@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>OpenID Create</title>
+<style type="text/css">
+input.openid {
+  background: url(/site_media/img/login-openid-bg.gif) no-repeat;
+  background-position: 0 50%;
+  padding-left: 16px;
+}
+</style>
+</head>
+<body>
+<h1>Add OpenID</h1>
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form method="post" action=".">
+    <table>
+        {{ openid_form }}
+    </table>
+    <input type="submit" value="Add" />
+</form>
+</body>
+</html>

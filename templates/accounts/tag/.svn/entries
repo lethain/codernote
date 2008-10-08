@@ -1,0 +1,52 @@
+8
+
+dir
+61
+http://django-openid-auth.googlecode.com/svn/trunk/djopenid_example/templates/accounts/tag
+http://django-openid-auth.googlecode.com/svn
+
+
+
+2007-10-05T03:49:36.808354Z
+6
+thomasbohmbach
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7089d606-4b3b-0410-b124-79cd89526495
+
+login_auth_form.html
+file
+
+
+
+
+2008-10-07T23:30:55.000000Z
+39f0b7d5530f1a234cb647c380f1228a
+2007-10-05T03:49:36.808354Z
+6
+thomasbohmbach
+
+login_openid_form.html
+file
+
+
+
+
+2008-10-07T23:30:55.000000Z
+9cc50bf93d299ae2dd2190e6a46f9f99
+2007-10-05T03:49:36.808354Z
+6
+thomasbohmbach
+
