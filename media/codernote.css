@@ -31,6 +31,14 @@ a:hover {
     float: right;
 }
 
+/* Stylings for text heavy pages. */
+
+.main {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
 /* Content */
    
 #content {

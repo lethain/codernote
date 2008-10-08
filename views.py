@@ -159,7 +159,8 @@ def front(request):
     pass
 
 def about(request):
-    pass
+    return render_to_response('codernote/about.html',
+                              context_instance=RequestContext(request))
 
 def help(request):
     pass
