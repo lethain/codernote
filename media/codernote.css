@@ -75,7 +75,7 @@ a:hover {
 
 #header .bottom {
     position: relative;
-    height: 15px;
+    height: 5px;
     background:url(/media/border_bottom.png) repeat-x;
 }
 
@@ -236,13 +236,13 @@ a:hover {
 
 #content .toolbar .border-top {
     position: relative;
-    height: 15px;
+    height: 10px;
     background:url(/media/border_blue_top.png) repeat-x;
 }
 
 #content .toolbar .border-bottom {
     position: relative;
-    height: 15px;
+    height: 10px;
     background:url(/media/border_blue_bottom.png) repeat-x;
 }
 
