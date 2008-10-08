@@ -155,15 +155,13 @@ def note_render(request, slug=None):
 
 """ Non-Authenticated Views """
 
-def front(request):
-    pass
-
 def about(request):
     return render_to_response('codernote/about.html',
                               context_instance=RequestContext(request))
 
 def help(request):
-    pass
+    return render_to_response('codernote/help.html',
+                              context_instance=RequestContext(request))
 
 
 """ Config """
