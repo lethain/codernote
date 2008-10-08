@@ -80,18 +80,23 @@
       </div>
     </div>
   </div>
+  <a id="share" class="button left" href="/publish/share/{{ object.slug }}/">Share with...</a>
+    <input class="left hidden" id="share-target">
+    <a id="share-confirm" class="button left hidden" href="#">Share!</a>
+  
     {% if object.hashpublish_set.all %}
     <a id="unpublish-hash" class="button right" href="/unpublish/hash/{{ object.slug }}/">Unpublish as Hash</a>      
     {% else %}
     <a id="publish-hash" class="button right" href="/publish/hash/{{ object.slug }}/">Publish as Hash</a>
     {% endif %}
     {% if object.flowpublish_set.all %}
-    <a id="udpublish-flow" class="button right" href="/unpublish/flow/{{ object.slug }}/">Unpublish from Flow</a>
+    <a id="unpublish-flow" class="button right" href="/unpublish/flow/{{ object.slug }}/">Unpublish from Flow</a>
     
     {% else %}
     <a id="publish-flow" class="button right" href="/publish/flow/{{ object.slug }}/">Publish in Flow</a>
+    {% endif %}
 
-    {% endif %}  
+  
   </div>
   <div class="border-bottom"></div>
 </div>

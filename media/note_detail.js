@@ -72,7 +72,7 @@ $(document).ready(function() {
       var cmp = function(res, status) {
 	if (status == "success") {
 	  $(ele).text("Publish in Flow");
-	  $(ele).click(publish_flow);
+	  $(ele).unbind('click').click(publish_flow);
 	  $("#flowdiv").addClass("hidden");	  
 	}
 	else display_error(res.responseText, "#top-toolbar");
@@ -86,7 +86,7 @@ $(document).ready(function() {
       var cmp = function(res, status) {
 	if (status == "success") {
 	  $(ele).text("Unpublish from Flow");
-	  $(ele).click(unpublish_flow);
+	  $(ele).unbind('click').click(unpublish_flow);
 	  $("#flowdiv").removeClass("hidden");
 	  $("#flowurl")[0].href = res.responseText;
 	}
@@ -100,13 +100,29 @@ $(document).ready(function() {
     $("#publish-flow").click(publish_flow);
     $("#unpublish-flow").click(unpublish_flow);
 
+    var close_share_box = function() {
+      $("#share").unbind('click').click(open_share_box).text("Share with...");
+      $("#share-target").addClass("hidden");
+      $("#share-confirm").addClass("hidden");
+      return false;
+    }
+
+    var open_share_box = function() {
+      $("#share").text("Cancel").unbind('click').click(close_share_box);
+      $("#share-target").removeClass("hidden");
+      $("#share-confirm").removeClass("hidden");
+      return false;
+    }
+
+    $("#share").click(open_share_box);
+
 
     var unpublish_hash = function() {
       var ele = this;
       var cmp = function(res, status) {
 	if (status == "success") {
 	  $(ele).text("Publish Hash");
-	  $(ele).click(publish_hash);
+	  $(ele).unbind('click').click(publish_hash);
 	  $("#hashdiv").addClass("hidden");	  
 	}
 	else display_error(res.responseText, "#top-toolbar");
@@ -120,7 +136,7 @@ $(document).ready(function() {
       var cmp = function(res, status) {
 	if (status == "success") {
 	  $(ele).text("Unpublish Hash");
-	  $(ele).click(unpublish_hash);
+	  $(ele).unbind('click').click(unpublish_hash);
 	  $("#hashdiv").removeClass("hidden");
 	  $("#hashurl")[0].href = "/hash/"+res.responseText+"/";
 	}
