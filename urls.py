@@ -17,9 +17,11 @@ urlpatterns = patterns(
 
     # Publishing Views
     (r'^publish/flow/(?P<slug>[-\w]+)/$','codernote.views.flow_publish'),
+    (r'^unpublish/flow/(?P<slug>[-\w]+)/$','codernote.views.flow_unpublish'),
     (r'^publish/hash/(?P<slug>[-\w]+)/$','codernote.views.hash_publish'),
     (r'^unpublish/hash/(?P<slug>[-\w]+)/$','codernote.views.hash_unpublish'),
     (r'^flow/(?P<user>[-\w_]+)/$','codernote.views.public_flow'),
+    (r'^flow/(?P<user>[-\w_]+)/(?P<slug>[-\w_]+)/$','codernote.views.public_flow_detail'),
     (r'^hash/(?P<hash>\w+)/$','codernote.views.public_hash'),
 
     # Note Non-Ajax Views

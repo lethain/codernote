@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/media/pygments.css">
+{% endblock %}
+
+{% block content %}
+<div class="main flow-list">
+  <h2>{{ user.username }}'s Notes</h2>
+  
+  <ol>
+  {% for object in objects %}
+    <li>
+    <span class="title"><a href="{{ object.note.slug }}/">{{ object.note.title }}</a></span>
+    <span class="date">{{ object.note.created|date:"m/j/y" }}</span>
+    
+    </li>
+    
+  {% endfor %}
+  </ol>
+</div>
+{% endblock %}

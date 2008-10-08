@@ -62,6 +62,9 @@ class Note(models.Model):
 class FlowPublish(models.Model):
     note = models.ForeignKey(Note)
     user = models.ForeignKey(User)
+
+    def get_absolute_url(self):
+        return u"/flow/%s/%s/" % (self.user.username, self.note.slug)
     
 class HashPublish(models.Model):
     note = models.ForeignKey(Note)

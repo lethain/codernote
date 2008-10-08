@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from forms import NoteForm
 from django.core import serializers
 from datetime import datetime
+from django.contrib.auth.models import User
 import re, md5, time
 from pygments.lexers import get_all_lexers
 from django.template import RequestContext
@@ -173,6 +174,21 @@ def config(request):
 """ Publishing """
 
 @login_required
+def flow_publish(request, slug):
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponseServerError("Failed to retrieve note.")
+    x = FlowPublish(note=note, user=request.user)
+    x.save()
+    return HttpResponse(x.get_absolute_url())
+
+@login_required
+def flow_unpublish(request, slug):
+    FlowPublish.objects.filter(user=request.user).filter(note__slug=slug).delete()
+    return HttpResponse("Deleted.")
+
+@login_required
 def hash_publish(request, slug):
     try:
         note = Note.objects.filter(owners=request.user).get(slug=slug)
@@ -192,4 +208,17 @@ def public_hash(request, hash):
     pub = HashPublish.objects.get(hash=hash)
     return render_to_response('codernote/public_hash.html',
                               {'object':pub.note},
+                              context_instance=RequestContext(request))
+
+def public_flow(request, user):
+    pub = FlowPublish.objects.filter(user__username=user)
+    user = User.objects.get(username=user)
+    return render_to_response('codernote/public_flow.html',
+                              {'objects':pub, 'writer':user},
+                              context_instance=RequestContext(request))
+
+def public_flow_detail(request, user, slug):
+    pub = FlowPublish.objects.filter(user__username=user).filter(note__slug=slug)[0]
+    return render_to_response('codernote/public_flow_detail.html',
+                              {'object':pub.note,'writer':pub.user},
                               context_instance=RequestContext(request))
