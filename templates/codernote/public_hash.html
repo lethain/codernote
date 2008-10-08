@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/media/pygments.css">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+<div id="writing">{{ object.render_text|safe }}</div>
+</div>
+{% endblock %}

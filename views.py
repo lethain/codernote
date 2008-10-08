@@ -1,10 +1,10 @@
-from models import Note
+from models import Note, HashPublish, FlowPublish
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render_to_response
 from forms import NoteForm
 from django.core import serializers
 from datetime import datetime
-import re
+import re, md5, time
 from pygments.lexers import get_all_lexers
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
@@ -48,6 +48,7 @@ def note_list(request):
 def note_detail(request, slug):
     'Non-Ajax view.'
     note = Note.objects.filter(owners=request.user).get(slug=slug)
+    print dir(note)
     extra = {'object':note, 'lexers':LEXERS}
     return render_to_response('codernote/note_detail.html', extra,
                               context_instance=RequestContext(request))
@@ -169,3 +170,31 @@ def help(request):
 @login_required
 def config(request):
     pass
+
+""" Publishing """
+
+@login_required
+def hash_publish(request, slug):
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponseServerError("Failed to retrieve note.")
+    hash = md5.md5("%s%s" % (time.time(), note.title)).hexdigest()[:20]
+    x = HashPublish(note=note, hash=hash, user=request.user)
+    x.save()
+    return HttpResponse(hash)
+
+@login_required
+def hash_unpublish(request, slug):
+    try:
+        hp = HashPublish.objects.filter(user=request.user).get(note__slug=slug)
+    except:
+        return HttpResponseServerError("Invalid slug.")
+    hp.delete()
+    return HttpResponse("Deleted.")
+
+def public_hash(request, hash):
+    pub = HashPublish.objects.get(hash=hash)
+    return render_to_response('codernote/public_hash.html',
+                              {'object':pub.note},
+                              context_instance=RequestContext(request))

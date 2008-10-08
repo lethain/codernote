@@ -65,4 +65,5 @@ class FlowPublish(models.Model):
     
 class HashPublish(models.Model):
     note = models.ForeignKey(Note)
+    user = models.ForeignKey(User)
     hash = models.CharField(max_length=20)

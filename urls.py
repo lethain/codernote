@@ -15,6 +15,13 @@ urlpatterns = patterns(
     (r'^note/update/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_update'),
     (r'^note/render/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_render'),
 
+    # Publishing Views
+    (r'^publish/flow/(?P<slug>[-\w]+)/$','codernote.views.flow_publish'),
+    (r'^publish/hash/(?P<slug>[-\w]+)/$','codernote.views.hash_publish'),
+    (r'^unpublish/hash/(?P<slug>[-\w]+)/$','codernote.views.hash_unpublish'),
+    (r'^flow/(?P<user>[-\w_]+)/$','codernote.views.public_flow'),
+    (r'^hash/(?P<hash>\w+)/$','codernote.views.public_hash'),
+
     # Note Non-Ajax Views
     (r'^note/create/', 'codernote.views.note_create'),
     (r'^n/(?P<slug>[-\w]+)/$','codernote.views.note_detail'),
