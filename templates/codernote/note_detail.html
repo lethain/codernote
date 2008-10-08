@@ -46,6 +46,15 @@
 	  {% endfor %}
 	</select>
       </div>
+      {% if object.hashpublish_set.all %}
+      <div class="detail">
+	<span class="left"><a id="hashurl" href="/hash/{{ object.hashpublish_set.all.0.hash }}/"><strong> Published as hash.</a></strong>
+      </div>
+      {% else %}
+      <div id="hashdiv" class="detail hidden">
+	<span class="left"><a id="hashurl" href="#"><strong> Published as hash.</a></strong>
+      </div>
+      {% endif %}
     </div>
     <div class="right">
       <div class="detail">

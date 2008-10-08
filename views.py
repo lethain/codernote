@@ -48,7 +48,6 @@ def note_list(request):
 def note_detail(request, slug):
     'Non-Ajax view.'
     note = Note.objects.filter(owners=request.user).get(slug=slug)
-    print dir(note)
     extra = {'object':note, 'lexers':LEXERS}
     return render_to_response('codernote/note_detail.html', extra,
                               context_instance=RequestContext(request))
@@ -186,11 +185,7 @@ def hash_publish(request, slug):
 
 @login_required
 def hash_unpublish(request, slug):
-    try:
-        hp = HashPublish.objects.filter(user=request.user).get(note__slug=slug)
-    except:
-        return HttpResponseServerError("Invalid slug.")
-    hp.delete()
+    HashPublish.objects.filter(user=request.user).filter(note__slug=slug).delete()
     return HttpResponse("Deleted.")
 
 def public_hash(request, hash):

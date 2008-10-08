@@ -64,8 +64,40 @@ $(document).ready(function() {
 	  if (status == "success") document.window = "/";
 	  else display_error(res.responseText, "#top-toolbar");
 	}
-	$.ajax({type:"POST", url:"/note/delete/"+$("#slug")+"/", complete:redir});
+	$.ajax({type:"POST", url:"/note/delete/"+$("#slug").val()+"/", complete:redir});
       });
+
+    var unpublish_hash = function() {
+      var ele = this;
+      var cmp = function(res, status) {
+	if (status == "success") {
+	  $(ele).text("Publish Hash");
+	  $(ele).click(publish_hash);
+	  $("#hashdiv").addClass("hidden");
+	}
+	else display_error(res.responseText, "#top-toolbar");
+      }
+      $.ajax({type:"POST",url:"/unpublish/hash/"+$("#slug").val()+"/",complete:cmp});
+      return false;
+    }
+
+    var publish_hash = function() {
+      var ele = this;
+      var cmp = function(res, status) {
+	if (status == "success") {
+	  $(ele).text("Unpublish Hash");
+	  $(ele).click(unpublish_hash);
+	  $("#hashdiv").removeClass("hidden");
+	  $("#hashurl")[0].href = "/hash/"+res.responseText+"/";
+	}
+	else display_error(res.responseText, "#top-toolbar");
+      }
+      $.ajax({type:"POST",url:"/publish/hash/"+$("#slug").val()+"/",complete:cmp});
+      return false;
+    }
+
+    $("#publish-hash").click(publish_hash);
+    $("#unpublish-hash").click(unpublish_hash);
 
     var make_writing_editable = function() {
       var ws = $("#writing-storage");
