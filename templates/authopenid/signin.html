@@ -8,7 +8,7 @@
 
 
 {% block content %}
-<div class="main">
+<div class="main account">
 
 {% if msg %}
 <br />
@@ -25,6 +25,7 @@
 </p>
 {% endif %}
 <div class="login">
+  <div class="form">
 
     <form name="fauth" action="{% url user_signin %}" method="post">
         {{ form1.next }}
@@ -36,8 +37,8 @@
         <div>&nbsp;&nbsp;<a href="{{ sendpw_url }}">{% trans "Lost your password ?" %}</a></div>
 	</fieldset>	
 </form>
-
-<br />
+</div>
+<div class="form">
 <form name="fopenid" action="{% url user_signin %}" method="post">
     {{ form2.next }}
 	<fieldset>
@@ -47,6 +48,7 @@
 		
 	</fieldset>
 </form>
+	</div>
 </div>
 
 </div>
