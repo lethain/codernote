@@ -1,6 +1,0 @@
-<form method="post" action=".">
-    <table>
-        {{ openid_form }}
-    </table>
-    <input type="submit" value="login" />
-</form>
