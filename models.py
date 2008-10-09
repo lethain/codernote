@@ -52,6 +52,9 @@ class Note(models.Model):
             except:
                 return self.text
 
+    def is_shared(self):
+        return self.owners.all().count() > 1
+
     def get_absolute_url(self):
         return u"/n/%s/" % self.slug
 

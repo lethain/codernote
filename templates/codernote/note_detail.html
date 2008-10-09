@@ -46,6 +46,12 @@
 	  {% endfor %}
 	</select>
       </div>
+      {% if object.is_shared %}
+      <div class="detail">
+      <span><strong>Shared with </strong>{% for owner in object.owners.all %}<a href="/flow/{{ owner.username}}/">{{ owner.username }}</a> {% endfor %}</span>
+      </div>
+      {% endif %}
+      
       {% if object.hashpublish_set.all %}
       <div id="hashdiv" class="detail">
 	<span class="left"><a id="hashurl" href="/hash/{{ object.hashpublish_set.all.0.hash }}/"><strong> Published as hash.</a></strong>
