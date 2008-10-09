@@ -89,7 +89,10 @@ def note_delete(request, slug=None):
         note = Note.objects.filter(owners=request.user).get(slug=slug)
     except:
         return HttpResponse("Failed to retrieve note.")
-    note.delete()
+    if note.owners.all().count() == 1:
+        note.delete()
+    else:
+        note.owners.remove(request.user)
     return HttpResponseRedirect("/")
 
 @login_required
