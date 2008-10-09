@@ -2,16 +2,13 @@
 {% load i18n %}
 
 {% block content %}
-<div class="main">
+<div class="main account">
 
 <div class="jointxt">
     {% blocktrans %}
-    <h1>Join</h1>
-    <p>There are two ways to join: with an email + username, or with OpenID.<br />Enter information only for the type of sign up you want to do.</p>
+    <h1>Join Codernote</h1>
+    <p>You can join Codernote using either an OpenID account, or by creating a regular Codernote account.<br>If you choose OpenID, you'll select a username and supply your email address after verifying your OpenID account. </p>
     {% endblocktrans %}
-	<br />
-	<br />
-    <h2 class="signup">{% trans "Regular Signup" %}</h2>
     {% if form.errors %}
     <p class="errors">{% trans "Please correct errors below:" %}<br />
     {% if form.username.errors %} 
@@ -26,6 +23,8 @@
     </p>
     {% endif %}
 </div>
+    <div class="form">
+      <h2 class="signup">{% trans "Regular Signup" %}</h2>
     <form action="{% url user_signup %}" method="post" accept-charset="utf-8">	
         <div class="form-row"><label for="id_username">{% trans "Choose a Username:" %}</label><br />{{ form.username }}</div>
 
@@ -34,14 +33,17 @@
         <div class="form-row"><label for="id_password2">{% trans "Confirm Your Password:" %}</label><br />{{ form.password2 }}</div>
 
         <div class="submit-row"><input type="submit" value="{% trans "Sign up" %}" /></div>
-        <br />
     </form>
-<br />
+	</div>
+
+    <div class="form">
     <h2 class="signup">{% trans "OpenID Signup" %}</h2>
     <form name="fopenid" action="{% url user_signin %}" method="post">
         <div class="form-row">{{ form2.openid_url }}</div>
         <div class="submit-row "><input name="bsignin" type="submit" value="{% trans "Sign in with OpenID" %}"></div>
-    </form>
+	</form>
+	</div>
+	
 
 </div>
 {% endblock %}

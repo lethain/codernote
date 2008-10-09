@@ -344,3 +344,15 @@ a:hover {
 .success {
     background-color: #E5E5CC;
 }
+
+
+/* Account Stylings */
+
+.account {
+    overflow: auto;
+}
+
+.account .form {
+    float: left;
+    margin-right: 20px;
+}
