@@ -116,7 +116,6 @@ $(document).ready(function() {
 
     $("#share").click(open_share_box);
 
-
     var unpublish_hash = function() {
       var ele = this;
       var cmp = function(res, status) {
@@ -155,6 +154,15 @@ $(document).ready(function() {
 	$.ajax({type:'GET',url:'/user/exists/'+$(this).val(),complete:cmp});
       });
 
+    $("#share-confirm").click(function() {
+	var cmp = function(res, status) {
+	  if (status == "success") close_share_box();
+	  else display_error(res.responseText, "#top-toolbar");
+	}
+	var url = "/share/"+$("#slug").val()+"/"+ $("#share-target").val()  +"/";
+	$.ajax({type:"POST",url:url,complete:cmp});
+	return false;
+      });
 
     $("#publish-hash").click(publish_hash);
     $("#unpublish-hash").click(unpublish_hash);

@@ -180,6 +180,21 @@ def config(request):
 """ Publishing """
 
 @login_required
+def share_note(request, slug, username):
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponseServerError("Failed to retrieve note.")
+    try:
+        user = User.objects.get(username=username)
+    except:
+        return HttpResponseServerError("Invalid username.")
+    note.owners.add(user)
+    note.save()
+    return HttpResponse("Successful.")
+
+
+@login_required
 def flow_publish(request, slug):
     try:
         note = Note.objects.filter(owners=request.user).get(slug=slug)
