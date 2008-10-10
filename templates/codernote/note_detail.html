@@ -86,20 +86,31 @@
       </div>
     </div>
   </div>
-  <a id="share" class="button left" href="#">Share with...</a>
+  <div id="share" class="button left">
+    <a href="#">Share with...</a>
+  </div>
     <input class="left hidden" id="share-target">
-    <a id="share-confirm" class="button left hidden" href="#">Share!</a>
+    <div id="share-confirm" class="button left hidden">
+      <a href="#">Share!</a>
+    </div>
   
     {% if object.hashpublish_set.all %}
-    <a id="unpublish-hash" class="button right" href="/unpublish/hash/{{ object.slug }}/">Unpublish as Hash</a>      
+    <div id="unpublish-hash" class="button right">
+    <a href="/unpublish/hash/{{ object.slug }}/">Unpublish as Hash</a>
+    </div>
     {% else %}
-    <a id="publish-hash" class="button right" href="/publish/hash/{{ object.slug }}/">Publish as Hash</a>
+    <div id="publish-hash" class="button right">
+    <a href="/publish/hash/{{ object.slug }}/">Publish as Hash</a>
+    </div>
     {% endif %}
     {% if object.flowpublish_set.all %}
-    <a id="unpublish-flow" class="button right" href="/unpublish/flow/{{ object.slug }}/">Unpublish from Flow</a>
-    
+    <div id="unpublish-flow"  class="button right">
+    <a href="/unpublish/flow/{{ object.slug }}/">Unpublish from Flow</a>
+    </div>
     {% else %}
-    <a id="publish-flow" class="button right" href="/publish/flow/{{ object.slug }}/">Publish in Flow</a>
+    <div id="publish-flow" class="button right">
+    <a href="/publish/flow/{{ object.slug }}/">Publish in Flow</a>
+    </div>
     {% endif %}
 
   
