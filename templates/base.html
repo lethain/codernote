@@ -20,10 +20,11 @@
     <div class="right">
       {% if user.is_authenticated %}
       <a href="/">Home</a>
+      <a href="/account/">Account</a>
       <a href="/account/signout/">Logout</a>
       {% else %}
-      <a href="/account/signup/">Create Account</a>
       <a href="/account/signin/">Login</a>
+      <a href="/account/signup/">Create Account</a>
       {% endif %}
     </div> 
   </div>

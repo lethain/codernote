@@ -3,7 +3,51 @@
 {% block content %}
 <div class="main">
   <h2> Help for CoderNote </h2>
-  <p> Yep. I basically suck. </p>
+
+  <h2> What is the difference between hash and flow publishing? </h2>
+  <p>
+  When you publish to a hash, your note can be accessed at the generated
+  url, but there is no way for someone else to discover that url unless
+  you explicitly give it to them (that isn't to say that it is safe from
+  being discovered, just that it is relatively unlike to be discovered).
+  </p>
+  <p>
+  On the other hand, when you publish to a flow, anyone who knows your
+  username can discover your published notes. In that sense, notes
+  published to a flow represent a resource that others can discover
+  and read (they even have an RSS feed, for those of you publishing
+  particularly juicy content).
+  </p>
+
+  <h2> What is the difference between publishing and sharing?</h2>
+  <p>
+  Publishing is the act of making your work available to the public.
+  That can be done either discreetly (via a hash), or broadcasted
+  (via a flow).
+  </p>
+  <p>
+  Sharing a note makes a note available for another Codernote user
+  to read and modify, but doesn't make it available to the public.
+  </p>
+
+  <h2> What happens when I delete a shared note? </h2>
+  <p>
+  If you delete a shared note (different than a published note),
+  then you are simply removed from its list of authors, and it
+  continues to exist until all authors have deleted it.
+  </p>
+  <p>
+  Yes, that does mean that you lose dictorial control of your notes when
+  you share them with others, so please share carefully!
+  </p>
+
+  <h2> How did you build Codernote? </h2>
+  <p>
+  Codernote relies heavily on <a href="http://djangoproject.com">Django</a>
+  and <a href="http://jquery.com/">jQuery</a>. All images were created
+  in <a href="http://www.inkscape.org/">Inkscape</a>, and all text was
+  edited in <a href="http://aquamacs.org/">Aquamacs</a>.
+  </p>
   
 </div>
 {% endblock %}
