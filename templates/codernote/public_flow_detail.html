@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{ object.title }} by {{ writer.username }}{% endblock %}
+
 {% block extrahead %}
 <link rel="alternate" type="application/rss+xml" title="Note feed for {{ writer.username }}" href="/feed/flow/{{ writer.username }}/">
 <link rel="stylesheet" href="/media/pygments.css">
@@ -7,7 +9,7 @@
 
 {% block content %}
 <div class="main">
-  <a href="../"> Return to flow.</a> 
+  <a href="../"> Back to notes.</a> 
   <div id="writing">{{ object.render_text|safe }}</div>
 </div>
 {% endblock %}

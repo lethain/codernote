@@ -9,7 +9,7 @@ class LatestNotes(Feed):
         return User.objects.get(username__exact=bits[0])
 
     def title(self, obj):
-        return u"%s Feed" % obj.username
+        return u"Notes from %s" % obj.username
 
     def link(self, obj):
         return u"/flow/%s/" % obj.username
