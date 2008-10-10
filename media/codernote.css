@@ -320,6 +320,13 @@ a:hover {
     margin-left: 2px;
 }
 
+#create-note {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 /* Create Note */
 
 #create {
