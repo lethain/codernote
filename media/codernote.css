@@ -315,7 +315,7 @@ a:hover {
     padding: 0.25em;
 }
 
-#content .toolbar input {
+#share-target {
     width: 100px;
     height: 40px;
     font-size: 1.5em;

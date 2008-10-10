@@ -1,4 +1,10 @@
 from django.conf.urls.defaults import *
+from feeds import LatestNotes
+
+
+feeds = {
+    'flow':LatestNotes,
+}
 
 urlpatterns = patterns(
     '',
@@ -22,6 +28,8 @@ urlpatterns = patterns(
     (r'^publish/hash/(?P<slug>[-\w]+)/$','codernote.views.hash_publish'),
     (r'^unpublish/hash/(?P<slug>[-\w]+)/$','codernote.views.hash_unpublish'),
     (r'^flow/(?P<user>[-\w_]+)/$','codernote.views.public_flow'),
+    (r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
+     {'feed_dict':feeds}),
     (r'^flow/(?P<user>[-\w_]+)/(?P<slug>[-\w_]+)/$','codernote.views.public_flow_detail'),
     (r'^hash/(?P<hash>\w+)/$','codernote.views.public_hash'),
 
