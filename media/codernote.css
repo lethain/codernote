@@ -223,7 +223,7 @@ a:hover {
 }
 
 #content .toolbar .inner {
-    background-color: #E0E0FF;
+    background-color: #70A5F3;
     padding: 0.5em;
     padding-left: 8%;
     padding-right: 8%;
@@ -266,6 +266,10 @@ a:hover {
     padding-right: 2em;
     border-left: 2px solid #525252;
     border-right: 2px solid #525252;
+}
+
+#content .toolbar a {
+    color: #CCCCFF;
 }
 
 #content .toolbar .button a {
