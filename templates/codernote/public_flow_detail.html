@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="Note feed for {{ writer.username }}" href="/feed/flow/{{ writer.username }}/">
 <link rel="stylesheet" href="/media/pygments.css">
 {% endblock %}
 

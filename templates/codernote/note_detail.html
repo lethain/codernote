@@ -54,7 +54,7 @@
       
       {% if object.hashpublish_set.all %}
       <div id="hashdiv" class="detail">
-	<span class="left"><a id="hashurl" href="/hash/{{ object.hashpublish_set.all.0.hash }}/"><strong> Published as hash.</a></strong>
+	<span class="left"><a id="hashurl" href="{{ object.hashpublish_set.all.0.get_absolute_url }}"><strong> Published as hash.</a></strong>
       </div>
       {% else %}
       <div id="hashdiv" class="detail hidden">
@@ -63,7 +63,7 @@
       {% endif %}
       {% if object.flowpublish_set.all %}
       <div id="flowdiv" class="detail">
-	<span class="left"><a id="flowurl" href="/hash/{{ object.hashpublish_set.all.0.hash }}/"><strong> Published in flow.</a></strong>
+	<span class="left"><a id="flowurl" href="{{ object.flowpublish_set.all.0.get_absolute_url }}"><strong> Published in flow.</a></strong>
       </div>
       {% else %}
       <div id="flowdiv" class="detail hidden">
@@ -103,6 +103,7 @@
     <a href="/publish/hash/{{ object.slug }}/">Publish as Hash</a>
     </div>
     {% endif %}
+    
     {% if object.flowpublish_set.all %}
     <div id="unpublish-flow"  class="button right">
     <a href="/unpublish/flow/{{ object.slug }}/">Unpublish from Flow</a>

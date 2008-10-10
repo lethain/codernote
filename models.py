@@ -73,3 +73,6 @@ class HashPublish(models.Model):
     note = models.ForeignKey(Note)
     user = models.ForeignKey(User)
     hash = models.CharField(max_length=20)
+
+    def get_absolute_url(self):
+        return u"/hash/%s/" % self.hash

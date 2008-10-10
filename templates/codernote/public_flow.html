@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="Note feed for {{ writer.username }}" href="/feed/flow/{{ writer.username }}/">
 <link rel="stylesheet" href="/media/pygments.css">
 {% endblock %}
 
 {% block content %}
 <div class="main flow-list">
-  <h2>{{ user.username }}'s Notes</h2>
+  <h2>{{ writer.username }}'s Notes</h2>
   
   <ol>
   {% for object in objects %}
