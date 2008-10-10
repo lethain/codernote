@@ -71,7 +71,7 @@ $(document).ready(function() {
       var ele = this;
       var cmp = function(res, status) {
 	if (status == "success") {
-	  $(ele).text("Publish in Flow");
+	  $($(ele).children()[0]).text("Publish in Flow");
 	  $(ele).unbind('click').click(publish_flow);
 	  $("#flowdiv").addClass("hidden");	  
 	}
@@ -85,7 +85,7 @@ $(document).ready(function() {
       var ele = this;
       var cmp = function(res, status) {
 	if (status == "success") {
-	  $(ele).text("Unpublish from Flow");
+	  $($(ele).children()[0]).text("Unpublish from Flow");
 	  $(ele).unbind('click').click(unpublish_flow);
 	  $("#flowdiv").removeClass("hidden");
 	  $("#flowurl")[0].href = res.responseText;
@@ -101,14 +101,16 @@ $(document).ready(function() {
     $("#unpublish-flow").click(unpublish_flow);
 
     var close_share_box = function() {
-      $("#share").unbind('click').click(open_share_box).text("Share with...");
+      $($("#share").children()[0]).text("Share with...");
+      $("#share").unbind('click').click(open_share_box);
       $("#share-target").addClass("hidden");
       $("#share-confirm").addClass("hidden");
       return false;
     }
 
     var open_share_box = function() {
-      $("#share").text("Cancel").unbind('click').click(close_share_box);
+      $("#share").unbind('click').click(close_share_box);
+      $($("#share").children()[0]).text("Cancel");
       $("#share-target").removeClass("hidden");
       $("#share-confirm").removeClass("hidden");
       return false;
@@ -120,7 +122,7 @@ $(document).ready(function() {
       var ele = this;
       var cmp = function(res, status) {
 	if (status == "success") {
-	  $(ele).text("Publish Hash");
+	  $($(ele).children()[0]).text("Publish Hash");
 	  $(ele).unbind('click').click(publish_hash);
 	  $("#hashdiv").addClass("hidden");	  
 	}
@@ -134,7 +136,7 @@ $(document).ready(function() {
       var ele = this;
       var cmp = function(res, status) {
 	if (status == "success") {
-	  $(ele).text("Unpublish Hash");
+	  $($(ele).children()[0]).text("Unpublish Hash");
 	  $(ele).unbind('click').click(unpublish_hash);
 	  $("#hashdiv").removeClass("hidden");
 	  $("#hashurl")[0].href = "/hash/"+res.responseText+"/";
