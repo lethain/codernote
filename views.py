@@ -38,7 +38,9 @@ def note_list(request):
     'Non-Ajax view.'
     if request.user.is_authenticated():
         notes = Note.objects.filter(owners=request.user)
-        extra = {'serialized':serializers.serialize("json", notes) }
+        fields = ('owners','title','slug','tags','created','start','end','type')
+        serialized = serializers.serialize("json", notes,fields=fields)
+        extra = {'serialized':serialized }
     else:
         extra = {}
     return render_to_response('codernote/note_list.html', extra, 
