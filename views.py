@@ -9,6 +9,7 @@ import re, md5, time
 from pygments.lexers import get_all_lexers
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_page
 
 LEXERS = sorted([ tuple[0] for tuple in get_all_lexers() ])
 
@@ -160,10 +161,12 @@ def note_render(request, slug=None):
 
 """ Non-Authenticated Views """
 
+@cache_page(60 * 30)
 def about(request):
     return render_to_response('codernote/about.html',
                               context_instance=RequestContext(request))
 
+@cache_page(60 * 30)
 def help(request):
     return render_to_response('codernote/help.html',
                               context_instance=RequestContext(request))
@@ -230,12 +233,14 @@ def hash_unpublish(request, slug):
     HashPublish.objects.filter(user=request.user).filter(note__slug=slug).delete()
     return HttpResponse("Deleted.")
 
+@cache_page(60 * 30)
 def public_hash(request, hash):
     pub = HashPublish.objects.get(hash=hash)
     return render_to_response('codernote/public_hash.html',
                               {'object':pub.note},
                               context_instance=RequestContext(request))
 
+@cache_page(60 * 30)
 def public_flow(request, user):
     pub = FlowPublish.objects.filter(user__username=user)
     user = User.objects.get(username=user)
@@ -243,6 +248,7 @@ def public_flow(request, user):
                               {'objects':pub, 'writer':user},
                               context_instance=RequestContext(request))
 
+@cache_page(60 * 30)
 def public_flow_detail(request, user, slug):
     pub = FlowPublish.objects.filter(user__username=user).filter(note__slug=slug)[0]
     return render_to_response('codernote/public_flow_detail.html',
