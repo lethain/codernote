@@ -163,8 +163,6 @@ def note_render(request, slug=None):
 
 """ Managing Note Invitations """
 
-#     (r'^note/invites/','codernote.views.note_manage_invites'),
-
 @login_required
 def note_manage_invites(request):
     invites = NoteInvite.objects.filter(user=request.user)
@@ -172,6 +170,28 @@ def note_manage_invites(request):
     return render_to_response('codernote/manage_invites.html',
                               extra,
                               context_instance=RequestContext(request))
+
+@login_required
+def note_accept_invite(request, pk):
+    try:
+        invite = NoteInvite.objects.get(pk=pk)
+    except:
+        return HttpResponseServerError("No such invitiation exists.")
+    invite.note.owners.add(request.user)
+    invite.note.save()
+    pk = invite.id
+    invite.delete()
+    return HttpResponse("%s" % pk)
+
+@login_required
+def note_reject_invite(request, pk):
+    try:
+        invite = NoteInvite.objects.get(pk=pk)
+    except:
+        return HttpResponseServerError("No such invitiation exists.")
+    pk = invite.id
+    invite.delete()
+    return HttpResponse("%s" % pk)
 
 
 """ Non-Authenticated Views """
@@ -212,9 +232,7 @@ def share_note(request, slug, username):
         user = User.objects.get(username=username)
     except:
         return HttpResponseServerError("Invalid username.")
-    NoteInvite.objects.create(user=user, note=note, sender=request.use)
-    #note.owners.add(user)
-    #note.save()
+    NoteInvite.objects.create(user=user, note=note, sender=request.user)
     return HttpResponse("Successful.")
 
 

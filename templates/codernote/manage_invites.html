@@ -12,8 +12,8 @@
   {% for obj in obj_list %}
   <div id="{{ obj.pk }}" class="invite">
     <span class="left"><strong>{{ obj.note.title }}</strong> from <a href="/flow/{{ obj.sender.username }}/">{{ obj.sender.username }}</a></span>
-    <span class="no button right"><a class="no" id="{{ obj.pk }}" href="#">No</a></span>
-    <span class="button right"><a class="yes" id="{{ obj.pk }}" href="#">Yes</a></span>
+    <span class="no button right"><a class="no" id="{{ obj.pk }}" href="reject/{{ obj.pk }}/">No</a></span>
+    <span class="button right"><a class="yes" id="{{ obj.pk }}" href="accept/{{ obj.pk }}/">Yes</a></span>
     <span class="label right">Accept?</span>
     <br>
     <span class="left tags"><em>{{ obj.note.tags }}</em></span>
