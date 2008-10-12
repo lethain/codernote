@@ -82,3 +82,8 @@ class NoteInvite(models.Model):
     note = models.ForeignKey(Note)
     user = models.ForeignKey(User)
     sender = models.ForeignKey(User, related_name="sender")
+
+class AppInvite(models.Model):
+    password = models.CharField(max_length=10)
+    max = models.IntegerField()
+    current = models.IntegerField()
