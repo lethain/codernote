@@ -39,7 +39,7 @@ urlpatterns = patterns(
     (r'^$', 'codernote.views.note_list'),
 
     # Note Invites
-    (r'^note/invites/','codernote.views.note_manage_invites'),
+    (r'^note/invites/$','codernote.views.note_manage_invites'),
 
     # Checking for user existance
     (r'^user/exists/(?P<username>[-\w_]+)/$','codernote.views.user_exists'),
