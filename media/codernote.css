@@ -372,6 +372,27 @@ a:hover {
     background-color: #E5E5CC;
 }
 
+/* Invite Stylings */
+
+.invites {
+    margin-bottom: 1em;
+}
+
+.invites .invite {
+    padding: 0.5em;
+    border: 1px solid #AAAAFF;
+    overflow: auto;
+}
+.invites .invite p {
+    margin-top: 0em;
+}
+.invites .invite .label {
+    margin-right: 2em;
+}
+.invites .invite .button {
+    margin-right: 2em;
+}
+
 
 /* Account Stylings */
 

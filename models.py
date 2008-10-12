@@ -81,3 +81,4 @@ class NoteInvite(models.Model):
     "Intermediate step between sharing and receiving a note. "
     note = models.ForeignKey(Note)
     user = models.ForeignKey(User)
+    sender = models.ForeignKey(User, related_name="sender")

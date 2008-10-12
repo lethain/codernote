@@ -45,8 +45,9 @@
     </ul>
   </div>
   <div class="left detail">
-    
-    <a href="/manage-shared/">You have {{ invites  }} note{{ invites|pluralize }} awaiting approval.</a>
+    {% if invites %}
+    <a href="/note/invites/">You have {{ invites  }} note{{ invites|pluralize }} invite{{ invites|pluralize }} awaiting approval.</a>
+    {% endif %}
   </div>
   </div>
   <div class="border-bottom"></div>
