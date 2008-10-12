@@ -41,7 +41,9 @@ def note_list(request):
         notes = Note.objects.filter(owners=request.user)
         fields = ('owners','title','slug','tags','created','start','end','type')
         serialized = serializers.serialize("json", notes,fields=fields)
-        extra = {'serialized':serialized }
+        invite_count = NoteInvite.objects.filter(user=request.user).count()
+        extra = {'serialized':serialized, 'invites':invite_count }
+
     else:
         extra = {}
     return render_to_response('codernote/note_list.html', extra, 
@@ -198,8 +200,9 @@ def share_note(request, slug, username):
         user = User.objects.get(username=username)
     except:
         return HttpResponseServerError("Invalid username.")
-    note.owners.add(user)
-    note.save()
+    NoteInvite.objects.create(user=user, note=note)
+    #note.owners.add(user)
+    #note.save()
     return HttpResponse("Successful.")
 
 
