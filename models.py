@@ -76,3 +76,8 @@ class HashPublish(models.Model):
 
     def get_absolute_url(self):
         return u"/hash/%s/" % self.hash
+
+class NoteInvite(models.Model):
+    "Intermediate step between sharing and receiving a note. "
+    note = models.ForeignKey(Note)
+    user = models.ForeignKey(User)

@@ -1,4 +1,4 @@
-from models import Note, HashPublish, FlowPublish
+from models import Note, HashPublish, FlowPublish, NoteInvite
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render_to_response
 from forms import NoteForm
@@ -94,6 +94,7 @@ def note_delete(request, slug=None):
         return HttpResponse("Failed to retrieve note.")
     if note.owners.all().count() == 1:
         note.delete()
+        NoteInvite.objects.filter(note=note).delete()
     else:
         note.owners.remove(request.user)
     return HttpResponseRedirect("/")
