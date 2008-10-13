@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="header_graphics.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3233">
+      <stop
+         style="stop-color:#5f5fd5;stop-opacity:1;"
+         offset="0"
+         id="stop3235" />
+      <stop
+         style="stop-color:#5f5fd5;stop-opacity:0;"
+         offset="1"
+         id="stop3237" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3233"
+       id="linearGradient3239"
+       x1="131.63219"
+       y1="360.10031"
+       x2="276.37769"
+       y2="300.49274"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-1710.8244"
+     inkscape:cy="667.5231"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="835"
+     inkscape:window-height="704"
+     inkscape:window-x="407"
+     inkscape:window-y="33" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2383"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:url(#linearGradient3239);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="matrix(4.3909141,0,0,3.3073456,-2352.8958,-749.37992)"
+       inkscape:export-filename="/Users/will/git/codernote/media/logo.png"
+       inkscape:export-xdpi="16.701565"
+       inkscape:export-ydpi="16.701565"><flowRegion
+         id="flowRegion2385"
+         style="fill-opacity:1;fill:url(#linearGradient3239)"><rect
+           id="rect2387"
+           width="1288.5714"
+           height="368.57144"
+           x="42.857143"
+           y="343.79074"
+           style="fill:url(#linearGradient3239);fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara2389"
+         style="fill:url(#linearGradient3239);fill-opacity:1"><flowSpan
+   style="fill:url(#linearGradient3239);fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="flowSpan3163">Coder</flowSpan>note</flowPara></flowRoot>    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#ee6ae2;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3217"
+       sodipodi:cx="-1981.4286"
+       sodipodi:cy="85.219322"
+       sodipodi:rx="110"
+       sodipodi:ry="81.428574"
+       d="M -1871.4286,85.219322 A 110,81.428574 0 1 1 -2091.4286,85.219322 A 110,81.428574 0 1 1 -1871.4286,85.219322 z"
+       transform="matrix(1.6753247,-0.5313457,0,0.8523671,1619.5362,-1024.5282)"
+       inkscape:transform-center-y="-36.530109"
+       inkscape:export-filename="/Users/will/git/codernote/media/header_bullet.png"
+       inkscape:export-xdpi="8.4882574"
+       inkscape:export-ydpi="8.4882574"
+       inkscape:transform-center-x="3.8116471e-05" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#5f5fd5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3231"
+       sodipodi:cx="-1981.4286"
+       sodipodi:cy="85.219322"
+       sodipodi:rx="110"
+       sodipodi:ry="81.428574"
+       d="M -1871.4286,85.219322 A 110,81.428574 0 1 1 -2091.4286,85.219322 A 110,81.428574 0 1 1 -1871.4286,85.219322 z"
+       transform="matrix(-1.4935065,-0.7154075,0,1.1476329,-4653.5621,-1420.11)"
+       inkscape:transform-center-y="-49.184371"
+       inkscape:export-filename="/Users/will/git/codernote/media/header_bullet.png"
+       inkscape:export-xdpi="8.4882574"
+       inkscape:export-ydpi="8.4882574"
+       inkscape:transform-center-x="-5.4128068e-05" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#dfb0fa;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3257"
+       sodipodi:cx="-1701.4286"
+       sodipodi:cy="98.076469"
+       sodipodi:rx="192.85715"
+       sodipodi:ry="31.428572"
+       d="M -1508.5714,98.076469 A 192.85715,31.428572 0 1 1 -1894.2857,98.076469 A 192.85715,31.428572 0 1 1 -1508.5714,98.076469 z"
+       inkscape:export-filename="/Users/will/git/codernote/media/header_bullet.png"
+       inkscape:export-xdpi="8.4882574"
+       inkscape:export-ydpi="8.4882574" />
+  </g>
+</svg>
