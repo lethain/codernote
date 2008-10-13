@@ -61,15 +61,21 @@ a:hover {
     overflow: visible;
 }
 
+#header img {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 #header .navlinks a {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
 
 #header .top {
-    height: 15px;
+    height: 5px;
     background-color: #E5E5CC;
 }
+
 
 #header .bottom {
     position: relative;

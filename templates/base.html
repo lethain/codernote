@@ -16,20 +16,26 @@
   <div class="inner">
   <div class="navlinks">
     <div class="left">
-      <a href="/about/">About</a>
-      <a href="/help/">Help</a>
-      <a href="/contact/">Contact</a>
+      <a href="/"><img src="/media/logo.png"></a>
     </div>
     <div class="right">
       {% if user.is_authenticated %}
-      <a href="/">Home</a>
       <a href="/account/">Account</a>
       <a href="/account/signout/">Logout</a>
       {% else %}
       <a href="/account/signin/">Login</a>
       <a href="/account/signup/">Create Account</a>
       {% endif %}
-    </div> 
+    </div>
+    <div class="right">
+      <img src="/media/header_bullet.png">
+    </div>
+    <div class="right">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/help/">Help</a>
+    </div>
   </div>
   </div>
   <div class="bottom"></div>
