@@ -411,3 +411,8 @@ a:hover {
     float: left;
     margin-right: 20px;
 }
+
+/* Help Styling */
+ul.legend {
+    list-style-type: none;
+}
