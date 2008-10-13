@@ -4,6 +4,9 @@
 {% block content %}
 <div class="main">
   <h2> Please Enter Signup Code </h2>
+  {% if error %}
+  <p>{{ error }}</p>
+  {% endif %}
   <form action="" method="GET">
   <label for="pw">Signup Code:</label>
   <input name="pw">
