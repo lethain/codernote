@@ -293,20 +293,12 @@ a:hover {
     border: none;
 }
 
-#content .toolbar .negative {
-    background-color: #FFC0C0;
-}
-
 #content .toolbar .button:hover {
     background:url(/media/button-middle-alt.png) repeat-x;
     border: none;
     border-left: 2px solid #525252;
     border-right: 2px solid #525252;
     cursor: pointer;
-}
-
-#content .toolbar .negative:hover {
-    background-color: #FF9090;
 }
 
 #content .toolbar ul {
@@ -323,6 +315,10 @@ a:hover {
     color: #7070CC;
     border: 1px solid #929292;
     padding: 0.25em;
+}
+
+#filter input, #sort input {
+    width: 100px;
 }
 
 #share-target {
