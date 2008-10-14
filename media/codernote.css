@@ -123,7 +123,10 @@ a:hover {
 }
 
 #details .right {
-    width: 300px;
+}
+
+#detail select {
+    height: 20px;
 }
 
 #details .left {
