@@ -420,3 +420,7 @@ a:hover {
 ul.legend {
     list-style-type: none;
 }
+
+.front {
+    height: 320px;
+}
