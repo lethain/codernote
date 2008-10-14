@@ -48,7 +48,7 @@
       </div>
       {% if object.is_shared %}
       <div class="detail">
-      <span><strong>Shared with </strong>{% for owner in object.owners.all %}<a href="/flow/{{ owner.username}}/">{{ owner.username }}</a> {% endfor %}</span>
+      <p class="left"><strong>Shared with </strong>{% for owner in object.owners.all %}<a href="/flow/{{ owner.username}}/">{{ owner.username }}</a> {% endfor %}</p>
       </div>
       {% endif %}
       
@@ -86,6 +86,7 @@
       </div>
     </div>
   </div>
+  
   <div id="share" class="button left">
     <a href="#">Share with...</a>
   </div>

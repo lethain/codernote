@@ -10,6 +10,7 @@ a img {
 }
 
 body {
+    min-width: 750px;
     font-family: georgia;
     margin: 0px;
 }
@@ -33,6 +34,10 @@ a:hover {
 
 .right {
     float: right;
+}
+
+.overflow {
+    overflow: auto;
 }
 
 /* Stylings for text heavy pages. */
@@ -114,27 +119,21 @@ a:hover {
     padding-left: 2em;
     padding-right: 2em;
     font-size: 1.2em;
-    overflow: auto;
     margin-bottom: 1em;
+    overflow: auto;
 }
 
-#content .toolbar input.large {
-    width: 250px;
-}
+
 
 #details .right {
 }
 
-#detail select {
+.detail select {
     height: 20px;
 }
-
-#details .left {
-
-}
-
-#details .detail {
-    overflow: auto;
+.detail p {
+    margin: 0;
+    padding: 0;
 }
 
 #share-target {
@@ -277,6 +276,7 @@ a:hover {
     text-align: center;
     padding-left: 2em;
     padding-right: 2em;
+    margin-top: 0.5em;
     border-left: 2px solid #525252;
     border-right: 2px solid #525252;
 }
