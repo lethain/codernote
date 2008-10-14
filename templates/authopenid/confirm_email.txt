@@ -1,12 +1,23 @@
-Thank you for registering. 
+Thank you for registering for Codernote!
 
-Your account details are:
+You've registered the account name: {{ username }}.
 
-Username: {{ username }}
-Password: {{ password }}
+Codernote is still a very young service, and you
+may have ideas about how to improve it, or run
+into bugs that drive you up the wall.
 
+When you do, please us the contact form to
+let us know how we can do a better job for
+you:
+http://codernote.com/contact/
 
 You may sign in here:
-{{ site_url }}signin/
+http://codernote.com/signin/
 
+If you forget your password,  this link can help
+you reset your account:
+http://codernote.com/account/sendpw/
 
+Welcome to Codernote!
+
+The Codernote Team
