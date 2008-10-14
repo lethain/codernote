@@ -1,6 +1,10 @@
 
 /* Defaults */
 
+a img {
+    border: none;
+}
+
 .hidden {
     display: none;
 }
