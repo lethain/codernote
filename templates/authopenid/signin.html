@@ -29,24 +29,21 @@
 
     <form name="fauth" action="{% url user_signin %}" method="post">
         {{ form1.next }}
-	<fieldset>
-		<legend>{% trans "Sign In Using Your Account ID" %}</legend>
+    <p class="title">{% trans "Sign In Using Your Account ID" %}</p>
 		<div class="form-row"><label for="id_username">{% trans "Username:" %}</label><br />{{ form1.username }}</div>
 		<div class="form-row"><label for="id_password">{% trans "Password" %}</label><br />{{ form1.password }}</div>
         <div class="submit-row"><input type="submit" name="blogin" value="{% trans "Sign in" %}"> </div>
         <div>&nbsp;&nbsp;<a href="{{ sendpw_url }}">{% trans "Lost your password ?" %}</a></div>
-	</fieldset>	
+	
 </form>
 </div>
 <div class="form">
 <form name="fopenid" action="{% url user_signin %}" method="post">
     {{ form2.next }}
-	<fieldset>
-		<legend>{% trans "Sign In Using Your OpenID URL" %}</legend>
+
+  <p class="title">{% trans "Sign In Using Your OpenID URL" %}</p>
         <div class="form-row"><label for="id_openid_ul">{% trans "OpenId URL :" %}</label><br />{{ form2.openid_url }}</div>
         <div class="submit-row "><input name="bsignin" type="submit" value="{% trans "Sign in with OpenID" %}"></div>
-		
-	</fieldset>
 </form>
 	</div>
 </div>

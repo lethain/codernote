@@ -416,6 +416,22 @@ a:hover {
     margin-right: 20px;
 }
 
+.login .title {
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.login input {
+    width: 200px;
+}
+
+.login .submit-row {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
 /* Help Styling */
 ul.legend {
     list-style-type: none;
