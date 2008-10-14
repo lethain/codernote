@@ -143,7 +143,7 @@ $(document).ready(function() {
 	}
 	else display_error(res.responseText, "#top-toolbar");
       }
-      $.ajax({type:"POST",url:"/publish/hash/"+$("#slug").val()+"/",data:{}complete:cmp});
+      $.ajax({type:"POST",url:"/publish/hash/"+$("#slug").val()+"/",data:{}, complete:cmp});
       return false;
     }
 
