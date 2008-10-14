@@ -21,7 +21,6 @@ def slugify(string):
     string = re.sub('[^\w.-]', '', string)
     return string.strip('_.- ').lower()
 
-
 def find_slug_for(string):
     i = 0
     new_str = string
@@ -31,7 +30,7 @@ def find_slug_for(string):
     return new_str
 
 def make_tags_uniform(string):
-    return string.replace(", "," ").replace("  "," ").replace(" ",", ")
+    return re.sub('[ ,]+',', ',string)
 
 """ Note """
 
