@@ -110,7 +110,7 @@ $(document).ready(function() {
 
     var open_share_box = function() {
       $("#share").unbind('click').click(close_share_box);
-      $($("#share").children()[0]).text("Cancel");
+      $($("#share").children()[0]).text("Cancel sharing...");
       $("#share-details").removeClass("hidden");
       //$("#share-confirm").removeClass("hidden");
       return false;
