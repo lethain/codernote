@@ -176,7 +176,6 @@ $(document).ready(function() {
     var finish_editing = function() {
       update('text', ta.val());
       $("#writing-storage").text(ta.val());
-      alert(ta.val());
       var new_div = $('<div id="writing"></div>');
       $(new_div).dblclick(make_writing_editable);
       render_text();
