@@ -194,23 +194,6 @@ $(document).ready(function() {
     };
     $("#writing").dblclick(make_writing_editable);
     $("#finish-editing").click(make_writing_editable);
-    
-    /*
-    var make_writing_editable = function() {
-      var ws = $("#writing-storage");
-      var ta = $('<textarea id="writing">'+ ws.text() + '</textarea>');
-      ta.hover(function() {},
-	       function() {
-		 update('text', ta.val());
-		 $("#writing-storage").text(ta.val());
-		 var new_div = $('<div id="writing"></div>');
-		 $(new_div).dblclick(make_writing_editable);
-		 render_text();
-	       });
-      $(this).replaceWith(ta);
-    };
-    $("#writing").dblclick(make_writing_editable);
-    */
 
     $("#type").change(function() {
 	var val = $("#type option:selected").val();
