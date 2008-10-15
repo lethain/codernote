@@ -52,7 +52,7 @@ $(document).ready(function() {
 		    var str = '<span id="'+this.id+'" class="editable">';
 		    str += input.val()+'</span>';
 		      var new_input = $(str);
-		      new_input.click(make_spans_editable);
+		      new_input.dblclick(make_spans_editable);
 		      input.replaceWith(new_input);
 		  });
       $(this).replaceWith(input);
