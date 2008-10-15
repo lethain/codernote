@@ -123,7 +123,9 @@ a:hover {
     overflow: auto;
 }
 
-
+#details input {
+    width: 200px;
+}
 
 #details .right {
 }
