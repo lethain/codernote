@@ -168,7 +168,33 @@ $(document).ready(function() {
 
     $("#publish-hash").click(publish_hash);
     $("#unpublish-hash").click(unpublish_hash);
+    
 
+    var ws;
+    var ta;
+    
+    var finish_editing = function() {
+      update('text', ta.val());
+      $("#writing-storage").text(ta.val());
+      alert(ta.val());
+      var new_div = $('<div id="writing"></div>');
+      $(new_div).dblclick(make_writing_editable);
+      render_text();
+      $("#finish-editing").addClass('hidden');
+      return false;
+    }
+    $("#finish-editing").click(finish_editing);
+
+    var make_writing_editable = function() {
+      ws = $("#writing-storage");
+      ta = $('<textarea id="writing">'+ ws.text() + '</textarea>');
+      $(this).replaceWith(ta);
+      $("#finish-editing").removeClass('hidden');
+      return false;
+    };
+    $("#writing").dblclick(make_writing_editable);
+    
+    /*
     var make_writing_editable = function() {
       var ws = $("#writing-storage");
       var ta = $('<textarea id="writing">'+ ws.text() + '</textarea>');
@@ -183,6 +209,7 @@ $(document).ready(function() {
       $(this).replaceWith(ta);
     };
     $("#writing").dblclick(make_writing_editable);
+    */
 
     $("#type").change(function() {
 	var val = $("#type option:selected").val();
