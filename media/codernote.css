@@ -127,7 +127,8 @@ a:hover {
     width: 200px;
 }
 
-#details .right {
+#type {
+    width: 200px;
 }
 
 .detail select {

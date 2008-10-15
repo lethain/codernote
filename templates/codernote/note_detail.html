@@ -54,11 +54,11 @@
       
       {% if object.hashpublish_set.all %}
       <div id="hashdiv" class="detail">
-	<span class="left"><a id="hashurl" href="{{ object.hashpublish_set.all.0.get_absolute_url }}"><strong> Published as hash.</a></strong>
+	<span class="left"><a id="hashurl" href="{{ object.hashpublish_set.all.0.get_absolute_url }}"><strong> Published as hash.</strong></a>
       </div>
       {% else %}
       <div id="hashdiv" class="detail hidden">
-	<span class="left"><a id="hashurl" href="#"><strong> Published as hash.</a></strong>
+	<span class="left"><a id="hashurl" href="#"><strong> Published as hash.</strong></a>
       </div>
       {% endif %}
       {% if object.flowpublish_set.all %}
