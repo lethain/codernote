@@ -216,7 +216,7 @@ $(document).ready(function() {
     var start = '01/01/1996';
     $("span.date").datePicker({createButton:false, startDate:start})
       .bind(
-	    'dblclick',
+	    'click',
 	    function() {
 	      $(this).dpDisplay();
 	      this.blur();
