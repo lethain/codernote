@@ -11,6 +11,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 
+
 LEXERS = sorted([ tuple[0] for tuple in get_all_lexers() ])
 
 
@@ -65,6 +66,7 @@ def note_create(request):
             new_note = form.save(commit=False)
             new_note.slug = find_slug_for(slugify(new_note.title))
             new_note.tags = make_tags_uniform(new_note.tags)
+            new_note.text = "Fill me in!"
             new_note.save()
             new_note.owners = [request.user]
             form.save_m2m()
