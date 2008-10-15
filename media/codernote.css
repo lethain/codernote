@@ -331,6 +331,28 @@ a:hover {
     margin-left: 2px;
 }
 
+
+#share-details {
+    border-top: 1px solid white;
+    margin-top: 0.5em;
+}
+#share-details span {   
+    margin-top: 0.4em;
+    padding-top: 0.7em;
+    margin-right: 0.5em;
+}
+#share-details input {
+    margin-top: 0.35em;
+    width: 300px;
+}
+
+#share-details .button {
+
+}
+
+
+
+
 #create-note {
     padding-top: 10px;
     padding-bottom: 10px;

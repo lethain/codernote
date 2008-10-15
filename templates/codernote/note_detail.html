@@ -86,14 +86,7 @@
       </div>
     </div>
   </div>
-  
-  <div id="share" class="button left">
-    <a href="#">Share with...</a>
-  </div>
-    <input class="left hidden" id="share-target">
-    <div id="share-confirm" class="button left hidden">
-      <a href="#">Share!</a>
-    </div>
+
   
     {% if object.hashpublish_set.all %}
     <div id="unpublish-hash" class="button right">
@@ -115,6 +108,18 @@
     </div>
     {% endif %}
 
+      <div class="overflow">
+  <div id="share" class="left button">
+    <a href="#">Share with...</a>
+  </div>
+  </div>
+  <div id="share-details"  class="detail hidden">
+    <span class="left"> Type the username to share with: </span>
+    <input class="left" id="share-target">
+    <div id="share-confirm" class="button left">
+      <a href="#">Share!</a>
+    </div>
+  </div>
   
   </div>
   <div class="border-bottom"></div>
