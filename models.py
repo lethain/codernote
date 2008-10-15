@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from pygments.lexers import get_all_lexers, get_lexer_by_name, DiffLexer
 from pygments.formatters import HtmlFormatter
 from pygments import highlight
+from codernote import audit
 
 def find_lexer(name):
     'Find a Pygments lexer using its human readable name.'
@@ -37,6 +38,7 @@ class Note(models.Model):
     type = models.CharField(max_length=200)
     # For text, the markup. For snippet, programming language.
     type_detail = models.CharField(max_length=200)
+    history = audit.AuditTrail()
 
     def render_text(self):
         if self.type == "markdown":
