@@ -10,8 +10,6 @@ from pygments.lexers import get_all_lexers
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
-from git.errors import GitCommandError
-
 
 LEXERS = sorted([ tuple[0] for tuple in get_all_lexers() ])
 
@@ -146,11 +144,7 @@ def note_update(request, slug=None):
         note.end = datetime(year, month, day)
         updated.append('end date')
 
-    try:
-        note.save()
-    except GitCommandError:
-        pass
-
+    note.save()
     msg = "Updated %s." % ", ".join(updated)
     return HttpResponse(msg)
     

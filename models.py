@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 from pygments.lexers import get_all_lexers, get_lexer_by_name, DiffLexer
 from pygments.formatters import HtmlFormatter
 from pygments import highlight
-from rcsfield.fields import RcsTextField
-from rcsfield.manager import RevisionManager
 
 def find_lexer(name):
     'Find a Pygments lexer using its human readable name.'
@@ -27,7 +25,7 @@ class Note(models.Model):
     # Tags for classifying note.
     tags = models.CharField(max_length=200, help_text="Separate by commas or spaces.")
     # The body of the note.
-    text = RcsTextField()
+    text = models.TextField()
     # When the note was created.
     created = models.DateTimeField(auto_now_add=True, help_text="")
     # When the note 'started'. User definable.
@@ -39,7 +37,6 @@ class Note(models.Model):
     type = models.CharField(max_length=200)
     # For text, the markup. For snippet, programming language.
     type_detail = models.CharField(max_length=200)
-    objects = RevisionManager()
 
     def render_text(self):
         if self.type == "markdown":
