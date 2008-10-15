@@ -44,10 +44,10 @@ $(document).ready(function() {
     };
 
 
+
     var make_spans_editable = function() {
       var input = $('<input id="'+this.id+'" class="large" value="'+this.innerHTML+'">');
-      input.hover(function(){},
-		  function() {
+      input.click(function() {
 		    update(this.id, input.val());
 		    var str = '<span id="'+this.id+'" class="editable">';
 		    str += input.val()+'</span>';
