@@ -179,19 +179,21 @@ $(document).ready(function() {
       var new_div = $('<div id="writing"></div>');
       $(new_div).dblclick(make_writing_editable);
       render_text();
-      $("#finish-editing").addClass('hidden');
+      $($("#finish-editing").children()[0]).text("Edit Note");
+      $("#finish-editing").unbind('click').click(make_writing_editable);
       return false;
     }
-    $("#finish-editing").click(finish_editing);
 
     var make_writing_editable = function() {
       ws = $("#writing-storage");
       ta = $('<textarea id="writing">'+ ws.text() + '</textarea>');
-      $(this).replaceWith(ta);
-      $("#finish-editing").removeClass('hidden');
+      $($("#writing")).replaceWith(ta);
+      $($("#finish-editing").children()[0]).text("Finish editing");
+      $("#finish-editing").unbind('click').click(finish_editing);
       return false;
     };
     $("#writing").dblclick(make_writing_editable);
+    $("#finish-editing").click(make_writing_editable);
     
     /*
     var make_writing_editable = function() {
