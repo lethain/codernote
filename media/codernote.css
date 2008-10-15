@@ -440,6 +440,11 @@ a:hover {
     margin-right: 20px;
 }
 
+div.register {
+    float: left;
+    width: 45%;
+}
+
 .login .title {
     font-weight: bold;
     margin-top: 1em;
