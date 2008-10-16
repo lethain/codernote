@@ -15,7 +15,24 @@ def find_lexer(name):
 
 def render_snippet(txt, lexer):
     lexer = get_lexer_by_name(find_lexer(lexer))
-    return highlight(txt,lexer,HtmlFormatter()) 
+    return highlight(txt,lexer,HtmlFormatter())
+
+def smart_str(s, encoding='utf-8', errors='strict'):
+    """
+    Returns a bytestring version of 's', encoded as specified in 'encoding'.
+    Borrowed and simplified for this purpose from `django.utils.encoding`.
+    """
+    if not isinstance(s, basestring):
+        try:
+            return str(s)
+        except UnicodeEncodeError:
+            return unicode(s).encode(encoding, errors)
+    elif isinstance(s, unicode):
+        return s.encode(encoding, errors)
+    elif s and encoding != 'utf-8':
+        return s.decode('utf-8', errors).encode(encoding, errors)
+    else:
+        return s
 
 class Note(models.Model):
     # Users with access to note.
@@ -45,7 +62,7 @@ class Note(models.Model):
         if self.type == "markdown":
             return markdown.markdown(self.text)
         elif self.type == "textile":
-            return textile.textile(self.text)
+            return textile.textile(smart_str(self.text), encoding='utf-8',output='utf-8')
         elif self.type == "rest":
             return publish_parts(source=self.text,
                                                writer_name="html4css1")["fragment"]
