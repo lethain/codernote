@@ -37,8 +37,6 @@ $(document).ready(function() {
       updates(data);
     };
 
-
-
     var make_spans_editable = function() {
       var input = $('<input id="'+this.id+'" class="large" value="'+this.innerHTML+'">');
       input.dblclick(function() {
@@ -178,6 +176,14 @@ $(document).ready(function() {
       currently_editing = false;
       return false;
     }
+
+    var save_writing = function() {
+      if (ta && currently_editing) {
+	update('text', ta.val());
+	display_error('Autosaving...','#details')
+      }
+    }
+    window.setInterval(save_writing, 1000*60*5);
 
     var make_writing_editable = function() {
       ws = $("#writing-storage");
