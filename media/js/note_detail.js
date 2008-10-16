@@ -25,6 +25,17 @@ $(document).ready(function() {
       $.ajax(args);
     }
 
+    var fetch_revisions = function() {
+      var complete = function(res, status) {
+	if (status=="success") $("#revisions").html(res.responseText);
+	else display_error(res.responseText,'#details');
+      }
+      var data = {slug:$("#slug").val() };
+      $.ajax({type:"POST",url:"/note/revisions/",data:data,complete:complete});
+      return false;
+    }
+    $("#show-revisions").click(fetch_revisions);
+
     var updates = function(data) {
       data['slug'] = $("#slug").val();
       var args = { type:"POST", url:"/note/update/", data:data, complete:done };
