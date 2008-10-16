@@ -1,11 +1,13 @@
 {% extends "base.html" %}
+{% load compressed %}
 
 {% block extrahead %}
 <link rel="stylesheet" href="/media/datePicker.css">
 <link rel="stylesheet" href="/media/pygments.css">
-<script type="text/javascript" src="/media/date.js"></script>
-<script type="text/javascript" src="/media/jquery.datePicker.js"></script>
-<script type="text/javascript" src="/media/note_detail.js"></script>
+{% endblock %}
+
+{% block js %}
+{% compressed_js 'detail' %}
 {% endblock %}
 
 {% block content %}
