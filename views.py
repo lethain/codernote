@@ -219,7 +219,7 @@ def help(request):
 """ Utility Methods """
 
 def user_exists(request, username):
-    if User.objects.filter(username=username).count() > 0:
+    if User.objects.filter(username__iexact=username).count() > 0:
         return HttpResponse("Exists.")
     else:
         return HttpResponseServerError("Doesn't exist.")
@@ -239,7 +239,7 @@ def share_note(request, slug, username):
     except:
         return HttpResponseServerError("Failed to retrieve note.")
     try:
-        user = User.objects.get(username=username)
+        user = User.objects.get(username__iexact=username)
     except:
         return HttpResponseServerError("Invalid username.")
     NoteInvite.objects.create(user=user, note=note, sender=request.user)
@@ -286,15 +286,15 @@ def public_hash(request, hash):
 
 @cache_page(60 * 30)
 def public_flow(request, user):
-    pub = FlowPublish.objects.filter(user__username=user)
-    user = User.objects.get(username=user)
+    pub = FlowPublish.objects.filter(user__username__iexact=user)
+    user = User.objects.get(username__iexact=user)
     return render_to_response('codernote/public_flow.html',
                               {'objects':pub, 'writer':user},
                               context_instance=RequestContext(request))
 
 @cache_page(60 * 30)
 def public_flow_detail(request, user, slug):
-    pub = FlowPublish.objects.filter(user__username=user).filter(note__slug=slug)[0]
+    pub = FlowPublish.objects.filter(user__username=__iexactuser).filter(note__slug=slug)[0]
     return render_to_response('codernote/public_flow_detail.html',
                               {'object':pub.note,'writer':pub.user},
                               context_instance=RequestContext(request))
