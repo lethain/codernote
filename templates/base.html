@@ -1,8 +1,8 @@
+{% load compressed %}
 <html> <head>
 <title>{% block title %}Codernote{% endblock %}</title>
-<link rel="stylesheet" href="/media/codernote.css">
-<link rel="stylesheet" type="text/css" media="print" href="/media/print.css">
-{% block extrahead %}{% endblock %}
+{% compressed_css 'default' %}
+{% compressed_css 'print' %}
 {% block js %}{% endblock %}
 </head>
 <body>
