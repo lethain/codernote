@@ -61,7 +61,7 @@
       {% endif %}
       {% if object.flowpublish_set.all %}
       <div id="flowdiv" class="detail">
-	<span class="left"><a id="flowurl" href="{{ object.flowpublish_set.all.0.get_absolute_url }}"><strong> Published in flow.</a></strong>
+	<span class="left"><a id="flowurl" href="{{ object.flowpublish_set.all.0.get_absolute_url }}"><strong> Published in flow.</strong></a>
       </div>
       {% else %}
       <div id="flowdiv" class="detail hidden">
