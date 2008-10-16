@@ -1,8 +1,9 @@
 $(document).ready(function() {
+    var currently_editing = false;
     var done = function(res, status) {
       if (status == "success") {
 	display_success(res.responseText, "#top-toolbar");
-	render_text();
+	if (!currently_editing) render_text();
       }
       else display_error(res.responseText, "#top-toolbar");
     }
@@ -172,7 +173,7 @@ $(document).ready(function() {
 
     var ws;
     var ta;
-    
+
     var finish_editing = function() {
       update('text', ta.val());
       $("#writing-storage").text(ta.val());
@@ -181,6 +182,7 @@ $(document).ready(function() {
       render_text();
       $($("#finish-editing").children()[0]).text("Edit Note");
       $("#finish-editing").unbind('click').click(make_writing_editable);
+      currently_editing = false;
       return false;
     }
 
@@ -190,6 +192,7 @@ $(document).ready(function() {
       $($("#writing")).replaceWith(ta);
       $($("#finish-editing").children()[0]).text("Finish editing");
       $("#finish-editing").unbind('click').click(finish_editing);
+      currently_editing = true;
       return false;
     };
     $("#writing").dblclick(make_writing_editable);
@@ -204,7 +207,7 @@ $(document).ready(function() {
 	  $("#detail_div").addClass('hidden');
 	  $("#type option:selected").val();
 	  update('type',val);
-	  render_text();
+	  if (!currently_editing) render_text();
 	}
       });
 
