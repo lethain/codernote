@@ -2,4 +2,5 @@
 *~
 .svn/*
 .DS_Store
-media/*.r*.js
+media/js/*.r*.js
+media/css/*.r*.css
