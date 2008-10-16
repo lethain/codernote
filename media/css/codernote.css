@@ -469,3 +469,8 @@ ul.legend {
 .front {
     height: 320px;
 }
+
+/* Plain Text Type */
+pre.plain {
+    font-family: georgia;
+}

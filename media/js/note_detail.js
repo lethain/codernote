@@ -15,21 +15,14 @@ $(document).ready(function() {
 	type = "plain";
 	text = "You haven't written anything yet. Double click here to edit.";
       }
-      if (type == "plain") {
-	var new_p = $('<p id="writing">'+text+'</p>');
-	$(new_p).dblclick(make_writing_editable);
-	$("#writing").replaceWith(new_p);
+      var complete = function(res, status) {
+	var new_div = $('<div id="writing">'+res.responseText+'</div>');
+	$(new_div).dblclick(make_writing_editable);
+	if (status=="success") $("#writing").replaceWith(new_div);
       }
-      else {
-	var complete = function(res, status) {
-	  var new_div = $('<div id="writing">'+res.responseText+'</div>');
-	  $(new_div).dblclick(make_writing_editable);
-	  if (status=="success") $("#writing").replaceWith(new_div);
-	}
-	var data = {'slug':$("#slug").val() };
-	var args = { type:"POST", url:"/note/render/", data:data, complete:complete };
-	$.ajax(args);
-      }
+      var data = {'slug':$("#slug").val() };
+      var args = { type:"POST", url:"/note/render/", data:data, complete:complete };
+      $.ajax(args);
     }
 
     var updates = function(data) {
