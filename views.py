@@ -294,7 +294,7 @@ def public_flow(request, user):
 
 @cache_page(60 * 30)
 def public_flow_detail(request, user, slug):
-    pub = FlowPublish.objects.filter(user__username=__iexactuser).filter(note__slug=slug)[0]
+    pub = FlowPublish.objects.filter(user__username__iexact=user).filter(note__slug=slug)[0]
     return render_to_response('codernote/public_flow_detail.html',
                               {'object':pub.note,'writer':pub.user},
                               context_instance=RequestContext(request))
