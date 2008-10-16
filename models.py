@@ -1,5 +1,6 @@
 from django.db import models
 import markdown, textile
+from docutils.core import publish_parts
 from django.contrib.auth.models import User
 from pygments.lexers import get_all_lexers, get_lexer_by_name, DiffLexer
 from pygments.formatters import HtmlFormatter
@@ -45,6 +46,9 @@ class Note(models.Model):
             return markdown.markdown(self.text)
         elif self.type == "textile":
             return textile.textile(self.text)
+        elif self.type == "rest":
+            return publish_parts(source=self.text,
+                                               writer_name="html4css1")["fragment"]
         elif self.type == "plain":
             return self.text
         elif self.type == "snippet":
