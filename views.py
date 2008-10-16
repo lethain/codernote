@@ -11,7 +11,17 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 
-LEXERS = sorted([ tuple[0] for tuple in get_all_lexers() ])
+def case_insensitive_alpha(a,b):
+    a = a.lower()
+    b = b.lower()
+    if a>b:
+        return 1
+    elif a == b:
+        return 0
+    return -1
+
+LEXERS = [ tuple[0] for tuple in get_all_lexers() ]
+LEXERS.sort(case_insensitive_alpha)
 
 
 """ Utilities """
