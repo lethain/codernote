@@ -209,6 +209,24 @@ def note_revision_delete(request):
     revision.delete()
     return HttpResponse("Revision deleted.")
 
+@login_required
+def note_revision_revert(request):
+    if request.POST.has_key('slug'):
+        slug = request.POST['slug']
+    else:
+        return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    if request.POST.has_key('id'):
+        revision = note.history.get(_audit_id=request.POST['id'])
+    else:
+        return HttpResponseServerError('Failed to supply a revision id.')
+    note.text = revision.text
+    note.save()
+    return HttpResponse("Reverted successfully.")
+
 """ Managing Note Invitations """
 
 @login_required

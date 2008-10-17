@@ -51,7 +51,16 @@ $(document).ready(function() {
     }
 
     var revert_to_revision = function() {
-      alert("revert");
+      var complete = function(res, status) {
+	if (status=="success") render_text();
+      }
+      var rev = $(this).parent().parent();
+      var data = {slug:$("#slug").val(), id:rev[0].id};
+      $.ajax({type:"POST",url:"/note/revision/revert/",data:data,complete:complete});
+      $("#writing").removeClass('hidden');
+      $("#revisions").addClass('hidden');
+      $("#show-revisions").unbind('click').click(fetch_revisions);
+      $($("#show-revisions").children()[0]).text("Show Revisions");
       return false;
     }
 
