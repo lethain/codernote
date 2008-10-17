@@ -1,7 +1,7 @@
 <h2> Revision History </h2>
 
 {% for rev in history %}
-<div class="revision detail">
+<div id="{{ rev.id }}" class="revision detail">
   <div class="overflow">
   <div class="button right delete-revision">
     <a href="#">Delete Revision</a>

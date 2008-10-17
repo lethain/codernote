@@ -43,9 +43,10 @@ $(document).ready(function() {
     }
 
     var delete_revision = function() {
-      $(this).parent().parent().fadeOut('slow',function(){ $(this).remove();});
-      var data = {slug:$("#slug").val() };
+      var rev = $(this).parent().parent();
+      var data = {slug:$("#slug").val(), id:rev[0].id};
       $.ajax({type:"POST",url:"/note/revision/delete/",data:data});
+      rev.fadeOut('slow',function(){ $(this).remove();});
       return false;
     }
 

@@ -203,7 +203,7 @@ def note_revision_delete(request):
     except:
         return HttpResponse("Failed to retrieve note.")
     if request.POST.has_key('id'):
-        revision = note.history.get(_audit_id=id)
+        revision = note.history.get(_audit_id=request.POST['id'])
     else:
         return HttpResponseServerError('Failed to supply a revision id.')
     revision.delete()
