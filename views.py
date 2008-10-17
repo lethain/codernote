@@ -171,6 +171,19 @@ def note_render(request, slug=None):
         return HttpResponse("Failed to retrieve note.")
     return HttpResponse(note.render_text())
 
+@login_required
+def note_revisions(request):
+    if request.POST.has_key('slug'):
+        slug = request.POST['slug']
+    else:
+        return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    extra = {'history':note.history.all() }
+    return render_to_response('codernote/note_revisions.html', extra)
+
 """ Managing Note Invitations """
 
 @login_required

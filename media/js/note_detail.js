@@ -25,9 +25,25 @@ $(document).ready(function() {
       $.ajax(args);
     }
 
+    /*
+	  $($(ele).children()[0]).text("Publish in Flow");
+	  $(ele).unbind('click').click(publish_flow);
+    */
+
     var fetch_revisions = function() {
       var complete = function(res, status) {
-	if (status=="success") $("#revisions").html(res.responseText);
+	if (status=="success") {
+	  $("#revisions").html(res.responseText).removeClass('hidden');
+	  $("#writing").addClass('hidden');
+	  $($("#show-revisions").children()[0]).text("Hide Revisions");
+	  $("#show-revisions").unbind('click').click(function() {
+	      $("#writing").removeClass('hidden');
+	      $("#revisions").addClass('hidden');
+	      $("#show-revisions").unbind('click').click(fetch_revisions);
+	      $($("#show-revisions").children()[0]).text("Show Revisions");
+	    });
+	  
+	}
 	else display_error(res.responseText,'#details');
       }
       var data = {slug:$("#slug").val() };
