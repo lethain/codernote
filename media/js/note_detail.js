@@ -43,7 +43,9 @@ $(document).ready(function() {
     }
 
     var delete_revision = function() {
-      alert("delete rev");
+      
+      
+      $(this).parent().parent().fadeOut('slow',function(){ $(this).remove();});
       return false;
     }
 
