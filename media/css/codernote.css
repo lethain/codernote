@@ -271,7 +271,7 @@ a:hover {
     margin-right: 0.5em;
 }
 
-#content .toolbar .button {
+.revision .button, #content .toolbar .button {
     border: none;
     height: 40px;
     background:url(/media/button-middle.png) repeat-x;
@@ -284,22 +284,22 @@ a:hover {
     border-right: 2px solid #525252;
 }
 
-#content .toolbar a {
+.revision a, #content .toolbar a {
     color: #CCCCFF;
 }
 
-#content .toolbar .button a {
+.revision .button a, #content .toolbar .button a {
     position: relative;
     top: 0.5em;
     border: none;
     color: #CCCCFF;
 }
-#content .toolbar .button a:hover {
+.revision .button a:hover, #content .toolbar .button a:hover {
     color: #FFFFEE;
     border: none;
 }
 
-#content .toolbar .button:hover {
+.revision .button:hover, #content .toolbar .button:hover {
     background:url(/media/button-middle-alt.png) repeat-x;
     border: none;
     border-left: 2px solid #525252;
@@ -473,4 +473,24 @@ ul.legend {
 /* Plain Text Type */
 pre.plain {
     font-family: georgia;
+}
+
+/* Revisions */
+
+
+.revision {
+    overflow: auto;
+    border-bottom: 2px solid #525252;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.revision span {
+    margin-top: 1em;
+}
+
+.revision pre.text {
+    padding-top: 0.5em;
+    border-top: 2px solid #525252;
+    
 }

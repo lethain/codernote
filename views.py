@@ -171,6 +171,12 @@ def note_render(request, slug=None):
         return HttpResponse("Failed to retrieve note.")
     return HttpResponse(note.render_text())
 
+def extract_rev_data(rev):
+    return {'date':rev._audit_timestamp,
+            'id':rev._audit_id,
+            'text':rev.text,
+            }
+
 @login_required
 def note_revisions(request):
     if request.POST.has_key('slug'):
@@ -181,7 +187,9 @@ def note_revisions(request):
         note = Note.objects.filter(owners=request.user).get(slug=slug)
     except:
         return HttpResponse("Failed to retrieve note.")
-    extra = {'history':note.history.all() }
+    revs = note.history.all()
+    revs = [extract_rev_data(x) for x in revs]
+    extra = {'history':revs}
     return render_to_response('codernote/note_revisions.html', extra)
 
 """ Managing Note Invitations """

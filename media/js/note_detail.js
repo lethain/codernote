@@ -29,11 +29,29 @@ $(document).ready(function() {
 	  $($(ele).children()[0]).text("Publish in Flow");
 	  $(ele).unbind('click').click(publish_flow);
     */
+    var show_revision_text = function() {
+      $($(this).children()[0]).text("Hide Text");
+      $(this).parent(".revision").children("pre").removeClass('hidden');
+      return false;
+    }
+
+    var delete_revision = function() {
+      alert("delete rev");
+      return false;
+    }
+
+    var revert_to_revision = function() {
+      alert("revert");
+      return false;
+    }
 
     var fetch_revisions = function() {
       var complete = function(res, status) {
 	if (status=="success") {
 	  $("#revisions").html(res.responseText).removeClass('hidden');
+	  $("#revisions .show-rev-text").click(show_revision_text);
+	  $("#revisions .delete-revision").click(delete_revision);
+	  $("#revisions .revert-to-revision").click(revert_to_revision);
 	  $("#writing").addClass('hidden');
 	  $($("#show-revisions").children()[0]).text("Hide Revisions");
 	  $("#show-revisions").unbind('click').click(function() {
@@ -51,6 +69,8 @@ $(document).ready(function() {
       return false;
     }
     $("#show-revisions").click(fetch_revisions);
+
+
 
     var updates = function(data) {
       data['slug'] = $("#slug").val();

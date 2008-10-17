@@ -1,5 +1,22 @@
+<h2> Revision History </h2>
+
 {% for rev in history %}
-<div class="revision">
-  <p> {{ rev }} </p>
+<div class="revision detail">
+  <div class="overflow">
+  <div class="button right delete-revision">
+    <a href="#">Delete Revision</a>
+  </div>
+  <div class="button right revert-to-revision">
+    <a href="#">Revert to Revision</a>
+  </div>
+  <div class="button right show-rev-text">
+    <a href="#">Show Text</a>
+  </div>
+   <span class="left">{{ rev.date|date:"D d M Y, f A" }}</span>
+  </div>
+  <pre class="text plain hidden">
+    {{ rev.text }}
+  </pre>
+  
 </div>
 {% endfor %}
