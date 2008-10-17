@@ -50,6 +50,13 @@ $(document).ready(function() {
       return false;
     }
 
+    var hide_revisions = function() {
+      $("#writing").removeClass('hidden');
+      $("#revisions").addClass('hidden');
+      $("#show-revisions").unbind('click').click(fetch_revisions);
+      $($("#show-revisions").children()[0]).text("Show Revisions");
+    };
+
     var revert_to_revision = function() {
       var complete = function(res, status) {
 	if (status=="success") render_text();
@@ -57,10 +64,7 @@ $(document).ready(function() {
       var rev = $(this).parent().parent();
       var data = {slug:$("#slug").val(), id:rev[0].id};
       $.ajax({type:"POST",url:"/note/revision/revert/",data:data,complete:complete});
-      $("#writing").removeClass('hidden');
-      $("#revisions").addClass('hidden');
-      $("#show-revisions").unbind('click').click(fetch_revisions);
-      $($("#show-revisions").children()[0]).text("Show Revisions");
+      hide_revisions();
       return false;
     }
 
@@ -73,12 +77,7 @@ $(document).ready(function() {
 	  $("#revisions .revert-to-revision").click(revert_to_revision);
 	  $("#writing").addClass('hidden');
 	  $($("#show-revisions").children()[0]).text("Hide Revisions");
-	  $("#show-revisions").unbind('click').click(function() {
-	      $("#writing").removeClass('hidden');
-	      $("#revisions").addClass('hidden');
-	      $("#show-revisions").unbind('click').click(fetch_revisions);
-	      $($("#show-revisions").children()[0]).text("Show Revisions");
-	    });
+	  $("#show-revisions").unbind('click').click(hide_revisions);
 	  
 	}
 	else display_error(res.responseText,'#details');
@@ -257,6 +256,7 @@ $(document).ready(function() {
       $($("#writing")).replaceWith(ta);
       $($("#finish-editing").children()[0]).text("Finish editing");
       $("#finish-editing").unbind('click').click(finish_editing);
+      hide_revisions();
       currently_editing = true;
       return false;
     };
