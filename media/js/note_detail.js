@@ -31,7 +31,14 @@ $(document).ready(function() {
     */
     var show_revision_text = function() {
       $($(this).children()[0]).text("Hide Text");
-      $(this).parent(".revision").children("pre").removeClass('hidden');
+      var txt = $(this).parent().parent().children("pre").removeClass('hidden');
+      $(this).unbind('click').click(function() {
+	  $(txt).addClass('hidden');
+	  $($(this).children()[0]).text("Show Text");
+	  $(this).unbind('click').click(show_revision_text);
+	  return false;
+	});
+      
       return false;
     }
 
