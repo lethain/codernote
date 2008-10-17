@@ -192,6 +192,23 @@ def note_revisions(request):
     extra = {'history':revs}
     return render_to_response('codernote/note_revisions.html', extra)
 
+@login_required
+def note_revision_delete(request):
+    if request.POST.has_key('slug'):
+        slug = request.POST['slug']
+    else:
+        return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    if request.POST.has_key('id'):
+        revision = note.history.get(_audit_id=id)
+    else:
+        return HttpResponseServerError('Failed to supply a revision id.')
+    revision.delete()
+    return HttpResponse("Revision deleted.")
+
 """ Managing Note Invitations """
 
 @login_required

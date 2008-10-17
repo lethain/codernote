@@ -43,9 +43,9 @@ $(document).ready(function() {
     }
 
     var delete_revision = function() {
-      
-      
       $(this).parent().parent().fadeOut('slow',function(){ $(this).remove();});
+      var data = {slug:$("#slug").val() };
+      $.ajax({type:"POST",url:"/note/revision/delete/",data:data});
       return false;
     }
 

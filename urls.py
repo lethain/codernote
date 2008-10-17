@@ -21,6 +21,8 @@ urlpatterns = patterns(
     (r'^note/update/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_update'),
     (r'^note/render/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_render'),
     (r'^note/revisions/$', 'codernote.views.note_revisions'),
+    (r'^note/revision/delete/$', 'codernote.views.note_revision_delete'),
+    (r'^note/revision/revert/$', 'codernote.views.note_revision_revert'),
 
     # Publishing Views
     (r'^share/(?P<slug>[-\w_]+)/(?P<username>[-\w_]*)/?$','codernote.views.share_note'),
