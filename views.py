@@ -27,8 +27,8 @@ LEXERS.sort(case_insensitive_alpha)
 """ Utilities """
 
 def slugify(string):
-    string = re.sub('\s+', '_', string)
-    string = re.sub('[^\w.-]', '', string)
+    string = re.sub('[\s.-]+', '_', string)
+    string = re.sub('\W', '', string)
     return string.strip('_.- ').lower()
 
 def find_slug_for(string):
@@ -74,6 +74,7 @@ def note_create(request):
         if form.is_valid():
             new_note = form.save(commit=False)
             new_note.slug = find_slug_for(slugify(new_note.title))
+            print new_note.slug
             new_note.tags = make_tags_uniform(new_note.tags)
             new_note.text = "Fill me in!"
             new_note.save()
