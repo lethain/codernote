@@ -40,7 +40,7 @@ class Note(models.Model):
     # Title of note.
     title = models.CharField(max_length=200, help_text="The note's title.")
     # Note's slug for its URL.
-    slug = models.SlugField(max_length=200, unique=True, help_text="The note's slug.")
+    slug = models.SlugField(max_length=200, help_text="The note's slug.")
     # Tags for classifying note.
     tags = models.CharField(max_length=200, help_text="Separate by commas or spaces.")
     # The body of the note.

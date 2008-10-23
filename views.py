@@ -10,6 +10,63 @@ from pygments.lexers import get_all_lexers
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
+from django.db.models import signals
+
+def add_initial_notes(sender, instance, signal, *args, **kwargs):
+    if instance.notes.all().count():
+        return
+    title = u"Welcome!"
+    slug = u"welcome"
+    tags = u"help, welcome"
+    type= u"markdown"
+    type_detail = u" "
+    text = u"""
+### Welcome to Codernote
+
+[contact]: http://codernote.com/contact/
+
+I'm glad you've stopped by. Codernote is a tool that I created
+to solve my organization and collaboration needs, and that I use
+everyday. Codernote is currently growing and changing quickly, as it becomes
+an increasingly powerful tool for organizing, sharing and editing
+notes.
+
+There are two points I'd like to emphasize as you get started
+playing with Codernote:
+
+1.  I've tried to make every decision in favor of users: you.
+    If there are features or decisions that you don't like,
+    please let me know. The [contact form][contact] is the easiest
+    way to get in touch, and goes directly to my mailbox.
+
+2.  This will be a paid service. It won't be an expensive paid service
+    --it may set you back a latte or two--but it will not be free.
+    Certainly, there will be a free trial period.
+
+    If you don't believe Codernote is worth a bit of your money
+    each month, please let me know what could be done to pass
+    that threshold.
+
+I hope you enjoy Codernote, and please let me know how I can
+help improve your experience.
+
+Will (lethain@gmail.com)
+
+
+"""
+    n = Note.objects.create(title=title,
+                        slug=slug,
+                        tags=tags,
+                        type=type,
+                        type_detail=type_detail,
+                        text=text)
+    n.owners = [instance]
+    n.save()
+                        
+                        
+
+signals.post_save.connect(add_initial_notes, sender=User)
+
 
 def case_insensitive_alpha(a,b):
     a = a.lower()
@@ -74,7 +131,6 @@ def note_create(request):
         if form.is_valid():
             new_note = form.save(commit=False)
             new_note.slug = find_slug_for(slugify(new_note.title))
-            print new_note.slug
             new_note.tags = make_tags_uniform(new_note.tags)
             new_note.text = "Fill me in!"
             new_note.save()
@@ -138,7 +194,6 @@ def note_update(request, slug=None):
         updated.append('type')
     if request.POST.has_key('type_detail'):
         note.type_detail = request.POST['type_detail']
-        print note.type_detail
         updated.append('type detail')
     if request.POST.has_key('start'):
         raw = request.POST['start'].split('/')
