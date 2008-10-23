@@ -72,6 +72,7 @@ $(document).ready(function() {
     var fetch_revisions = function() {
       var complete = function(res, status) {
 	if (status=="success") {
+	  finish_editing();
 	  $("#revisions").html(res.responseText).removeClass('hidden');
 	  $("#revisions .show-rev-text").click(show_revision_text);
 	  $("#revisions .delete-revision").click(delete_revision);
