@@ -179,9 +179,26 @@ a:hover {
 }
 
 #content .list .note {
+    background: #FF9999;
+}
+
+#content .list .markdown {
+    background: #9999FF;
+}
+#content .list .textile {
+    background: #AAFF88;
+}
+#content .list .rest {
+    background: #77FF77;
+}
+#content .list .snippet {
+    background: #99FF44;
+}
+
+
+#content .list .note {
     width: 250px;
     float: left;
-    border: 1px solid #B0B0B0;
     padding: 0.5em;
     cursor: pointer;
     margin-left: 0.3em;
