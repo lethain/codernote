@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var save_timer;
     var currently_editing = false;
     var done = function(res, status) {
       if (status == "success") {
@@ -231,6 +232,7 @@ $(document).ready(function() {
     var ta;
 
     var finish_editing = function() {
+      clearInterval(save_writing);
       update('text', ta.val());
       $("#writing-storage").text(ta.val());
       var new_div = $('<div id="writing"></div>');
@@ -248,9 +250,9 @@ $(document).ready(function() {
 	display_error('Autosaving...','#details')
       }
     }
-    window.setInterval(save_writing, 1000*60*5);
 
     var make_writing_editable = function() {
+      save_timer = setInterval(save_writing, 1000*60*5);
       ws = $("#writing-storage");
       ta = $('<textarea id="writing">'+ ws.text() + '</textarea>');
       $($("#writing")).replaceWith(ta);
