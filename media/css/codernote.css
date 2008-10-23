@@ -292,7 +292,7 @@ a:hover {
 .revision .button, #content .toolbar .button {
     border: none;
     height: 40px;
-    background:url(/media/button-middle.png) repeat-x;
+    background:url(/media/button-middle.1.png) repeat-x;
     margin-right: 5px;
     text-align: center;
     padding-left: 2em;
@@ -321,7 +321,7 @@ a:hover {
 }
 
 .revision .button:hover, #content .toolbar .button:hover {
-    background:url(/media/button-middle-alt.png) repeat-x;
+    background:url(/media/button-middle-alt.1.png) repeat-x;
     border: none;
     border-left: 2px solid #525252;
     border-right: 2px solid #525252;
