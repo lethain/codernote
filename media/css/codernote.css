@@ -131,6 +131,7 @@ a:hover {
     width: 200px;
 }
 
+
 .detail select {
     height: 20px;
 }
@@ -304,6 +305,9 @@ a:hover {
 .revision a, #content .toolbar a {
     color: #CCCCFF;
 }
+#content .toolbar a {
+    height: 25px;
+}
 
 .revision .button a, #content .toolbar .button a {
     position: relative;
@@ -323,6 +327,9 @@ a:hover {
     border-right: 2px solid #525252;
     cursor: pointer;
 }
+
+
+
 
 #content .toolbar ul {
     margin-top: 0px;
