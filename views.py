@@ -133,6 +133,7 @@ def note_create(request):
             new_note.slug = find_slug_for(slugify(new_note.title))
             new_note.tags = make_tags_uniform(new_note.tags)
             new_note.text = "Fill me in!"
+            new_note.type = "plain"
             new_note.save()
             new_note.owners = [request.user]
             form.save_m2m()

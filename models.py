@@ -66,13 +66,13 @@ class Note(models.Model):
         elif self.type == "rest":
             return publish_parts(source=self.text,
                                                writer_name="html4css1")["fragment"]
-        elif self.type == "plain":
-            return "<pre class='plain'>%s</pre>" % self.text
         elif self.type == "snippet":
             try:
                 return render_snippet(self.text, self.type_detail)
             except:
                 return self.text
+        else:
+            return "<pre class='plain'>%s</pre>" % self.text
 
     def is_shared(self):
         return self.owners.all().count() > 1

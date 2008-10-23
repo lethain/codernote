@@ -12,10 +12,6 @@ $(document).ready(function() {
     var render_text = function() {
       var type = $("#type option:selected").val();
       var text = $("#writing-storage").text();
-      if (text.length == 0) {
-	type = "plain";
-	text = "You haven't written anything yet. Double click here to edit.";
-      }
       var complete = function(res, status) {
 	var new_div = $('<div id="writing">'+res.responseText+'</div>');
 	$(new_div).dblclick(make_writing_editable);
@@ -233,6 +229,7 @@ $(document).ready(function() {
     var ta;
 
     var finish_editing = function() {
+      currently_editing = false;
       clearInterval(save_writing);
       update('text', ta.val());
       $("#writing-storage").text(ta.val());
@@ -241,7 +238,6 @@ $(document).ready(function() {
       render_text();
       $($("#finish-editing").children()[0]).text("Edit Note");
       $("#finish-editing").unbind('click').click(make_writing_editable);
-      currently_editing = false;
       return false;
     }
 
