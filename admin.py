@@ -1,9 +1,8 @@
 from django.contrib import admin
 from models import *
 
-class NoteAdmin(admin.ModelAdmin):
-    model = Note
-
-admin.site.register(Note, NoteAdmin)
+admin.site.register(Note)
 admin.site.register(HashPublish)
 admin.site.register(AppInvite)
+admin.site.register(FlowPublish)
+admin.site.register(NoteInvite)
