@@ -229,6 +229,7 @@ $(document).ready(function() {
     var ta;
 
     var finish_editing = function() {
+      if (!ta) return;
       currently_editing = false;
       clearInterval(save_writing);
       update('text', ta.val());
