@@ -312,7 +312,7 @@ def note_accept_invite(request, pk):
     pk = invite.id
 
     send_mail("%s accepted your note." % request.user.username,
-              'Hello %s,\n%s has accepted your note "%s".\nThank you,\nCodernote' % (invite.sender.username, request.user.username, invite.note.title),
+              'Hello %s,\n\n%s has accepted your note "%s".\n\nThank you,\nCodernote' % (invite.sender.username, request.user.username, invite.note.title),
               settings.DEFAULT_FROM_EMAIL,
               [invite.sender.email],
               )
@@ -370,7 +370,7 @@ def share_note(request, slug, username):
         return HttpResponseServerError("Invalid username.")
     NoteInvite.objects.create(user=user, note=note, sender=request.user)
     send_mail("%s shared a note with you." % request.user.username,
-              'Hello %s,\n%s has shared a note title %s with you. Visit <a href="http://codernote.com/note/invites/">the invitation center</a> to accept or refuse this invitation.\nThank you,\nCodernote' % (user.username, request.user.username, note.title),
+              'Hello %s,\n\n%s has shared a note title %s with you. Visit http://codernote.com/note/invites/ to accept or refuse this note invitation.\n\nThank you,\nCodernote' % (user.username, request.user.username, note.title),
               settings.DEFAULT_FROM_EMAIL,
               [user.email],
               )
