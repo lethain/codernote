@@ -310,6 +310,12 @@ def note_accept_invite(request, pk):
     invite.note.owners.add(request.user)
     invite.note.save()
     pk = invite.id
+
+    send_mail("%s accepted your note." % request.user.username,
+              'Hello %s,\n%s has accepted your note "%s".\nThank you,\nCodernote' % (invite.sender.username, request.user.username, invite.note.title),
+              settings.DEFAULT_FROM_EMAIL,
+              [invite.sender.email],
+              )
     invite.delete()
     return HttpResponse("%s" % pk)
 
