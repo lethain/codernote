@@ -6,11 +6,18 @@ from django.core import serializers
 from datetime import datetime
 from django.contrib.auth.models import User
 import re, md5, time
+from django.conf import settings
 from pygments.lexers import get_all_lexers
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 from django.db.models import signals
+
+try:
+    from mailer import send_mail
+except ImportError:
+    from django.core.mail import send_mail
+
 
 def add_initial_notes(sender, instance, signal, *args, **kwargs):
     if instance.notes.all().count():
@@ -356,6 +363,12 @@ def share_note(request, slug, username):
     except:
         return HttpResponseServerError("Invalid username.")
     NoteInvite.objects.create(user=user, note=note, sender=request.user)
+    send_mail("%s shared a note with you." % request.user.username,
+              'Hello %s,\n%s has shared a note title %s with you. Visit <a href="http://codernote.com/note/invites/">the invitation center</a> to accept or refuse this invitation.\nThank you,\nCodernote' % (user.username, request.user.username, note.title),
+              settings.DEFAULT_FROM_EMAIL,
+              [user.email],
+              )
+
     return HttpResponse("Successful.")
 
 
