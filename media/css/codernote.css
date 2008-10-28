@@ -313,8 +313,16 @@ a img {
     float: left;
 }
 
-#sort li, #filter li {
+#sort ul , #filter ul {
+    margin-left: 0em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+#sort ul li , #filter ul li {
     width: 210px;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 0.25em;
 }
 
 #sort span {
