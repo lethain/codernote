@@ -16,7 +16,6 @@ body {
 }
 
 a {
-    color: #7070FF;
     text-decoration: none;
 }
 
@@ -62,7 +61,6 @@ a:hover {
 #header .inner {
     height: 1em;
     padding: 1em;
-    background-color: #E5E5CC;
 }
 
 
@@ -80,37 +78,12 @@ a:hover {
     margin-right: 0.5em;
 }
 
-#header .top {
-    height: 5px;
-    background-color: #E5E5CC;
-}
-
-
-#header .bottom {
-    position: relative;
-    height: 5px;
-    background:url(/media/border_bottom.png) repeat-x;
-}
-
 /* Footer */
 
 #footer .inner {
     height: 1em;
     padding: 1em;
-    background-color: #E5E5CC;
     text-align: center;
-}
-
-#footer .top {
-    position: relative;
-    height: 15px;
-    background:url(/media/border_top.png) repeat-x;
-}
-
-#footer .bottom {
-    position: relative;
-    height: 15px;
-    background:url(/media/border_bottom.png) repeat-x;
 }
 
 /* Details */
@@ -180,24 +153,6 @@ a:hover {
 }
 
 #content .list .note {
-    background: #FF9999;
-}
-
-#content .list .markdown {
-    background: #9999FF;
-}
-#content .list .textile {
-    background: #AAFF88;
-}
-#content .list .rest {
-    background: #77FF77;
-}
-#content .list .snippet {
-    background: #99FF44;
-}
-
-
-#content .list .note {
     width: 250px;
     float: left;
     padding: 0.5em;
@@ -205,10 +160,6 @@ a:hover {
     margin-left: 0.3em;
     margin-right: 0.3em;
     margin-bottom: 0.75em;
-}
-
-#content .list .note:hover {
-    background-color: #E0E0FF;
 }
 
 #content .list .note .dates {
@@ -239,8 +190,6 @@ a:hover {
 
 #content div.help {
     padding: 1em;
-    border: 1px solid #505050;
-    background-color: #E5E5CC;
     margin-bottom: 1em;
     width: 60%;
     margin-left: auto;
@@ -256,27 +205,11 @@ a:hover {
 }
 
 #content .toolbar .inner {
-    background-color: #70A5F3;
     padding: 0.5em;
     padding-left: 8%;
     padding-right: 8%;
     overflow: auto;
 }
-
-
-
-#content .toolbar .border-top {
-    position: relative;
-    height: 10px;
-    background:url(/media/border_blue_top.png) repeat-x;
-}
-
-#content .toolbar .border-bottom {
-    position: relative;
-    height: 10px;
-    background:url(/media/border_blue_bottom.png) repeat-x;
-}
-
 
 #content .toolbar .tool {
     margin-top: 0px;
@@ -287,19 +220,6 @@ a:hover {
 #content .toolbar .tool span {
     margin-top: 0px;
     margin-right: 0.5em;
-}
-
-.revision .button, #content .toolbar .button {
-    border: none;
-    height: 40px;
-    background:url(/media/button-middle.1.png) repeat-x;
-    margin-right: 5px;
-    text-align: center;
-    padding-left: 2em;
-    padding-right: 2em;
-    margin-top: 0.5em;
-    border-left: 2px solid #525252;
-    border-right: 2px solid #525252;
 }
 
 .revision a, #content .toolbar a {
@@ -313,23 +233,11 @@ a:hover {
     position: relative;
     top: 0.5em;
     border: none;
-    color: #CCCCFF;
 }
+
 .revision .button a:hover, #content .toolbar .button a:hover {
-    color: #FFFFEE;
     border: none;
 }
-
-.revision .button:hover, #content .toolbar .button:hover {
-    background:url(/media/button-middle-alt.1.png) repeat-x;
-    border: none;
-    border-left: 2px solid #525252;
-    border-right: 2px solid #525252;
-    cursor: pointer;
-}
-
-
-
 
 #content .toolbar ul {
     margin-top: 0px;
@@ -342,8 +250,6 @@ a:hover {
     margin-top: 0px;
     margin-bottom: 4px;
     height: 2em;
-    color: #7070CC;
-    border: 1px solid #929292;
     padding: 0.25em;
 }
 
@@ -358,9 +264,7 @@ a:hover {
     margin-left: 2px;
 }
 
-
 #share-details {
-    border-top: 1px solid white;
     margin-top: 0.5em;
 }
 #share-details span {   
@@ -372,13 +276,6 @@ a:hover {
     margin-top: 0.35em;
     width: 300px;
 }
-
-#share-details .button {
-
-}
-
-
-
 
 #create-note {
     padding-top: 10px;
@@ -417,17 +314,8 @@ a:hover {
 /* Reports */
 
 .report {
-    border: 1px solid #505050;
     margin-bottom: 1em;
     text-align: center;
-}
-
-.error {
-    background-color: #FFC0C0;
-}
-
-.success {
-    background-color: #E5E5CC;
 }
 
 /* Invite Stylings */
@@ -438,7 +326,6 @@ a:hover {
 
 .invites .invite {
     padding: 0.5em;
-    border: 1px solid #AAAAFF;
     overflow: auto;
 }
 .invites .invite p {
@@ -504,7 +391,6 @@ pre.plain {
 
 .revision {
     overflow: auto;
-    border-bottom: 2px solid #525252;
     padding-bottom: 0.5em;
     margin-bottom: 0.5em;
 }
@@ -514,7 +400,5 @@ pre.plain {
 }
 
 .revision pre.text {
-    padding-top: 0.5em;
-    border-top: 2px solid #525252;
-    
+    padding-top: 0.5em;   
 }

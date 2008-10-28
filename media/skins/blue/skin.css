@@ -1,0 +1,139 @@
+
+a {
+    color: #7070FF;
+}
+
+#header .inner {
+    background-color: #E5E5CC;
+}
+
+#header .top {
+    height: 5px;
+    background-color: #E5E5CC;
+}
+
+#header .bottom {
+    background:url(/media/border_bottom.png) repeat-x;  
+    position: relative;
+    height: 5px;
+}
+
+#footer .inner {
+    background-color: #E5E5CC;
+}
+
+#footer .top {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_top.png) repeat-x;
+}
+
+#footer .bottom {
+    position: relative;
+    height: 15px;
+    background:url(/media/border_bottom.png) repeat-x;
+}
+
+#content .list .note {
+    background: #FF9999;
+}
+
+#content .list .markdown {
+    background: #9999FF;
+}
+#content .list .textile {
+    background: #AAFF88;
+}
+#content .list .rest {
+    background: #77FF77;
+}
+#content .list .snippet {
+    background: #99FF44;
+}
+
+#content .list .note:hover {
+    background-color: #E0E0FF;
+}
+
+#content div.help {
+    border: 1px solid #505050;
+    background-color: #E5E5CC;
+}
+
+#content .toolbar .inner {
+    background-color: #70A5F3;
+}
+
+#content .toolbar .border-top {
+    position: relative;
+    height: 10px;
+    background:url(/media/border_blue_top.png) repeat-x;
+}
+
+#content .toolbar .border-bottom {
+    position: relative;
+    height: 10px;
+    background:url(/media/border_blue_bottom.png) repeat-x;
+}
+
+.revision .button, #content .toolbar .button {
+    border: none;
+    height: 40px;
+    background:url(/media/button-middle.1.png) repeat-x;
+    margin-right: 5px;
+    text-align: center;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-top: 0.5em;
+    border-left: 2px solid #525252;
+    border-right: 2px solid #525252;
+}
+
+.revision .button a, #content .toolbar .button a {
+    color: #CCCCFF;
+}
+
+.revision .button a:hover, #content .toolbar .button a:hover {
+    color: #FFFFEE;
+}
+
+.revision .button:hover, #content .toolbar .button:hover {
+    background:url(/media/button-middle-alt.1.png) repeat-x;
+    border: none;
+    border-left: 2px solid #525252;
+    border-right: 2px solid #525252;
+    cursor: pointer;
+}
+
+#content .toolbar select {
+    color: #7070CC;
+    border: 1px solid #929292;
+}
+
+#share-details {
+    border-top: 1px solid white;
+}
+
+.report {
+    border: 1px solid #505050;
+}
+
+.error {
+    background-color: #FFC0C0;
+}
+
+.success {
+    background-color: #E5E5CC;
+}
+
+.invites .invite {
+    border: 1px solid #AAAAFF;
+}
+
+.revision {
+    border-bottom: 2px solid #525252;
+}
+
+.revision pre.text {
+    border-top: 2px solid #525252;
+}
