@@ -60,16 +60,22 @@ p , ul , ol {
 
 ul {
     list-style-position: inside;
-    list-style-type: square;
+    list-style-type: disc;
 }
 
 ol {
-    margin-left: 1em;
     list-style-type: decimal;
-    list-style-position: outside;
+    list-style-position: inside;
 }
-ol li {
-    margin-left: 1em;
+li {
+    margin-top: 0.25em;
+    margin-left: 1.25em;
+    margin-bottom: 0.25em;
+}
+
+li > ul , li > ol {
+    margin-top: -0.1em;
+    margin-bottom: -0.1em;
 }
 
 
@@ -455,4 +461,5 @@ pre.plain {
 
 ul.legend {
     font-size: 1.25em;
+    list-style-type: none;
 }
