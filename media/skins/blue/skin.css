@@ -92,8 +92,12 @@ a {
 .revision .button a, #content .toolbar .button a {
     color: #CCCCFF;
 }
+.revision a, #content .toolbar a {
+    color: #CCCCFF;
+}
 
 .revision .button a:hover, #content .toolbar .button a:hover {
+    position: relative;
     color: #FFFFEE;
 }
 

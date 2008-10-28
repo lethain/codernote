@@ -1,27 +1,7 @@
 
-/* Defaults */
 
-a img {
-    border: none;
-}
 
-.hidden {
-    display: none;
-}
-
-body {
-    min-width: 750px;
-    font-family: georgia;
-    margin: 0px;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    border-bottom: 1px solid;
-}
+/* Generic classes */
 
 .center {
     text-align: center;
@@ -39,12 +19,82 @@ a:hover {
     overflow: auto;
 }
 
-/* Stylings for text heavy pages. */
+.hidden {
+    display: none;
+}
+
+.front {
+    height: 320px;
+}
 
 .main {
     width: 70%;
+    margin-top: 2em;
+    margin-bottom: 2em;
     margin-left: 15%;
     margin-right: 15%;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+h2 {
+    font-size: 2.0em;
+}
+h3 {
+    font-size: 1.5 em;
+}
+h4 {
+    font-size: 1.25em;
+}
+h1 , h2 , h3 , h4 , h5 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+p , ul , ol {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+ol {
+    margin-left: 1em;
+    list-style-type: decimal;
+    list-style-position: outside;
+}
+ol li {
+    margin-left: 1em;
+}
+
+
+/* Global defaults */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: georgia;
+    margin: 0px;
+    font-size: 1.5em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px solid;
+}
+
+a img {
+    border: none;
 }
 
 /* Content */
@@ -74,6 +124,7 @@ a:hover {
 }
 
 #header .navlinks a {
+    font-size: 1.25em;
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
@@ -212,8 +263,7 @@ a:hover {
 }
 
 #content .toolbar .tool {
-    margin-top: 0px;
-    width: 33%;
+    margin-top: 0em;
     margin-right: 2em;
 }
 
@@ -222,15 +272,11 @@ a:hover {
     margin-right: 0.5em;
 }
 
-.revision a, #content .toolbar a {
-    color: #CCCCFF;
-}
 #content .toolbar a {
     height: 25px;
 }
 
 .revision .button a, #content .toolbar .button a {
-    position: relative;
     top: 0.5em;
     border: none;
 }
@@ -249,12 +295,24 @@ a:hover {
 #content .toolbar select {
     margin-top: 0px;
     margin-bottom: 4px;
+    float: left;
     height: 2em;
     padding: 0.25em;
 }
 
+
+
 #filter input, #sort input {
     width: 100px;
+    float: left;
+}
+
+#sort li, #filter li {
+    width: 210px;
+}
+
+#sort span {
+    margin-right: 1em;
 }
 
 #share-target {
@@ -371,16 +429,6 @@ div.register {
     margin-bottom: 0.5em;
 }
 
-
-/* Help Styling */
-ul.legend {
-    list-style-type: none;
-}
-
-.front {
-    height: 320px;
-}
-
 /* Plain Text Type */
 pre.plain {
     font-family: georgia;
@@ -401,4 +449,10 @@ pre.plain {
 
 .revision pre.text {
     padding-top: 0.5em;   
+}
+
+/* Help Stylings */
+
+ul.legend {
+    font-size: 1.25em;
 }
