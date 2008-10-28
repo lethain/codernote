@@ -1,7 +1,8 @@
 {% load compressed %}
+{% load userskins %}
 <html> <head>
 <title>{% block title %}Codernote{% endblock %}</title>
-{% compressed_css 'default' %}
+{% userskin %}
 {% compressed_css 'print' %}
 {% block js %}{% endblock %}
 </head>
