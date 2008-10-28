@@ -310,6 +310,8 @@ a img {
 
 #filter input, #sort input {
     width: 100px;
+    margin-bottom: 4px;
+    height: 2em;
     float: left;
 }
 
@@ -320,8 +322,8 @@ a img {
 }
 #sort ul li , #filter ul li {
     width: 210px;
-    margin-top: 0em;
-    margin-bottom: 0em;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
     margin-left: 0.25em;
 }
 
