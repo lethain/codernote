@@ -54,6 +54,23 @@ $(document).ready(function() {
       $($("#show-revisions").children()[0]).text("Show Revisions");
     };
 
+    
+    var show_options;
+    var hide_options = function() {
+      $("#options").addClass('hidden');
+      $("#show-options").unbind('click').click(show_options);
+      $($("#show-options").children()[0]).text("Options...");
+      return false;
+    };
+    var show_options = function() {
+      $("#options").removeClass('hidden');
+      $("#show-options").unbind('click').click(hide_options);
+      $($("#show-options").children()[0]).text("Hide options");
+      return false;
+    }
+    $("#show-options").click(show_options);
+    
+
     var revert_to_revision = function() {
       var complete = function(res, status) {
 	if (status=="success") render_text();
