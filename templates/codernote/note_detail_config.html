@@ -1,0 +1,57 @@
+<div id="options" class="toolbar hidden">
+          {% if object.hashpublish_set.all %}
+      <div id="hashdiv" class="detail">
+	<span class="left"><a id="hashurl" href="{{ object.hashpublish_set.all.0.get_absolute_url }}"><strong> Published as hash.</strong></a>
+      </div>
+      {% else %}
+      <div id="hashdiv" class="detail hidden">
+	<span class="left"><a id="hashurl" href="#"><strong> Published as hash.</strong></a>
+      </div>
+      {% endif %}
+      {% if object.flowpublish_set.all %}
+      <div id="flowdiv" class="detail">
+	<span class="left"><a id="flowurl" href="{{ object.flowpublish_set.all.0.get_absolute_url }}"><strong> Published in flow.</strong></a>
+      </div>
+      {% else %}
+      <div id="flowdiv" class="detail hidden">
+	<span class="left"><a id="flowurl" href="#"><strong> Published in flow.</a></strong>
+      </div>
+      {% endif %}
+      {% if object.is_shared %}
+      <div class="detail">
+      <p class="left"><strong>Shared with </strong>{% for owner in object.owners.all %}<a href="/flow/{{ owner.username}}/">{{ owner.username }}</a> {% endfor %}</p>
+      </div>
+      {% endif %}
+    
+  <div id="share" class="left button">
+    <a href="#">Share with...</a>
+  </div>
+      {% if object.hashpublish_set.all %}
+    <div id="unpublish-hash" class="button right">
+    <a href="/unpublish/hash/{{ object.slug }}/">Unpublish as Hash</a>
+    </div>
+    {% else %}
+    <div id="publish-hash" class="button right">
+    <a href="/publish/hash/{{ object.slug }}/">Publish as Hash</a>
+    </div>
+    {% endif %}
+    
+    {% if object.flowpublish_set.all %}
+    <div id="unpublish-flow"  class="button right">
+    <a href="/unpublish/flow/{{ object.slug }}/">Unpublish from Flow</a>
+    </div>
+    {% else %}
+    <div id="publish-flow" class="button right">
+    <a href="/publish/flow/{{ object.slug }}/">Publish in Flow</a>
+    </div>
+    {% endif %}
+    
+    <div id="share-details"  class="detail hidden">
+    <span class="left"> Type the username to share with: </span>
+    <input class="left" id="share-target">
+    <div id="share-confirm" class="button left">
+      <a href="#">Share!</a>
+    </div>
+  </div>
+
+  </div>
