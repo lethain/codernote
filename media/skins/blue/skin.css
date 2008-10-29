@@ -78,7 +78,8 @@ a {
 
 .revision .button, #content .toolbar .button {
     border: none;
-    height: 40px;
+    padding-top: 0.75em;
+    height: 29px;
     background:url(/media/button-middle.1.png) repeat-x;
     margin-right: 5px;
     text-align: center;
@@ -97,7 +98,7 @@ a {
 }
 
 .revision .button a:hover, #content .toolbar .button a:hover {
-    position: relative;
+    
     color: #FFFFEE;
 }
 
