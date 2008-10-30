@@ -195,6 +195,13 @@ var sort_and_filter_notes = function() {
     
     if (sort_direction == "up") displayed.reverse();
   }
+
+  displayed.sort(function(a,b) {
+      if (a.fields.sticky && b.fields.sticky) return 0;
+      else if (a.fields.stick) return 1;
+      else return -1;
+    });
+
   $("#list").empty();
   create_notes(displayed, "#list");
 }
