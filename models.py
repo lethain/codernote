@@ -58,7 +58,7 @@ class Note(models.Model):
     type_detail = models.CharField(max_length=200)
     history = audit.AuditTrail()
     # Whether or not a note ignores sorting
-    sticky = models.BooleanField(default=True)
+    sticky = models.BooleanField(default=False)
 
     def render_text(self):
         if self.type == "markdown":

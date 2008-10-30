@@ -70,6 +70,7 @@ $(document).ready(function() {
     }
     $("#show-options").click(show_options);
     
+    
 
     var revert_to_revision = function() {
       var complete = function(res, status) {
@@ -139,6 +140,25 @@ $(document).ready(function() {
 	$.ajax({type:"POST", url:"/note/delete/"+$("#slug").val()+"/", data:{}, complete:redir});
       });
 
+    var unsticky_note = function() {
+      
+      
+    }
+
+    var sticky_note;
+    var unsticky_note = function() {
+      $(this).unbind('click').click(sticky_note);
+      $($(this).children()[0]).text("Make Sticky");
+      return false;
+    };
+     sticky_note = function() {
+      $(this).unbind('click').click(unsticky_note);
+      $($(this).children()[0]).text("Make Unsticky");
+      return false;
+    }
+     $("#make-sticky").click(sticky_note);
+     $("#make-unsticky").click(unsticky_note);
+
     var unpublish_flow = function() {
       var ele = this;
       var cmp = function(res, status) {
@@ -167,7 +187,6 @@ $(document).ready(function() {
       $.ajax({type:"POST",url:"/publish/flow/"+$("#slug").val()+"/", data:{}, complete:cmp});
       return false;
     }
-
 
     $("#publish-flow").click(publish_flow);
     $("#unpublish-flow").click(unpublish_flow);
