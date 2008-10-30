@@ -28,7 +28,9 @@ var create_note = function(obj, id) {
   if (!id) id = "list";
   var fields = obj['fields'];
 
-  var note = '<div class="note '+fields['type']+ '">';
+  var note = '<div class="note '+fields['type'];
+  if (fields["sticky"]) note += " sticky";
+  note += '">';
   note += '<div class="dates">';
   if (fields['start'])
     note += '<span class="start_date left">' + format_date(fields['start']) + '</span>';
