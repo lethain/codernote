@@ -39,7 +39,7 @@ var create_note = function(obj, id) {
   new_note.click(function() {
       window.location = "/n/" + fields['slug'] + "/";
     });
-  $(id).append(new_note);
+  $(id).append(new_note.hide().fadeIn(200));
 }
 
 var create_notes = function(lst, id) {
