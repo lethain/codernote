@@ -59,13 +59,13 @@ $(document).ready(function() {
     var hide_options = function() {
       $("#options").slideUp();
       $("#show-options").unbind('click').click(show_options);
-      $($("#show-options").children()[0]).text("Options...");
+      $($("#show-options").children()[0]).text("Sharing...");
       return false;
     };
     var show_options = function() {
       $("#options").slideDown();
       $("#show-options").unbind('click').click(hide_options);
-      $($("#show-options").children()[0]).text("Hide options");
+      $($("#show-options").children()[0]).text("Hide sharing");
       return false;
     }
     $("#show-options").click(show_options);
