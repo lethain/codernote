@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     var hide_revisions = function() {
       $("#writing").removeClass('hidden');
-      $("#revisions").addClass('hidden');
+      $("#revisions").fadeOut();
       $("#show-revisions").unbind('click').click(fetch_revisions);
       $($("#show-revisions").children()[0]).text("Show Revisions");
     };
@@ -86,7 +86,7 @@ $(document).ready(function() {
       var complete = function(res, status) {
 	if (status=="success") {
 	  finish_editing();
-	  $("#revisions").html(res.responseText).removeClass('hidden');
+	  $("#revisions").html(res.responseText).fadeIn();
 	  $("#revisions .show-rev-text").click(show_revision_text);
 	  $("#revisions .delete-revision").click(delete_revision);
 	  $("#revisions .revert-to-revision").click(revert_to_revision);
