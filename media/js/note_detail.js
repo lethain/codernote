@@ -175,15 +175,14 @@ $(document).ready(function() {
     var close_share_box = function() {
       $($("#share").children()[0]).text("Share with...");
       $("#share").unbind('click').click(open_share_box);
-      $("#share-details").addClass("hidden");
-      //$("#share-confirm").addClass("hidden");
+      $("#share-details").slideUp();
       return false;
     }
 
     var open_share_box = function() {
       $("#share").unbind('click').click(close_share_box);
       $($("#share").children()[0]).text("Cancel sharing...");
-      $("#share-details").removeClass("hidden");
+      $("#share-details").slideDown();
       //$("#share-confirm").removeClass("hidden");
       return false;
     }
