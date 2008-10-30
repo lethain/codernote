@@ -211,6 +211,7 @@ a img {
 
 #content .list .note {
     width: 250px;
+    height: 80px;
     float: left;
     padding: 0.5em;
     cursor: pointer;

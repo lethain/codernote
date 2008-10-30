@@ -1,4 +1,10 @@
 
+var truncate_string = function(s, length) {
+  if (s.length > length) {
+    return s.substr(0,length-3)+"...";
+  }
+  return s;
+}
 
 var display_success = function(msg, elem) {
   /*
@@ -32,7 +38,7 @@ var create_note = function(obj, id) {
     note += '<p class="create_date center">' + format_date(fields['created']) + '</p>';
 
   note += '</div>';
-  note += '<p class="title center">' + fields['title'] + '</p>';
+  note += '<p class="title center">' + truncate_string(fields['title'],20) + '</p>';
   note += '<p class="tags center">' + fields['tags'] + '</p>'; 
   note += '</div>';
   var new_note = $(note);
