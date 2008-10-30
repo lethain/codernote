@@ -155,7 +155,7 @@ $(document).ready(function() {
 	}
 	else display_error(res.responseText, "#top-toolbar");
       }
-      $.ajax({type:"POST",url:"/unsticky/note/"+$("#slug").val()+"/", data:{}, complete:cmp});
+      $.ajax({type:"POST",url:"/note/unsticky/"+$("#slug").val()+"/", data:{}, complete:cmp});
 
 
       return false;
@@ -169,7 +169,7 @@ $(document).ready(function() {
 	}
 	else display_error(res.responseText, "#top-toolbar");
       }
-      $.ajax({type:"POST",url:"/sticky/note/"+$("#slug").val()+"/", data:{}, complete:cmp});
+      $.ajax({type:"POST",url:"/note/sticky/"+$("#slug").val()+"/", data:{}, complete:cmp});
       return false;
     }
      $("#make-sticky").click(sticky_note);

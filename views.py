@@ -158,6 +158,8 @@ def note_info_all(request):
 def note_info(request, slug=None):
     pass
 
+
+
 @login_required
 def note_delete(request, slug=None):
     if slug is None:
@@ -234,6 +236,38 @@ def note_render(request, slug=None):
     except:
         return HttpResponse("Failed to retrieve note.")
     return HttpResponse(note.render_text())
+
+@login_required
+def note_unsticky(request, slug=None):
+    if slug is None:
+        if request.POST.has_key('slug'):
+            slug = request.POST['slug']
+        else:
+            return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    note.sticky = False
+    note.save()
+
+    return HttpResponse(u"Unstickied note %s" % note.slug)
+
+@login_required
+def note_sticky(request, slug=None):
+    if slug is None:
+        if request.POST.has_key('slug'):
+            slug = request.POST['slug']
+        else:
+            return HttpResponseServerError('Failed to supply a slug.')
+    try:
+        note = Note.objects.filter(owners=request.user).get(slug=slug)
+    except:
+        return HttpResponse("Failed to retrieve note.")
+    note.sticky = True
+    note.save()
+
+    return HttpResponse(u"Stickied note %s" % note.slug)
 
 def extract_rev_data(rev):
     return {'date':rev._audit_timestamp,

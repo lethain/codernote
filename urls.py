@@ -15,6 +15,8 @@ urlpatterns = patterns(
 
 
     # Note Ajax Views
+    (r'^note/sticky/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_sticky'),
+    (r'^note/unsticky/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_unsticky'),
     (r'^note/info_all/$', 'codernote.views.note_info_all'),
     (r'^note/info/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_info'),
     (r'^note/delete/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_delete'),
@@ -48,5 +50,6 @@ urlpatterns = patterns(
 
     # Checking for user existance
     (r'^user/exists/(?P<username>[-\w_]+)/$','codernote.views.user_exists'),
+
 )
 
