@@ -141,7 +141,6 @@ var sort_and_filter_notes = function() {
     }
     else if (filter == "type is") {
       displayed = filter_array(displayed, function(x) {
-	  window.console.log(x.fields.type, modifier);
 	  return x.fields.type == modifier.toLowerCase();
 	})
     }
@@ -196,10 +195,10 @@ var sort_and_filter_notes = function() {
     if (sort_direction == "up") displayed.reverse();
   }
 
-  displayed.sort(function(a,b) {
+  displayed.sort(function(b,a) {
       if (a.fields.sticky && b.fields.sticky) return 0;
-      else if (a.fields.stick) return 1;
-      else if (b.fields.stick) return -1;
+      else if (a.fields.sticky) return 1;
+      else if (b.fields.sticky) return -1;
       else return 0;
     });
 
