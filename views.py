@@ -148,7 +148,8 @@ def note_create(request):
     else:
         form = NoteForm()
     extra = {'create_form':form}
-    return render_to_response('codernote/note_create.html', extra)
+    return render_to_response('codernote/note_create.html', extra,
+                              context_instance=RequestContext(request))
 
 @login_required
 def note_info_all(request):
