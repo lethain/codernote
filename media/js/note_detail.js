@@ -147,13 +147,29 @@ $(document).ready(function() {
 
     var sticky_note;
     var unsticky_note = function() {
-      $(this).unbind('click').click(sticky_note);
-      $($(this).children()[0]).text("Make Sticky");
+      var self = this;
+      var cmp = function(res, status) {
+	if (status == "success") {
+	  $(self).unbind('click').click(sticky_note);
+	  $($(self).children()[0]).text("Make Sticky");
+	}
+	else display_error(res.responseText, "#top-toolbar");
+      }
+      $.ajax({type:"POST",url:"/unsticky/note/"+$("#slug").val()+"/", data:{}, complete:cmp});
+
+
       return false;
     };
      sticky_note = function() {
-      $(this).unbind('click').click(unsticky_note);
-      $($(this).children()[0]).text("Make Unsticky");
+      var self = this;
+      var cmp = function(res, status) {
+	if (status == "success") {
+	  $(self).unbind('click').click(unsticky_note);
+	  $($(self).children()[0]).text("Make Unsticky");
+	}
+	else display_error(res.responseText, "#top-toolbar");
+      }
+      $.ajax({type:"POST",url:"/sticky/note/"+$("#slug").val()+"/", data:{}, complete:cmp});
       return false;
     }
      $("#make-sticky").click(sticky_note);
