@@ -57,6 +57,8 @@ class Note(models.Model):
     # For text, the markup. For snippet, programming language.
     type_detail = models.CharField(max_length=200)
     history = audit.AuditTrail()
+    # Whether or not a note ignores sorting
+    sticky = models.BooleanField(default=True)
 
     def render_text(self):
         if self.type == "markdown":
