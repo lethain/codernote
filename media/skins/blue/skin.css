@@ -55,10 +55,6 @@ a {
     background-color: #E0E0FF;
 }
 
-#content .list .note.sticky {
-    border: 2px dashed white;
-}
-
 #content div.help {
     border: 1px solid #505050;
     background-color: #E5E5CC;

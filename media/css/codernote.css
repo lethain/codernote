@@ -254,6 +254,10 @@ a img {
     font-size: 0.9em;
 }
 
+#content .list .note.sticky {
+    border: 2px dashed white;
+}
+
 
 /* Help */
 
