@@ -254,8 +254,11 @@ a img {
     font-size: 0.9em;
 }
 
+
 #content .list .note.sticky {
     border: 2px dashed white;
+    width: 246px;
+    height: 74px;
 }
 
 
