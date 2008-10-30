@@ -199,7 +199,8 @@ var sort_and_filter_notes = function() {
   displayed.sort(function(a,b) {
       if (a.fields.sticky && b.fields.sticky) return 0;
       else if (a.fields.stick) return 1;
-      else return -1;
+      else if (b.fields.stick) return -1;
+      else return 0;
     });
 
   $("#list").empty();
