@@ -471,3 +471,13 @@ ul.legend {
     font-size: 1.25em;
     list-style-type: none;
 }
+
+/* options */
+
+#options .option {
+
+}
+
+#options .button {
+    width: 150px;
+}
