@@ -169,6 +169,10 @@ a img {
 }
 
 
+.detail {
+    margin-top: 0.25em;
+}
+
 .detail select {
     height: 20px;
 }
