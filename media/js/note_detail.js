@@ -247,7 +247,7 @@ $(document).ready(function() {
     var finish_editing = function() {
       if (!ta) return;
       currently_editing = false;
-      clearInterval(save_writing);
+      clearInterval(save_timer);
       update('text', ta.val());
       $("#writing-storage").text(ta.val());
       var new_div = $('<div id="writing"></div>');
