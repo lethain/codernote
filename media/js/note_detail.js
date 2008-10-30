@@ -57,13 +57,13 @@ $(document).ready(function() {
     
     var show_options;
     var hide_options = function() {
-      $("#options").addClass('hidden');
+      $("#options").slideUp();
       $("#show-options").unbind('click').click(show_options);
       $($("#show-options").children()[0]).text("Options...");
       return false;
     };
     var show_options = function() {
-      $("#options").removeClass('hidden');
+      $("#options").slideDown();
       $("#show-options").unbind('click').click(hide_options);
       $($("#show-options").children()[0]).text("Hide options");
       return false;
