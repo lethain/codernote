@@ -17,6 +17,20 @@
 	{% if msg %}
 		<p class="error">{{ msg }}</p>
 	{% endif %}
+
+  <h5>{% trans "Skins" %}</h5>
+  <p class="unimportant">
+  {% trans "Pick a skin to customize Codernote's appearance." %}
+  </p>
+  <p>
+  {% trans "Select black and white skin." %}
+  <a class="right" href="{% url codernote.views.select_bw_skin %}">{% trans "select black & white" %}</a>
+  </p>
+  <p>
+  {% trans "Select blue skin." %}
+  <a class="right" href="{% url codernote.views.select_blue_skin %}">{% trans "select blue" %}</a>
+  </p>
+  
   
     <h5>{% trans "Account" %}</h5>
   <p>
@@ -37,6 +51,7 @@
   {% trans "Erase your username and all your data from website" %}
   <a class="right" href="{% url user_delete %}">{% trans "delete account" %}</a>
   </p>
+  
 </div>
 </div>
 {% endblock %}

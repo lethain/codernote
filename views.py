@@ -12,11 +12,28 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 from django.db.models import signals
+from userskins.models import SkinPreference
 
 try:
     from mailer import send_mail
 except ImportError:
     from django.core.mail import send_mail
+
+
+def select_bw_skin(request):
+    hrr = HttpResponseRedirect("/account/")
+    hrr.set_cookie("userskins", "bw")
+    if request.user.is_authenticated():
+        SkinPreference.objects.create(user=request.user, skin="bw")
+    return hrr
+
+def select_blue_skin(request):
+    hrr = HttpResponseRedirect("/account/")
+    hrr.set_cookie("userskins", "blue")
+    if request.user.is_authenticated():
+        SkinPreference.objects.create(user=request.user, skin="blue")
+    return hrr
+
 
 
 def add_initial_notes(sender, instance, signal, *args, **kwargs):

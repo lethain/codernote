@@ -1,4 +1,17 @@
 
+html {
+    color: #333;
+}
+
+
+.important {
+    color: #111;
+}
+
+.unimportant {
+    color: #777;
+}
+
 a {
     color: #7070FF;
 }
