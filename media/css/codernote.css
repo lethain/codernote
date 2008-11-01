@@ -459,19 +459,24 @@ div.register {
     width: 45%;
 }
 
-.login .title {
+.account .title {
     font-weight: bold;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
 
-.login input {
+.account input {
     width: 200px;
 }
 
-.login .submit-row {
+.account .submit-row {
     margin-top: 0.5em;
-    margin-bottom: 0.5em;
+}
+
+#lost-password {
+    text-align: center;
+    font-size: 1.2em;
+    
 }
 
 /* Plain Text Type */

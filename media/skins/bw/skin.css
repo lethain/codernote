@@ -1,3 +1,46 @@
+html {
+    color: #555;
+    
+}
+
+
+.important {
+    color: #333;
+}
+
+.unimportant {
+    color: #777;
+}
+
+
+a {
+    color: #777;
+}
+
+a:hover {
+    color: #AAA;
+}
+
+#content .list .note {
+    background: #CCC;
+}
+
+#content .list .markdown {
+    background: #AAA;
+}
+#content .list .textile {
+    background: #999;
+}
+#content .list .rest {
+    background: #777;
+}
+#content .list .snippet {
+    background: #555;
+}
+
+#content .list .note:hover {
+    background-color: #333;
+}
 
 #header-spacer {
     background: url("/media/header_bullet_bw.png") no-repeat;
