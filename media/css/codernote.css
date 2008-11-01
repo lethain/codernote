@@ -1,6 +1,4 @@
 
-
-
 /* Generic classes */
 
 .center {
@@ -28,11 +26,11 @@
 }
 
 .main {
-    width: 70%;
+    width: 850px;
     margin-top: 2em;
     margin-bottom: 2em;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
@@ -155,6 +153,10 @@ a img {
 }
 
 /* Footer */
+
+#footer {
+    margin-top: 2em;
+}
 
 #footer .inner {
     height: 1em;
