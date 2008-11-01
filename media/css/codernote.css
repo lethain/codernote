@@ -142,6 +142,11 @@ a img {
     margin-right: 0.5em;
 }
 
+#header-spacer {
+    width: 36px;
+    height: 23px;
+}
+
 /* Footer */
 
 #footer .inner {

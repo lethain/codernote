@@ -3,6 +3,10 @@ a {
     color: #7070FF;
 }
 
+#header-spacer {
+    background: url("/media/header_bullet_blue.png") no-repeat;
+}
+
 #header .inner {
     background-color: #E5E5CC;
 }
