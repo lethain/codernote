@@ -3,6 +3,13 @@ a {
     color: #7070FF;
 }
 
+#share-target.success {
+    background: #A0A0FF;
+}
+#share-target.failure {
+    background: #FFA0A0;
+}
+
 #header-spacer {
     background: url("/media/header_bullet_blue.png") no-repeat;
 }

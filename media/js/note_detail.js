@@ -256,8 +256,8 @@ $(document).ready(function() {
     $("#share-target").keyup(function() {
 	var ele = this;
 	var cmp = function(res, status) {
-	  if (status == "success") $(ele).css('background-color','#A0A0FF');
-	  else $(ele).css('background-color','#FFA0A0');
+	  if (status == "success") $(ele).removeClass("failure").addClass("success");
+	  else $(ele).removeClass("success").addClass("failure");
 	}
 	$.ajax({type:'GET',url:'/user/exists/'+$(this).val(),data:{},complete:cmp});
       });

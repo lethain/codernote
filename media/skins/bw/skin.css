@@ -1,11 +1,11 @@
 html {
-    color: #555;
-    
+    color: #333;
+    background-color: #DDD;
 }
 
 
 .important {
-    color: #333;
+    color: #111;
 }
 
 .unimportant {
@@ -22,7 +22,7 @@ a:hover {
 }
 
 #content .list .note {
-    background: #CCC;
+    background: #BBB;
 }
 
 #content .list .markdown {
@@ -39,9 +39,33 @@ a:hover {
 }
 
 #content .list .note:hover {
+    color: #777;
     background-color: #333;
+}
+
+.button {
+    padding: 0.5em;
+    border: 2px solid #777;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.button:hover {
+    border: 2px solid #AAA;
 }
 
 #header-spacer {
     background: url("/media/header_bullet_bw.png") no-repeat;
+}
+
+#content .list .note.sticky {
+    border: 2px dashed #DDD;
+}
+
+#share-target.success {
+    background: #EEE;
+}
+#share-target.failure {
+    background: #444;
 }
