@@ -45,7 +45,12 @@ a:hover {
 
 .toolbar {
     margin-bottom: 1em;
+    background-color: #CCC;
 }
+#header {
+    background-color: #CCC;
+}
+
 
 .button {
     padding: 0.5em;
