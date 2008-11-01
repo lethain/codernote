@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+
+<ul id="legend" class="legend">
+  {% for question in object_list %}
+  <li><a href="#{{ question.slug }}">{{ question.text }}</a></li>
+  {% endfor %}
+</ul>
+<hr>
+{% for question in object_list %}
+<h2 id="{{ question.slug }}">{{ question.text }}</h2>
+{{ question.answer|safe }}
+<p><a href="#legend">back to top</a></p>
+{% endfor %}
+</div>
+{% endblock %}
