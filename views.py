@@ -392,6 +392,10 @@ def about(request):
     return render_to_response('codernote/about.html',
                               context_instance=RequestContext(request))
 
+def help(request):
+    return render_to_response('codernote/help.html',
+                              context_instance=RequestContext(request))
+
 """ Utility Methods """
 
 def user_exists(request, username):

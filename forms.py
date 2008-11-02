@@ -4,4 +4,4 @@ from models import Note
 class NoteForm(ModelForm):
     class Meta:
         model = Note
-        exclude = ['owners','start', 'end', 'text', 'created', 'type', 'type_detail', 'slug',]
+        exclude = ['sticky','owners','start', 'end', 'text', 'created', 'type', 'type_detail', 'slug',]
