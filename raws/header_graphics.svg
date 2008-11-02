@@ -115,15 +115,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-1710.8244"
+     inkscape:cx="-3439.3958"
      inkscape:cy="667.5231"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="835"
      inkscape:window-height="704"
-     inkscape:window-x="407"
-     inkscape:window-y="33" />
+     inkscape:window-x="393"
+     inkscape:window-y="22" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -263,5 +263,48 @@
          id="flowPara2411"
          style="fill:url(#linearGradient3209);fill-opacity:1"><flowSpan
    style="fill:url(#linearGradient3209);fill-opacity:1;stroke:none;stroke-opacity:1"
-   id="flowSpan2413">Coder</flowSpan>note</flowPara></flowRoot>  </g>
+   id="flowSpan2413">Coder</flowSpan>note</flowPara></flowRoot>    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#313232;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3860"
+       sodipodi:cx="-1981.4286"
+       sodipodi:cy="85.219322"
+       sodipodi:rx="110"
+       sodipodi:ry="81.428574"
+       d="M -1871.4286,85.219322 A 110,81.428574 0 1 1 -2091.4286,85.219322 A 110,81.428574 0 1 1 -1871.4286,85.219322 z"
+       transform="matrix(1.6753247,-0.5313457,0,0.8523671,-139.03525,-1053.0997)"
+       inkscape:transform-center-y="-36.530109"
+       inkscape:export-filename="/Users/will/git/codernote/media/skins/dark/header_bullet.png"
+       inkscape:export-xdpi="8.4882574"
+       inkscape:export-ydpi="8.4882574"
+       inkscape:transform-center-x="3.8116471e-05" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#485c6b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3862"
+       sodipodi:cx="-1981.4286"
+       sodipodi:cy="85.219322"
+       sodipodi:rx="110"
+       sodipodi:ry="81.428574"
+       d="M -1871.4286,85.219322 A 110,81.428574 0 1 1 -2091.4286,85.219322 A 110,81.428574 0 1 1 -1871.4286,85.219322 z"
+       transform="matrix(-1.4935065,-0.7154075,0,1.1476329,-6412.1336,-1448.6815)"
+       inkscape:transform-center-y="-49.184371"
+       inkscape:export-filename="/Users/will/git/codernote/media/skins/dark/header_bullet.png"
+       inkscape:export-xdpi="8.4882574"
+       inkscape:export-ydpi="8.4882574"
+       inkscape:transform-center-x="-5.4128068e-05" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#8341c5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3864"
+       sodipodi:cx="-1701.4286"
+       sodipodi:cy="98.076469"
+       sodipodi:rx="192.85715"
+       sodipodi:ry="31.428572"
+       d="M -1508.5714,98.076469 A 192.85715,31.428572 0 1 1 -1894.2857,98.076469 A 192.85715,31.428572 0 1 1 -1508.5714,98.076469 z"
+       inkscape:export-filename="/Users/will/git/codernote/media/skins/dark/header_bullet.png"
+       inkscape:export-xdpi="8.4882574"
+       inkscape:export-ydpi="8.4882574"
+       transform="translate(-1758.5714,-28.571502)" />
+  </g>
 </svg>

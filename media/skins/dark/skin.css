@@ -55,7 +55,7 @@ a:hover {
 
 #content .list .note:hover {
     color: #8888FF;
-    background-color: #333;
+    background-color: #222;
 }
 
 .toolbar {
@@ -67,7 +67,7 @@ a:hover {
 }
 
 #header-spacer {
-    background: url("/media/header_bullet_bw.png") no-repeat;
+    background: url("/media/skins/dark/header_bullet.png") no-repeat;
 }
 
 #content .list .note.sticky {
