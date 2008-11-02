@@ -11,9 +11,8 @@ urlpatterns = patterns(
     # Non-Ajax General Views
     (r'^config/$', 'codernote.views.config'),
     (r'^about/$', 'codernote.views.about'),
-    (r'^help/$', 'codernote.views.help'),
     (r'skin/bw/', 'codernote.views.select_bw_skin'),
-    (r'skin/blue/', 'codernote.views.select_blue_skin'),
+    (r'skin/warm/', 'codernote.views.select_warm_skin'),
     (r'skin/dark/', 'codernote.views.select_dark_skin'),
 
     # Note Ajax Views

@@ -23,14 +23,19 @@ def select_skin(request, skin):
     hrr = HttpResponseRedirect("/account/")
     hrr.set_cookie("userskins", skin)
     if request.user.is_authenticated():
-        SkinPreference.objects.create(user=request.user, skin=skin)
+        try:
+            sp = SkinPreference.objects.get(user=request.user)
+            sp.skin=skin
+            sp.save()
+        except SkinPreference.DoesNotExist:
+            SkinPreference.objects.create(user=request.user, skin=skin)
     return hrr
 
 def select_bw_skin(request):
     return select_skin(request, "bw")
 
-def select_blue_skin(request):
-    return select_skin(request, "blue")
+def select_warm_skin(request):
+    return select_skin(request, "warm")
 
 def select_dark_skin(request):
     return select_skin(request, "dark")
@@ -383,14 +388,8 @@ def note_reject_invite(request, pk):
 
 """ Non-Authenticated Views """
 
-@cache_page(60 * 30)
 def about(request):
     return render_to_response('codernote/about.html',
-                              context_instance=RequestContext(request))
-
-@cache_page(60 * 30)
-def help(request):
-    return render_to_response('codernote/help.html',
                               context_instance=RequestContext(request))
 
 """ Utility Methods """
