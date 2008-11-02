@@ -217,6 +217,10 @@ a img {
     width: 100%;
 }
 
+#writing pre {
+    padding: 1em;
+}
+
 
 /* List */
 
