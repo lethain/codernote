@@ -14,6 +14,7 @@ urlpatterns = patterns(
     (r'^help/$', 'codernote.views.help'),
     (r'skin/bw/', 'codernote.views.select_bw_skin'),
     (r'skin/blue/', 'codernote.views.select_blue_skin'),
+    (r'skin/dark/', 'codernote.views.select_dark_skin'),
 
     # Note Ajax Views
     (r'^note/sticky/(?P<slug>[-\w]+)?/?$', 'codernote.views.note_sticky'),

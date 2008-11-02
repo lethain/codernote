@@ -1,0 +1,82 @@
+html {
+    color: #7777FF;
+    background-color: #333;
+}
+
+hr {
+    border: 1px solid #7777FF;
+}
+
+.important {
+    color: #111;
+}
+
+.unimportant {
+    color: #555;
+}
+
+
+a {
+    color: #AABBFF;
+}
+
+a:hover {
+    color: #6688FF;
+}
+
+.button {
+    padding: 0.5em;
+    border: 2px solid #AABBFF;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.button:hover {
+    border: 2px solid #6688FF;
+}
+
+#content .list .note {
+    background: #555;
+}
+
+#content .list .markdown {
+    background: #666;
+}
+#content .list .textile {
+    background: #777;
+}
+#content .list .rest {
+    background: #765;
+}
+#content .list .snippet {
+    background: #567;
+}
+
+#content .list .note:hover {
+    color: #8888FF;
+    background-color: #333;
+}
+
+.toolbar {
+    margin-bottom: 1em;
+    background-color: #444;
+}
+#header {
+    background-color: #444;
+}
+
+#header-spacer {
+    background: url("/media/header_bullet_bw.png") no-repeat;
+}
+
+#content .list .note.sticky {
+    border: 2px dashed #333;
+}
+
+#share-target.success {
+    background: #EEE;
+}
+#share-target.failure {
+    background: #444;
+}

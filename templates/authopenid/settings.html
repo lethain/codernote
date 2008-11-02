@@ -22,13 +22,18 @@
   <p class="unimportant">
   {% trans "Pick a skin to customize Codernote's appearance." %}
   </p>
-  <p>
-  {% trans "Select black and white skin." %}
-  <a class="right" href="{% url codernote.views.select_bw_skin %}">{% trans "select black & white" %}</a>
+    <p>
+  {% trans "Select the default Codernote skin, a blue and tan serenade." %}
+  <a class="right" href="{% url codernote.views.select_blue_skin %}">{% trans "select blue" %}</a>
   </p>
   <p>
-  {% trans "Select blue skin." %}
-  <a class="right" href="{% url codernote.views.select_blue_skin %}">{% trans "select blue" %}</a>
+  {% trans "Select the black and white skin, for all color haters." %}
+  <a class="right" href="{% url codernote.views.select_bw_skin %}">{% trans "select black & white" %}</a>
+  </p>
+
+  <p>
+  {% trans "Select the dark skin, for people who never sleep." %}
+  <a class="right" href="{% url codernote.views.select_dark_skin %}">{% trans "select dark" %}</a>
   </p>
   
   

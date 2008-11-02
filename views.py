@@ -19,21 +19,21 @@ try:
 except ImportError:
     from django.core.mail import send_mail
 
+def select_skin(request, skin):
+    hrr = HttpResponseRedirect("/account/")
+    hrr.set_cookie("userskins", skin)
+    if request.user.is_authenticated():
+        SkinPreference.objects.create(user=request.user, skin=skin)
+    return hrr
 
 def select_bw_skin(request):
-    hrr = HttpResponseRedirect("/account/")
-    hrr.set_cookie("userskins", "bw")
-    if request.user.is_authenticated():
-        SkinPreference.objects.create(user=request.user, skin="bw")
-    return hrr
+    return select_skin(request, "bw")
 
 def select_blue_skin(request):
-    hrr = HttpResponseRedirect("/account/")
-    hrr.set_cookie("userskins", "blue")
-    if request.user.is_authenticated():
-        SkinPreference.objects.create(user=request.user, skin="blue")
-    return hrr
+    return select_skin(request, "blue")
 
+def select_dark_skin(request):
+    return select_skin(request, "dark")
 
 
 def add_initial_notes(sender, instance, signal, *args, **kwargs):
